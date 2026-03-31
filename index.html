@@ -91,31 +91,40 @@
 
 
     /* Profile photo */
-    .hero-photo {
-      position: absolute;
-      right: 80px;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 260px;
-      height: 260px;
-      border-radius: 50%;
-      overflow: hidden;
-      border: 1px solid rgba(79,158,255,0.25);
-      box-shadow: 0 0 0 8px rgba(79,158,255,0.05), 0 32px 64px rgba(0,0,0,0.5);
-      animation: fadeUp 0.8s 0.4s ease both;
-      flex-shrink: 0;
-    }
-    .hero-photo img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center top;
-      filter: grayscale(20%);
-    }
-    @media (max-width: 900px) {
-      .hero-photo { display: none; }
-    }
+.hero-photo {
+  position: absolute;
+  right: 80px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 1px solid rgba(79,158,255,0.3);
+  box-shadow:
+    0 0 0 6px rgba(79,158,255,0.06),
+    0 0 0 14px rgba(79,158,255,0.03),
+    0 40px 80px rgba(0,0,0,0.6);
+  animation: fadeUp 0.8s 0.4s ease both;
+  flex-shrink: 0;
+}
 
+.hero-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  filter: contrast(1.05) brightness(1.02);
+  transition: filter 0.4s ease;
+}
+
+.hero-photo:hover img {
+  filter: contrast(1.08) brightness(1.05);
+}
+
+@media (max-width: 900px) {
+  .hero-photo { display: none; }
+}
     /* HERO */
     .hero {
       position: relative;
@@ -748,7 +757,7 @@
     <div class="about-grid">
       <div class="about-text">
         <p>
-          I'm a <strong>Junior iOS Developer</strong> from Serbia, Serbia — self-taught and passionate about building modern, user-friendly iOS apps with Swift, SwiftUI, and UIKit.
+          I'm a <strong>iOS Developer</strong> from Serbia,Serbia — self-taught and passionate about building modern, user-friendly iOS applications with Swift, SwiftUI, and UIKit, focused on writing clean, maintainable code and creating smooth and reliable mobile experiences.
         </p>
         <p>
           I have real-world experience working at <strong>Michal Cech s.r.o</strong> in Prague, where I contributed to health & wellness apps and luxury hospitality apps for brands like <strong>Four Seasons</strong> and <strong>Mandarin Oriental</strong> — building table views, integrating REST APIs, implementing Core Data, and designing responsive UI across iPhone and iPad.
@@ -894,7 +903,7 @@
             A full iOS social app built in Swift — featuring a social feed with posts and videos, short-form video playback, user profiles, explore/search, and video upload with privacy controls. Login, authentication, and profile management all built from scratch.
           </p>
           <p class="project-desc" style="margin-top:-12px;">
-            Built to prove I can architect and ship a real, multi-feature app independently.
+            Built to demonstrate end-to-end development skills, from architecture and design to a fully working multi-feature application.
           </p>
           <div class="project-tech">
             <span class="tag">SwiftUI</span>
