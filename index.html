@@ -15,18 +15,18 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 
 :root{
-  --bg:#08090d;
-  --bg2:#0e1118;
-  --bg3:#141925;
-  --card:#10131c;
-  --border:rgba(255,255,255,.08);
-  --border2:rgba(255,255,255,.16);
-  --text:#eef1f7;
-  --muted:#8b93a5;
-  --muted2:#596174;
-  --accent:#3b82f6;
-  --accent2:#60a5fa;
-  --green:#34d399;
+  --bg:#05070a;
+  --bg2:#0b0f15;
+  --bg3:#121821;
+  --card:#0e131a;
+  --border:rgba(235,245,255,.09);
+  --border2:rgba(235,245,255,.18);
+  --text:#f4f7fb;
+  --muted:#9aa4b2;
+  --muted2:#667085;
+  --accent:#0a84ff;
+  --accent2:#64d2ff;
+  --green:#30d158;
   --mono:"JetBrains Mono",monospace;
   --sans:"Space Grotesk",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
 }
@@ -39,8 +39,9 @@ html{
 body{
   font-family:var(--sans);
   background:
-    radial-gradient(circle at 70% 0%,rgba(59,130,246,.12),transparent 34%),
-    var(--bg);
+    radial-gradient(circle at 72% 0%,rgba(10,132,255,.12),transparent 30%),
+    radial-gradient(circle at 12% 18%,rgba(100,210,255,.06),transparent 28%),
+    linear-gradient(180deg,#05070a 0%,#07101a 48%,#05070a 100%);
   color:var(--text);
   font-size:16px;
   line-height:1.65;
@@ -68,8 +69,8 @@ nav{
   align-items:center;
   gap:1rem;
   padding:1rem clamp(1.25rem,4vw,3rem);
-  background:rgba(8,9,13,.82);
-  backdrop-filter:blur(16px);
+  background:rgba(5,7,10,.88);
+  backdrop-filter:blur(20px);
   border-bottom:1px solid var(--border);
 }
 
@@ -188,7 +189,7 @@ section{
   margin:0 auto;
   width:100%;
   display:grid;
-  grid-template-columns:minmax(0,1fr) 360px;
+  grid-template-columns:minmax(0,1fr) 420px;
   gap:4rem;
   align-items:center;
 }
@@ -267,23 +268,23 @@ section{
 
 .hero-card{
   border:1px solid var(--border);
-  background:linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.015));
-  padding:1.5rem;
-  box-shadow:0 28px 80px rgba(0,0,0,.35);
-  border-radius:22px;
+  background:linear-gradient(180deg,rgba(244,247,251,.07),rgba(244,247,251,.025));
+  padding:2rem;
+  box-shadow:0 30px 90px rgba(0,0,0,.42);
+  border-radius:34px;
   text-align:center;
 }
 
 .hero-avatar{
-  width:148px;
-  height:148px;
+  width:220px;
+  height:220px;
   border-radius:50%;
-  border:2px solid rgba(96,165,250,.55);
-  background:linear-gradient(135deg,#111827,#0b1020);
+  border:1px solid rgba(244,247,251,.18);
+  background:linear-gradient(135deg,#151b24,#080b10);
   overflow:hidden;
   margin:0 auto 1.15rem;
   position:relative;
-  box-shadow:0 18px 55px rgba(0,0,0,.35);
+  box-shadow:0 24px 70px rgba(0,0,0,.55);
   display:flex;
   align-items:center;
   justify-content:center;
@@ -309,7 +310,7 @@ section{
 }
 
 .hero-card-name{
-  font-size:1.15rem;
+  font-size:1.28rem;
   font-weight:700;
   letter-spacing:-.025em;
   margin-bottom:.2rem;
@@ -338,19 +339,19 @@ section{
   gap:1px;
   background:var(--border);
   border:1px solid var(--border);
-  border-radius:14px;
+  border-radius:18px;
   overflow:hidden;
   text-align:left;
 }
 
 .quick-cell{
-  background:var(--bg2);
-  padding:.9rem;
+  background:rgba(255,255,255,.025);
+  padding:1rem;
 }
 
 .quick-val{
   font-family:var(--mono);
-  font-size:.98rem;
+  font-size:.88rem;
   color:var(--accent2);
   line-height:1.15;
   word-break:break-word;
@@ -358,11 +359,24 @@ section{
 
 .quick-label{
   font-family:var(--mono);
-  font-size:.58rem;
+  font-size:.56rem;
   text-transform:uppercase;
   letter-spacing:.1em;
   color:var(--muted);
   margin-top:.28rem;
+}
+
+
+.hero-card .quick-grid{
+  margin-top:1.4rem;
+}
+
+.skills-group:first-child .skill-item{
+  background:rgba(244,247,251,.022);
+}
+
+.learning-note{
+  color:var(--muted);
 }
 
 /* SKILLS */
@@ -530,7 +544,7 @@ section{
 
 .project-hero{
   border:1px solid var(--border);
-  background:linear-gradient(145deg,rgba(59,130,246,.12),rgba(255,255,255,.02) 42%,rgba(52,211,153,.06));
+  background:linear-gradient(145deg,rgba(10,132,255,.10),rgba(244,247,251,.025) 45%,rgba(100,210,255,.045));
   overflow:hidden;
 }
 
@@ -796,7 +810,7 @@ section{
 
 .screen-caption{
   font-family:var(--mono);
-  font-size:.58rem;
+  font-size:.56rem;
   line-height:1.3;
   letter-spacing:.08em;
   text-transform:uppercase;
@@ -951,7 +965,7 @@ footer span{
   }
 
   .hero-card{
-    max-width:340px;
+    max-width:420px;
   }
 
   .phone-stack{
@@ -1013,9 +1027,15 @@ footer span{
     gap:2rem;
   }
 
+
+  .hero-avatar{
+    width:180px;
+    height:180px;
+  }
+
   .hero-card{
     display:block;
-    max-width:340px;
+    max-width:420px;
     margin:0 auto;
   }
 
@@ -1117,7 +1137,7 @@ footer span{
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#skills">Skills</a></li>
-    <li><a href="#experience">Case Study</a></li>
+    <li><a href="#experience">Build</a></li>
     <li><a href="#projects">Espres</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
@@ -1126,27 +1146,23 @@ footer span{
 <section id="about">
   <div class="hero-inner">
     <div>
-      <div class="status-badge">
-        <span class="status-dot"></span>
-        iOS Developer · SwiftUI · Firebase
-      </div>
 
       <h1 class="hero-name">Novak<span>Velimirović</span></h1>
 
       <p class="hero-subtitle">
-        iOS Developer · Swift · SwiftUI · Firebase · Serbia 🇷🇸
+        iOS Developer focused on SwiftUI, Firebase backend, media workflows, and app architecture.
       </p>
 
       <p class="hero-bio">
         I build iOS apps with <strong>Swift, SwiftUI, UIKit, Firebase, and AVFoundation</strong>.
-        My focus is turning product ideas into working app flows: authentication, navigation,
-        state management, media upload, Firestore data, video playback, loading states, and error handling.
+        I care about real working features: authentication, app structure, navigation, media upload,
+        Firestore data, video playback, loading states, and clean error handling.
       </p>
 
       <p class="hero-bio">
-        My main project is <strong>Espres App</strong>, a SwiftUI social app with real accounts,
-        posts, image and video upload, short-form playback, profiles, search, comments, likes,
-        view counts, settings, and Firebase-backed account features.
+        My main project is <strong>Espres</strong>, where I’m building a social app around real app behavior:
+        accounts, posts, image and video upload, profiles, search, comments, likes, view counts,
+        settings, and Firebase-backed data.
       </p>
 
       <div class="hero-actions">
@@ -1166,29 +1182,29 @@ footer span{
       <div class="hero-card-role">iOS Developer · SwiftUI · Firebase</div>
 
       <p class="hero-card-note">
-        Building production-style iOS features with SwiftUI, Firebase, async media upload,
-        app state management, authentication, video playback, and real runtime debugging.
+        Building real SwiftUI app flows with a focus on clean implementation, clear communication,
+        debugging, and steady progress.
       </p>
 
       <div class="quick-grid">
         <div class="quick-cell">
-          <div class="quick-val">SwiftUI</div>
-          <div class="quick-label">App architecture</div>
+          <div class="quick-val">Coding</div>
+          <div class="quick-label">Clean features</div>
         </div>
 
         <div class="quick-cell">
-          <div class="quick-val">Firebase</div>
-          <div class="quick-label">Auth · data · storage</div>
+          <div class="quick-val">Communication</div>
+          <div class="quick-label">Clear updates</div>
         </div>
 
         <div class="quick-cell">
-          <div class="quick-val">Media</div>
-          <div class="quick-label">Upload · video · playback</div>
+          <div class="quick-val">Problem Solving</div>
+          <div class="quick-label">Real debugging</div>
         </div>
 
         <div class="quick-cell">
-          <div class="quick-val">Debugging</div>
-          <div class="quick-label">Runtime app behavior</div>
+          <div class="quick-val">Consistency</div>
+          <div class="quick-label">Steady progress</div>
         </div>
       </div>
     </aside>
@@ -1200,20 +1216,61 @@ footer span{
 <section id="skills">
   <p class="section-tag">// 01 — My Skills</p>
 
-  <h2 class="section-title">My Developer Skill Set</h2>
+  <h2 class="section-title">What I Work With</h2>
 
   <p class="section-sub">
-    I focus on building real iOS app features with Swift, SwiftUI, Firebase, clean app structure,
-    media handling, state management, debugging, and maintainable code. I also care about communication,
-    consistency, and keeping a project understandable as it grows.
+    A practical mix of iOS development skills, Firebase-backed app features, and the professional habits
+    I’m building while working on Espres. The learning section is clearly separated so the portfolio stays honest.
   </p>
 
   <div class="skills-block fade-up">
 
     <div class="skills-group">
       <div class="skills-group-head">
-        <h3 class="skills-group-title">iOS / Swift Technical Skills</h3>
-        <p class="skills-group-note">App building · architecture · runtime behavior</p>
+        <h3 class="skills-group-title">Professional Strengths</h3>
+        <p class="skills-group-note">Communication · ownership · consistency</p>
+      </div>
+
+      <div class="skills-grid">
+        <div class="skill-item">
+          <div class="skill-name"><span class="skill-dot"></span>Communication</div>
+          <div class="skill-type">Clear technical updates</div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-name"><span class="skill-dot"></span>Teamwork</div>
+          <div class="skill-type">Easy to work with</div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-name"><span class="skill-dot"></span>Problem Solving</div>
+          <div class="skill-type">Finding practical fixes</div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-name"><span class="skill-dot"></span>Feature Ownership</div>
+          <div class="skill-type">Building from idea to result</div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-name"><span class="skill-dot"></span>Consistency</div>
+          <div class="skill-type">Steady project progress</div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-name"><span class="skill-dot"></span>Attention to Detail</div>
+          <div class="skill-type">UI and edge cases</div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-name"><span class="skill-dot"></span>Documentation</div>
+          <div class="skill-type">Explaining decisions</div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-name"><span class="skill-dot"></span>Learning Fast</div>
+          <div class="skill-type">Improving through building</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="skills-group">
+      <div class="skills-group-head">
+        <h3 class="skills-group-title">iOS / Swift Development</h3>
+        <p class="skills-group-note">Swift · architecture · debugging</p>
       </div>
 
       <div class="skills-grid">
@@ -1221,60 +1278,49 @@ footer span{
           <div class="skill-name"><span class="skill-dot"></span>Swift</div>
           <div class="skill-type">Core iOS language</div>
         </div>
-
         <div class="skill-item">
           <div class="skill-name"><span class="skill-dot"></span>SwiftUI</div>
           <div class="skill-type">Modern iOS interfaces</div>
         </div>
-
         <div class="skill-item">
           <div class="skill-name"><span class="skill-dot"></span>UIKit</div>
           <div class="skill-type">iOS UI framework</div>
         </div>
-
         <div class="skill-item">
           <div class="skill-name"><span class="skill-dot"></span>MVVM</div>
           <div class="skill-type">App architecture</div>
         </div>
-
+        <div class="skill-item">
+          <div class="skill-name"><span class="skill-dot"></span>App Architecture</div>
+          <div class="skill-type">Feature structure</div>
+        </div>
         <div class="skill-item">
           <div class="skill-name"><span class="skill-dot"></span>State Management</div>
           <div class="skill-type">SwiftUI app flow</div>
         </div>
-
-        <div class="skill-item">
-          <div class="skill-name"><span class="skill-dot"></span>Navigation</div>
-          <div class="skill-type">Tabs, sheets, flows</div>
-        </div>
-
         <div class="skill-item">
           <div class="skill-name"><span class="skill-dot"></span>Async / Await</div>
           <div class="skill-type">Concurrency</div>
         </div>
-
         <div class="skill-item">
-          <div class="skill-name"><span class="skill-dot"></span>Error Handling</div>
-          <div class="skill-type">Safer app behavior</div>
+          <div class="skill-name"><span class="skill-dot"></span>Combine</div>
+          <div class="skill-type">Reactive patterns</div>
         </div>
-
+        <div class="skill-item">
+          <div class="skill-name"><span class="skill-dot"></span>URLSession</div>
+          <div class="skill-type">Networking basics</div>
+        </div>
         <div class="skill-item">
           <div class="skill-name"><span class="skill-dot"></span>Data Modeling</div>
           <div class="skill-type">Users, posts, videos</div>
         </div>
-
-        <div class="skill-item">
-          <div class="skill-name"><span class="skill-dot"></span>Reusable Views</div>
-          <div class="skill-type">Component-based UI</div>
-        </div>
-
-        <div class="skill-item">
-          <div class="skill-name"><span class="skill-dot"></span>Form Validation</div>
-          <div class="skill-type">Auth and settings forms</div>
-        </div>
-
         <div class="skill-item">
           <div class="skill-name"><span class="skill-dot"></span>Runtime Debugging</div>
           <div class="skill-type">Simulator and device testing</div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-name"><span class="skill-dot"></span>Git / GitHub</div>
+          <div class="skill-type">Version control</div>
         </div>
       </div>
     </div>
@@ -1282,7 +1328,7 @@ footer span{
     <div class="skills-group">
       <div class="skills-group-head">
         <h3 class="skills-group-title">Firebase / Media / App Features</h3>
-        <p class="skills-group-note">Backend · uploads · social app features</p>
+        <p class="skills-group-note">Backend-connected iOS apps</p>
       </div>
 
       <div class="skills-grid">
@@ -1290,129 +1336,83 @@ footer span{
           <div class="skill-name"><span class="skill-dot"></span>Firebase Auth</div>
           <div class="skill-type">Login and accounts</div>
         </div>
-
         <div class="skill-item">
           <div class="skill-name"><span class="skill-dot"></span>Firestore</div>
           <div class="skill-type">Cloud database</div>
         </div>
-
         <div class="skill-item">
           <div class="skill-name"><span class="skill-dot"></span>Firebase Storage</div>
           <div class="skill-type">Image and video files</div>
         </div>
-
         <div class="skill-item">
-          <div class="skill-name"><span class="skill-dot"></span>AVFoundation</div>
-          <div class="skill-type">Video playback</div>
+          <div class="skill-name"><span class="skill-dot"></span>User Accounts</div>
+          <div class="skill-type">Auth and settings flows</div>
         </div>
-
-        <div class="skill-item">
-          <div class="skill-name"><span class="skill-dot"></span>PhotosUI / PHPicker</div>
-          <div class="skill-type">Media selection</div>
-        </div>
-
-        <div class="skill-item">
-          <div class="skill-name"><span class="skill-dot"></span>Media Uploads</div>
-          <div class="skill-type">Images, videos, files</div>
-        </div>
-
-        <div class="skill-item">
-          <div class="skill-name"><span class="skill-dot"></span>User Profiles</div>
-          <div class="skill-type">Profile data and UI</div>
-        </div>
-
         <div class="skill-item">
           <div class="skill-name"><span class="skill-dot"></span>Search</div>
           <div class="skill-type">Users and content</div>
         </div>
-
         <div class="skill-item">
-          <div class="skill-name"><span class="skill-dot"></span>Likes / Comments</div>
-          <div class="skill-type">Social interactions</div>
+          <div class="skill-name"><span class="skill-dot"></span>Media Uploads</div>
+          <div class="skill-type">Images and videos</div>
         </div>
-
         <div class="skill-item">
-          <div class="skill-name"><span class="skill-dot"></span>View Counts</div>
-          <div class="skill-type">Engagement tracking</div>
+          <div class="skill-name"><span class="skill-dot"></span>PhotosUI / PHPicker</div>
+          <div class="skill-type">Media selection</div>
         </div>
-
         <div class="skill-item">
-          <div class="skill-name"><span class="skill-dot"></span>Loading States</div>
-          <div class="skill-type">Responsive UI feedback</div>
+          <div class="skill-name"><span class="skill-dot"></span>AVFoundation</div>
+          <div class="skill-type">Video playback</div>
         </div>
-
         <div class="skill-item">
-          <div class="skill-name"><span class="skill-dot"></span>Account Settings</div>
-          <div class="skill-type">User account flows</div>
+          <div class="skill-name"><span class="skill-dot"></span>FileManager</div>
+          <div class="skill-type">Local file handling</div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-name"><span class="skill-dot"></span>UserNotifications</div>
+          <div class="skill-type">Notification framework</div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-name"><span class="skill-dot"></span>Push Notifications</div>
+          <div class="skill-type">Next app feature</div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-name"><span class="skill-dot"></span>UI Testing</div>
+          <div class="skill-type">Behavior checks</div>
         </div>
       </div>
     </div>
 
     <div class="skills-group">
       <div class="skills-group-head">
-        <h3 class="skills-group-title">Professional Engineering Skills</h3>
-        <p class="skills-group-note">Communication · maintenance · coding discipline</p>
+        <h3 class="skills-group-title">Learning / Next Features</h3>
+        <p class="skills-group-note">Honest roadmap</p>
       </div>
 
       <div class="skills-grid">
         <div class="skill-item">
-          <div class="skill-name"><span class="skill-dot"></span>Clean Coding</div>
-          <div class="skill-type">Readable implementation</div>
+          <div class="skill-name"><span class="skill-dot"></span>CoreData</div>
+          <div class="skill-type">Local persistence</div>
         </div>
-
         <div class="skill-item">
-          <div class="skill-name"><span class="skill-dot"></span>Code Maintenance</div>
-          <div class="skill-type">Keeping projects stable</div>
+          <div class="skill-name"><span class="skill-dot"></span>WebKit</div>
+          <div class="skill-type">Embedded web content</div>
         </div>
-
         <div class="skill-item">
-          <div class="skill-name"><span class="skill-dot"></span>Problem Solving</div>
-          <div class="skill-type">Finding practical fixes</div>
+          <div class="skill-name"><span class="skill-dot"></span>User Experience</div>
+          <div class="skill-type">Better app flows</div>
         </div>
-
         <div class="skill-item">
-          <div class="skill-name"><span class="skill-dot"></span>Communication</div>
-          <div class="skill-type">Clear technical updates</div>
+          <div class="skill-name"><span class="skill-dot"></span>Direct Messages</div>
+          <div class="skill-type">Next Espres feature</div>
         </div>
-
         <div class="skill-item">
-          <div class="skill-name"><span class="skill-dot"></span>Debugging Mindset</div>
-          <div class="skill-type">Tracing real issues</div>
+          <div class="skill-name"><span class="skill-dot"></span>Real-time Chat</div>
+          <div class="skill-type">Planned messaging</div>
         </div>
-
         <div class="skill-item">
-          <div class="skill-name"><span class="skill-dot"></span>Feature Ownership</div>
-          <div class="skill-type">Building from idea to result</div>
-        </div>
-
-        <div class="skill-item">
-          <div class="skill-name"><span class="skill-dot"></span>Git Workflow</div>
-          <div class="skill-type">Commits and version control</div>
-        </div>
-
-        <div class="skill-item">
-          <div class="skill-name"><span class="skill-dot"></span>Documentation</div>
-          <div class="skill-type">Explaining decisions</div>
-        </div>
-
-        <div class="skill-item">
-          <div class="skill-name"><span class="skill-dot"></span>Testing Behavior</div>
-          <div class="skill-type">Simulator and device checks</div>
-        </div>
-
-        <div class="skill-item">
-          <div class="skill-name"><span class="skill-dot"></span>Attention to Detail</div>
-          <div class="skill-type">UI and edge cases</div>
-        </div>
-
-        <div class="skill-item">
-          <div class="skill-name"><span class="skill-dot"></span>Consistency</div>
-          <div class="skill-type">Steady project progress</div>
-        </div>
-
-        <div class="skill-item">
-          <div class="skill-name"><span class="skill-dot"></span>Learning Fast</div>
-          <div class="skill-type">Improving through building</div>
+          <div class="skill-name"><span class="skill-dot"></span>Video Calls</div>
+          <div class="skill-type">Future communication feature</div>
         </div>
       </div>
     </div>
@@ -1423,26 +1423,21 @@ footer span{
 <div class="full-divider"></div>
 
 <section id="experience">
-  <p class="section-tag">// 02 — Case Study</p>
+  <p class="section-tag">// 02 — Build</p>
 
-  <h2 class="section-title">Espres Case Study</h2>
+  <h2 class="section-title">Building Espres</h2>
 
   <p class="section-sub">
     Espres is my main iOS project: a SwiftUI social app built around real app flows,
-    not static screens. I used Swift, SwiftUI, Firebase Auth, Firestore, Firebase Storage,
+    not static screens or mockups. I used Swift, SwiftUI, Firebase Auth, Firestore, Firebase Storage,
     AVFoundation, async operations, app state, and simulator-tested behavior.
   </p>
 
   <div class="exp-card fade-up">
     <div class="exp-header">
       <div>
-        <div class="exp-company">Espres App</div>
-        <div class="exp-role">SwiftUI · Firebase · Social features</div>
-      </div>
-
-      <div class="exp-meta">
-        <div class="exp-date">Current</div>
-        <div class="exp-location">Serbia</div>
+        <div class="exp-company">Espres</div>
+        <div class="exp-role">SwiftUI · Firebase backend · Media workflows</div>
       </div>
     </div>
 
