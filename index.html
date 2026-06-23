@@ -15,20 +15,19 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 
 :root{
-  --bg:#03040a;
-  --bg2:#080b14;
-  --bg3:#101725;
-  --card:#0d1422;
-  --card2:#141d2d;
-  --border:rgba(235,245,255,.10);
-  --border2:rgba(235,245,255,.22);
-  --text:#f6f8ff;
-  --muted:#a5afbf;
-  --muted2:#687385;
-  --accent:#7c3aed;
-  --accent2:#5ee7ff;
-  --accent3:#c084fc;
-  --green:#36f19a;
+  --bg:#05070a;
+  --bg2:#0b0f15;
+  --bg3:#121821;
+  --card:#0e131a;
+  --card2:#141b25;
+  --border:rgba(235,245,255,.09);
+  --border2:rgba(235,245,255,.18);
+  --text:#f4f7fb;
+  --muted:#9aa4b2;
+  --muted2:#667085;
+  --accent:#0a84ff;
+  --accent2:#64d2ff;
+  --green:#30d158;
   --mono:"JetBrains Mono",monospace;
   --sans:"Space Grotesk",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
 }
@@ -41,10 +40,9 @@ html{
 body{
   font-family:var(--sans);
   background:
-    radial-gradient(circle at 76% 8%,rgba(124,58,237,.22),transparent 30%),
-    radial-gradient(circle at 12% 15%,rgba(94,231,255,.12),transparent 28%),
-    radial-gradient(circle at 50% 100%,rgba(192,132,252,.10),transparent 32%),
-    linear-gradient(180deg,#03040a 0%,#07101c 48%,#03040a 100%);
+    radial-gradient(circle at 72% 0%,rgba(10,132,255,.14),transparent 30%),
+    radial-gradient(circle at 12% 18%,rgba(100,210,255,.08),transparent 28%),
+    linear-gradient(180deg,#05070a 0%,#07101a 48%,#05070a 100%);
   color:var(--text);
   font-size:16px;
   line-height:1.65;
@@ -72,8 +70,8 @@ nav{
   align-items:center;
   gap:1rem;
   padding:1rem clamp(1.25rem,4vw,3rem);
-  background:rgba(3,4,10,.82);
-  backdrop-filter:blur(24px);
+  background:rgba(5,7,10,.88);
+  backdrop-filter:blur(20px);
   border-bottom:1px solid var(--border);
 }
 
@@ -130,7 +128,7 @@ section{
 
 .section-sub{
   max-width:760px;
-  color:rgba(246,248,255,.66);
+  color:rgba(238,241,247,.64);
   font-size:.96rem;
   line-height:1.85;
   margin-bottom:3rem;
@@ -162,23 +160,24 @@ section{
 }
 
 .btn:hover{
-  border-color:var(--accent2);
+  border-color:var(--accent);
   color:var(--accent2);
-  background:rgba(94,231,255,.07);
+  background:rgba(59,130,246,.07);
   transform:translateY(-2px);
 }
 
 .btn.primary{
-  background:linear-gradient(135deg,var(--accent),#2563eb);
-  border-color:rgba(255,255,255,.14);
+  background:var(--accent);
+  border-color:var(--accent);
   color:white;
-  box-shadow:0 18px 50px rgba(124,58,237,.28);
+  box-shadow:0 18px 50px rgba(10,132,255,.26);
 }
 
 .btn.primary:hover{
+  background:var(--accent2);
+  border-color:var(--accent2);
   color:white;
-  border-color:rgba(94,231,255,.5);
-  box-shadow:0 22px 70px rgba(94,231,255,.16);
+  box-shadow:0 22px 70px rgba(100,210,255,.18);
 }
 
 /* HERO */
@@ -197,9 +196,9 @@ section{
   border:1px solid rgba(235,245,255,.12);
   border-radius:42px;
   background:
-    linear-gradient(135deg,rgba(255,255,255,.07),rgba(255,255,255,.018) 42%,rgba(94,231,255,.04)),
-    radial-gradient(circle at 82% 18%,rgba(94,231,255,.11),transparent 28%),
-    radial-gradient(circle at 18% 88%,rgba(124,58,237,.15),transparent 30%);
+    linear-gradient(135deg,rgba(255,255,255,.065),rgba(255,255,255,.018) 42%,rgba(100,210,255,.04)),
+    radial-gradient(circle at 82% 18%,rgba(10,132,255,.12),transparent 28%),
+    radial-gradient(circle at 18% 88%,rgba(100,210,255,.08),transparent 30%);
   box-shadow:
     0 40px 130px rgba(0,0,0,.55),
     inset 0 1px 0 rgba(255,255,255,.08);
@@ -215,7 +214,7 @@ section{
     linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px),
     linear-gradient(180deg,rgba(255,255,255,.025) 1px,transparent 1px);
   background-size:72px 72px;
-  opacity:.22;
+  opacity:.18;
   pointer-events:none;
 }
 
@@ -235,14 +234,14 @@ section{
   align-items:center;
   gap:.55rem;
   padding:.42rem .8rem;
-  border:1px solid rgba(94,231,255,.38);
+  border:1px solid rgba(100,210,255,.38);
   font-family:var(--mono);
   font-size:.68rem;
   letter-spacing:.14em;
   text-transform:uppercase;
   color:var(--accent2);
   margin-bottom:2rem;
-  background:rgba(94,231,255,.055);
+  background:rgba(100,210,255,.055);
 }
 
 .status-dot{
@@ -270,7 +269,7 @@ section{
 .hero-name span{
   display:block;
   color:var(--accent2);
-  text-shadow:0 0 45px rgba(94,231,255,.16);
+  text-shadow:0 0 45px rgba(100,210,255,.16);
 }
 
 .hero-subtitle{
@@ -288,12 +287,12 @@ section{
   letter-spacing:.22em;
   text-transform:uppercase;
   color:var(--text);
-  background:linear-gradient(90deg,transparent,rgba(94,231,255,.07),transparent);
+  background:linear-gradient(90deg,transparent,rgba(100,210,255,.07),transparent);
 }
 
 .hero-bio{
   max-width:760px;
-  color:rgba(246,248,255,.72);
+  color:rgba(238,241,247,.68);
   font-size:1rem;
   line-height:1.9;
   margin-bottom:1.15rem;
@@ -318,8 +317,8 @@ section{
 .hero-card{
   border:1px solid rgba(235,245,255,.14);
   background:
-    linear-gradient(180deg,rgba(255,255,255,.09),rgba(255,255,255,.035)),
-    radial-gradient(circle at 50% 0%,rgba(94,231,255,.12),transparent 35%);
+    linear-gradient(180deg,rgba(244,247,251,.075),rgba(244,247,251,.025)),
+    radial-gradient(circle at 50% 0%,rgba(100,210,255,.10),transparent 35%);
   padding:clamp(1.4rem,3vw,2rem);
   box-shadow:0 30px 90px rgba(0,0,0,.42);
   border-radius:34px;
@@ -334,7 +333,7 @@ section{
   inset:0;
   border-radius:34px;
   padding:1px;
-  background:linear-gradient(135deg,rgba(94,231,255,.35),rgba(124,58,237,.35),transparent 70%);
+  background:linear-gradient(135deg,rgba(100,210,255,.32),rgba(10,132,255,.25),transparent 70%);
   -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
   -webkit-mask-composite:xor;
   mask-composite:exclude;
@@ -345,14 +344,14 @@ section{
   width:220px;
   height:220px;
   border-radius:50%;
-  border:1px solid rgba(246,248,255,.20);
+  border:1px solid rgba(244,247,251,.18);
   background:linear-gradient(135deg,#151b24,#080b10);
   overflow:hidden;
-  margin:0 auto 1.25rem;
+  margin:0 auto 1.35rem;
   position:relative;
   box-shadow:
     0 24px 70px rgba(0,0,0,.55),
-    0 0 0 10px rgba(94,231,255,.035);
+    0 0 0 10px rgba(100,210,255,.035);
   display:flex;
   align-items:center;
   justify-content:center;
@@ -382,95 +381,28 @@ section{
   align-items:center;
   justify-content:center;
   gap:.45rem;
-  padding:.35rem .7rem;
-  border:1px solid rgba(94,231,255,.26);
+  padding:.42rem .85rem;
+  border:1px solid rgba(100,210,255,.28);
   border-radius:999px;
   font-family:var(--mono);
-  font-size:.62rem;
+  font-size:.66rem;
   letter-spacing:.14em;
   text-transform:uppercase;
   color:var(--accent2);
-  background:rgba(94,231,255,.055);
-  margin-bottom:.95rem;
-}
-
-.hero-card-title{
-  font-size:clamp(1.55rem,3vw,2.15rem);
-  font-weight:700;
-  line-height:1;
-  letter-spacing:-.04em;
-  margin-bottom:.8rem;
-}
-
-.hero-card-title span{
-  display:block;
-  color:var(--accent2);
-}
-
-.card-tech{
-  display:flex;
-  justify-content:center;
-  flex-wrap:wrap;
-  gap:.45rem;
-  margin:0 auto 1.1rem;
-}
-
-.card-tech span{
-  padding:.32rem .62rem;
-  border:1px solid rgba(235,245,255,.14);
-  border-radius:999px;
-  font-family:var(--mono);
-  font-size:.62rem;
-  letter-spacing:.08em;
-  text-transform:uppercase;
-  color:rgba(246,248,255,.72);
-  background:rgba(255,255,255,.035);
+  background:rgba(100,210,255,.055);
+  margin-bottom:1.05rem;
 }
 
 .hero-card-note{
-  font-size:.9rem;
-  line-height:1.8;
-  color:rgba(246,248,255,.66);
-  margin:0 auto 1.25rem;
-  max-width:320px;
+  font-size:.98rem;
+  line-height:1.9;
+  color:rgba(238,241,247,.68);
+  margin:0 auto 1.45rem;
+  max-width:340px;
 }
 
 .hero-card-actions{
-  margin:1.2rem 0 1.45rem;
-}
-
-.quick-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:1px;
-  background:rgba(235,245,255,.10);
-  border:1px solid rgba(235,245,255,.10);
-  border-radius:22px;
-  overflow:hidden;
-  text-align:left;
-}
-
-.quick-cell{
-  background:linear-gradient(180deg,rgba(255,255,255,.055),rgba(255,255,255,.025));
-  padding:1rem;
-}
-
-.quick-val{
-  font-family:var(--mono);
-  font-size:.86rem;
-  font-weight:700;
-  color:var(--accent2);
-  line-height:1.15;
-  word-break:break-word;
-}
-
-.quick-label{
-  font-family:var(--mono);
-  font-size:.55rem;
-  text-transform:uppercase;
-  letter-spacing:.1em;
-  color:var(--muted);
-  margin-top:.32rem;
+  margin-top:1.2rem;
 }
 
 /* SKILLS */
@@ -516,13 +448,13 @@ section{
 }
 
 .skill-item{
-  background:rgba(8,11,20,.86);
+  background:rgba(11,15,21,.88);
   padding:1.15rem 1.25rem;
   transition:.2s;
 }
 
 .skill-item:hover{
-  background:rgba(16,23,37,.95);
+  background:var(--bg3);
 }
 
 .skill-name{
@@ -545,7 +477,7 @@ section{
   height:6px;
   border-radius:999px;
   background:var(--accent2);
-  box-shadow:0 0 18px rgba(94,231,255,.7);
+  box-shadow:0 0 18px rgba(100,210,255,.7);
   margin-right:.5rem;
 }
 
@@ -554,7 +486,7 @@ section{
 .exp-card{
   border:1px solid var(--border);
   background:
-    linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.018)),
+    linear-gradient(180deg,rgba(244,247,251,.045),rgba(244,247,251,.018)),
     var(--bg2);
   padding:clamp(1.5rem,4vw,2.5rem);
   margin-bottom:1px;
@@ -604,7 +536,7 @@ section{
 .exp-bullets li{
   display:flex;
   gap:.75rem;
-  color:rgba(246,248,255,.66);
+  color:rgba(238,241,247,.66);
   font-size:.9rem;
 }
 
@@ -627,7 +559,7 @@ section{
 .project-hero{
   border:1px solid var(--border);
   background:
-    linear-gradient(145deg,rgba(124,58,237,.14),rgba(246,248,255,.025) 45%,rgba(94,231,255,.06));
+    linear-gradient(145deg,rgba(10,132,255,.10),rgba(244,247,251,.025) 45%,rgba(100,210,255,.045));
   overflow:hidden;
   border-radius:34px;
 }
@@ -643,7 +575,7 @@ section{
 .project-status{
   display:inline-block;
   padding:.3rem .65rem;
-  border:1px solid rgba(54,241,154,.45);
+  border:1px solid rgba(52,211,153,.45);
   font-family:var(--mono);
   font-size:.62rem;
   letter-spacing:.12em;
@@ -662,7 +594,7 @@ section{
 
 .project-desc{
   max-width:640px;
-  color:rgba(246,248,255,.68);
+  color:rgba(238,241,247,.68);
   line-height:1.85;
   margin-bottom:1.2rem;
 }
@@ -843,7 +775,7 @@ section{
 
 .feature p{
   font-size:.86rem;
-  color:rgba(246,248,255,.62);
+  color:rgba(238,241,247,.62);
   line-height:1.7;
 }
 
@@ -882,7 +814,7 @@ section{
 
 .screen-card:hover{
   transform:translateY(-4px);
-  border-color:rgba(94,231,255,.45);
+  border-color:rgba(96,165,250,.45);
 }
 
 .screen-card img{
@@ -938,7 +870,7 @@ section{
 .panel li{
   display:flex;
   gap:.75rem;
-  color:rgba(246,248,255,.66);
+  color:rgba(238,241,247,.66);
   font-size:.9rem;
 }
 
@@ -970,7 +902,7 @@ section{
 
 .contact-copy{
   max-width:560px;
-  color:rgba(246,248,255,.64);
+  color:rgba(238,241,247,.64);
   font-size:1rem;
   line-height:1.85;
 }
@@ -995,8 +927,8 @@ section{
 }
 
 .contact-link:hover{
-  border-color:var(--accent2);
-  background:rgba(94,231,255,.06);
+  border-color:var(--accent);
+  background:rgba(59,130,246,.06);
   transform:translateY(-2px);
 }
 
@@ -1290,48 +1222,15 @@ footer span{
           <img src="./assets/novak-profile.jpg" alt="Portrait of Novak Velimirović">
         </div>
 
-        <div class="card-kicker">Self-taught</div>
-
-        <h2 class="hero-card-title">
-          iOS Developer
-          <span>Building real apps</span>
-        </h2>
-
-        <div class="card-tech">
-          <span>Swift</span>
-          <span>SwiftUI</span>
-          <span>Firebase</span>
-        </div>
+        <div class="card-kicker">Self-taught iOS Developer</div>
 
         <p class="hero-card-note">
-          Focused on clean implementation, real debugging, steady progress,
-          and shipping working SwiftUI features.
+          Developing SwiftUI app flows with a focus on clean implementation,
+          clear communication, real debugging, and steady progress.
         </p>
 
         <div class="hero-card-actions">
           <a class="btn primary" href="assets/Novak-Velimirovic-Resume.pdf" target="_blank" rel="noreferrer">View CV ↗</a>
-        </div>
-
-        <div class="quick-grid">
-          <div class="quick-cell">
-            <div class="quick-val">Swift</div>
-            <div class="quick-label">Core language</div>
-          </div>
-
-          <div class="quick-cell">
-            <div class="quick-val">SwiftUI</div>
-            <div class="quick-label">Modern UI</div>
-          </div>
-
-          <div class="quick-cell">
-            <div class="quick-val">Firebase</div>
-            <div class="quick-label">Auth and data</div>
-          </div>
-
-          <div class="quick-cell">
-            <div class="quick-val">Espres</div>
-            <div class="quick-label">Main project</div>
-          </div>
         </div>
       </aside>
 
@@ -1394,54 +1293,18 @@ footer span{
       </div>
 
       <div class="skills-grid">
-        <div class="skill-item">
-          <div class="skill-name"><span class="skill-dot"></span>Swift</div>
-          <div class="skill-type">Core iOS language</div>
-        </div>
-        <div class="skill-item">
-          <div class="skill-name"><span class="skill-dot"></span>SwiftUI</div>
-          <div class="skill-type">Modern iOS interfaces</div>
-        </div>
-        <div class="skill-item">
-          <div class="skill-name"><span class="skill-dot"></span>UIKit</div>
-          <div class="skill-type">iOS UI framework</div>
-        </div>
-        <div class="skill-item">
-          <div class="skill-name"><span class="skill-dot"></span>MVVM</div>
-          <div class="skill-type">App architecture</div>
-        </div>
-        <div class="skill-item">
-          <div class="skill-name"><span class="skill-dot"></span>App Architecture</div>
-          <div class="skill-type">Feature structure</div>
-        </div>
-        <div class="skill-item">
-          <div class="skill-name"><span class="skill-dot"></span>State Management</div>
-          <div class="skill-type">SwiftUI app flow</div>
-        </div>
-        <div class="skill-item">
-          <div class="skill-name"><span class="skill-dot"></span>Async / Await</div>
-          <div class="skill-type">Concurrency</div>
-        </div>
-        <div class="skill-item">
-          <div class="skill-name"><span class="skill-dot"></span>Combine</div>
-          <div class="skill-type">Reactive patterns</div>
-        </div>
-        <div class="skill-item">
-          <div class="skill-name"><span class="skill-dot"></span>URLSession</div>
-          <div class="skill-type">Networking basics</div>
-        </div>
-        <div class="skill-item">
-          <div class="skill-name"><span class="skill-dot"></span>Data Modeling</div>
-          <div class="skill-type">Users, posts, videos</div>
-        </div>
-        <div class="skill-item">
-          <div class="skill-name"><span class="skill-dot"></span>Runtime Debugging</div>
-          <div class="skill-type">Simulator and device testing</div>
-        </div>
-        <div class="skill-item">
-          <div class="skill-name"><span class="skill-dot"></span>Git / GitHub</div>
-          <div class="skill-type">Version control</div>
-        </div>
+        <div class="skill-item"><div class="skill-name"><span class="skill-dot"></span>Swift</div><div class="skill-type">Core iOS language</div></div>
+        <div class="skill-item"><div class="skill-name"><span class="skill-dot"></span>SwiftUI</div><div class="skill-type">Modern iOS interfaces</div></div>
+        <div class="skill-item"><div class="skill-name"><span class="skill-dot"></span>UIKit</div><div class="skill-type">iOS UI framework</div></div>
+        <div class="skill-item"><div class="skill-name"><span class="skill-dot"></span>MVVM</div><div class="skill-type">App architecture</div></div>
+        <div class="skill-item"><div class="skill-name"><span class="skill-dot"></span>App Architecture</div><div class="skill-type">Feature structure</div></div>
+        <div class="skill-item"><div class="skill-name"><span class="skill-dot"></span>State Management</div><div class="skill-type">SwiftUI app flow</div></div>
+        <div class="skill-item"><div class="skill-name"><span class="skill-dot"></span>Async / Await</div><div class="skill-type">Concurrency</div></div>
+        <div class="skill-item"><div class="skill-name"><span class="skill-dot"></span>Combine</div><div class="skill-type">Reactive patterns</div></div>
+        <div class="skill-item"><div class="skill-name"><span class="skill-dot"></span>URLSession</div><div class="skill-type">Networking basics</div></div>
+        <div class="skill-item"><div class="skill-name"><span class="skill-dot"></span>Data Modeling</div><div class="skill-type">Users, posts, videos</div></div>
+        <div class="skill-item"><div class="skill-name"><span class="skill-dot"></span>Runtime Debugging</div><div class="skill-type">Simulator and device testing</div></div>
+        <div class="skill-item"><div class="skill-name"><span class="skill-dot"></span>Git / GitHub</div><div class="skill-type">Version control</div></div>
       </div>
     </div>
 
@@ -1452,54 +1315,18 @@ footer span{
       </div>
 
       <div class="skills-grid">
-        <div class="skill-item">
-          <div class="skill-name"><span class="skill-dot"></span>Firebase Auth</div>
-          <div class="skill-type">Login and accounts</div>
-        </div>
-        <div class="skill-item">
-          <div class="skill-name"><span class="skill-dot"></span>Firestore</div>
-          <div class="skill-type">Cloud database</div>
-        </div>
-        <div class="skill-item">
-          <div class="skill-name"><span class="skill-dot"></span>Firebase Storage</div>
-          <div class="skill-type">Image and video files</div>
-        </div>
-        <div class="skill-item">
-          <div class="skill-name"><span class="skill-dot"></span>User Accounts</div>
-          <div class="skill-type">Auth and settings flows</div>
-        </div>
-        <div class="skill-item">
-          <div class="skill-name"><span class="skill-dot"></span>Search</div>
-          <div class="skill-type">Users and content</div>
-        </div>
-        <div class="skill-item">
-          <div class="skill-name"><span class="skill-dot"></span>Media Uploads</div>
-          <div class="skill-type">Images and videos</div>
-        </div>
-        <div class="skill-item">
-          <div class="skill-name"><span class="skill-dot"></span>PhotosUI / PHPicker</div>
-          <div class="skill-type">Media selection</div>
-        </div>
-        <div class="skill-item">
-          <div class="skill-name"><span class="skill-dot"></span>AVFoundation</div>
-          <div class="skill-type">Video playback</div>
-        </div>
-        <div class="skill-item">
-          <div class="skill-name"><span class="skill-dot"></span>FileManager</div>
-          <div class="skill-type">Local file handling</div>
-        </div>
-        <div class="skill-item">
-          <div class="skill-name"><span class="skill-dot"></span>UserNotifications</div>
-          <div class="skill-type">Notification framework</div>
-        </div>
-        <div class="skill-item">
-          <div class="skill-name"><span class="skill-dot"></span>Push Notifications</div>
-          <div class="skill-type">Next app feature</div>
-        </div>
-        <div class="skill-item">
-          <div class="skill-name"><span class="skill-dot"></span>UI Testing</div>
-          <div class="skill-type">Behavior checks</div>
-        </div>
+        <div class="skill-item"><div class="skill-name"><span class="skill-dot"></span>Firebase Auth</div><div class="skill-type">Login and accounts</div></div>
+        <div class="skill-item"><div class="skill-name"><span class="skill-dot"></span>Firestore</div><div class="skill-type">Cloud database</div></div>
+        <div class="skill-item"><div class="skill-name"><span class="skill-dot"></span>Firebase Storage</div><div class="skill-type">Image and video files</div></div>
+        <div class="skill-item"><div class="skill-name"><span class="skill-dot"></span>User Accounts</div><div class="skill-type">Auth and settings flows</div></div>
+        <div class="skill-item"><div class="skill-name"><span class="skill-dot"></span>Search</div><div class="skill-type">Users and content</div></div>
+        <div class="skill-item"><div class="skill-name"><span class="skill-dot"></span>Media Uploads</div><div class="skill-type">Images and videos</div></div>
+        <div class="skill-item"><div class="skill-name"><span class="skill-dot"></span>PhotosUI / PHPicker</div><div class="skill-type">Media selection</div></div>
+        <div class="skill-item"><div class="skill-name"><span class="skill-dot"></span>AVFoundation</div><div class="skill-type">Video playback</div></div>
+        <div class="skill-item"><div class="skill-name"><span class="skill-dot"></span>FileManager</div><div class="skill-type">Local file handling</div></div>
+        <div class="skill-item"><div class="skill-name"><span class="skill-dot"></span>UserNotifications</div><div class="skill-type">Notification framework</div></div>
+        <div class="skill-item"><div class="skill-name"><span class="skill-dot"></span>Push Notifications</div><div class="skill-type">Next app feature</div></div>
+        <div class="skill-item"><div class="skill-name"><span class="skill-dot"></span>UI Testing</div><div class="skill-type">Behavior checks</div></div>
       </div>
     </div>
 
@@ -1510,30 +1337,12 @@ footer span{
       </div>
 
       <div class="skills-grid">
-        <div class="skill-item">
-          <div class="skill-name"><span class="skill-dot"></span>CoreData</div>
-          <div class="skill-type">Local persistence</div>
-        </div>
-        <div class="skill-item">
-          <div class="skill-name"><span class="skill-dot"></span>WebKit</div>
-          <div class="skill-type">Embedded web content</div>
-        </div>
-        <div class="skill-item">
-          <div class="skill-name"><span class="skill-dot"></span>User Experience</div>
-          <div class="skill-type">Better app flows</div>
-        </div>
-        <div class="skill-item">
-          <div class="skill-name"><span class="skill-dot"></span>Direct Messages</div>
-          <div class="skill-type">Next Espres feature</div>
-        </div>
-        <div class="skill-item">
-          <div class="skill-name"><span class="skill-dot"></span>Real-time Chat</div>
-          <div class="skill-type">Planned messaging</div>
-        </div>
-        <div class="skill-item">
-          <div class="skill-name"><span class="skill-dot"></span>Video Calls</div>
-          <div class="skill-type">Future communication feature</div>
-        </div>
+        <div class="skill-item"><div class="skill-name"><span class="skill-dot"></span>CoreData</div><div class="skill-type">Local persistence</div></div>
+        <div class="skill-item"><div class="skill-name"><span class="skill-dot"></span>WebKit</div><div class="skill-type">Embedded web content</div></div>
+        <div class="skill-item"><div class="skill-name"><span class="skill-dot"></span>User Experience</div><div class="skill-type">Better app flows</div></div>
+        <div class="skill-item"><div class="skill-name"><span class="skill-dot"></span>Direct Messages</div><div class="skill-type">Next Espres feature</div></div>
+        <div class="skill-item"><div class="skill-name"><span class="skill-dot"></span>Real-time Chat</div><div class="skill-type">Planned messaging</div></div>
+        <div class="skill-item"><div class="skill-name"><span class="skill-dot"></span>Video Calls</div><div class="skill-type">Future communication feature</div></div>
       </div>
     </div>
 
@@ -1654,58 +1463,20 @@ footer span{
     </div>
 
     <div class="case-grid">
-      <div class="case-cell">
-        <div class="case-num">Auth</div>
-        <div class="case-label">Firebase login</div>
-      </div>
-
-      <div class="case-cell">
-        <div class="case-num">Posts</div>
-        <div class="case-label">Text, images, video</div>
-      </div>
-
-      <div class="case-cell">
-        <div class="case-num">Search</div>
-        <div class="case-label">Users and content</div>
-      </div>
-
-      <div class="case-cell">
-        <div class="case-num">Views</div>
-        <div class="case-label">Video view counts</div>
-      </div>
+      <div class="case-cell"><div class="case-num">Auth</div><div class="case-label">Firebase login</div></div>
+      <div class="case-cell"><div class="case-num">Posts</div><div class="case-label">Text, images, video</div></div>
+      <div class="case-cell"><div class="case-num">Search</div><div class="case-label">Users and content</div></div>
+      <div class="case-cell"><div class="case-num">Views</div><div class="case-label">Video view counts</div></div>
     </div>
   </article>
 
   <div class="features fade-up">
-    <div class="feature">
-      <h4>Authentication</h4>
-      <p>Users can create accounts, log in, update account data, and use password-related account flows through Firebase.</p>
-    </div>
-
-    <div class="feature">
-      <h4>Feeds and posts</h4>
-      <p>The app supports image posts, text posts, comments, likes, and profile-linked content from real users.</p>
-    </div>
-
-    <div class="feature">
-      <h4>Video upload</h4>
-      <p>Videos are picked from the device, prepared for upload, stored in Firebase Storage, and displayed back inside the app.</p>
-    </div>
-
-    <div class="feature">
-      <h4>Short-form playback</h4>
-      <p>Espres includes a reels-style video player with playback, interaction buttons, and view tracking.</p>
-    </div>
-
-    <div class="feature">
-      <h4>Profiles and search</h4>
-      <p>Users can view their own profile, open other user profiles, and search through users and content.</p>
-    </div>
-
-    <div class="feature">
-      <h4>Settings</h4>
-      <p>The settings flow includes account management, profile state, and sensitive actions like password updates.</p>
-    </div>
+    <div class="feature"><h4>Authentication</h4><p>Users can create accounts, log in, update account data, and use password-related account flows through Firebase.</p></div>
+    <div class="feature"><h4>Feeds and posts</h4><p>The app supports image posts, text posts, comments, likes, and profile-linked content from real users.</p></div>
+    <div class="feature"><h4>Video upload</h4><p>Videos are picked from the device, prepared for upload, stored in Firebase Storage, and displayed back inside the app.</p></div>
+    <div class="feature"><h4>Short-form playback</h4><p>Espres includes a reels-style video player with playback, interaction buttons, and view tracking.</p></div>
+    <div class="feature"><h4>Profiles and search</h4><p>Users can view their own profile, open other user profiles, and search through users and content.</p></div>
+    <div class="feature"><h4>Settings</h4><p>The settings flow includes account management, profile state, and sensitive actions like password updates.</p></div>
   </div>
 
   <div class="screens-title">
@@ -1718,61 +1489,21 @@ footer span{
   </div>
 
   <div class="screens-grid fade-up">
-    <div class="screen-card">
-      <img src="assets/espres/feed-pics.jpg" alt="Feed with image post" loading="lazy" decoding="async">
-      <div class="screen-caption">Image Feed</div>
-    </div>
-
-    <div class="screen-card">
-      <img src="assets/espres/feed-posts.jpg" alt="Feed text posts" loading="lazy" decoding="async">
-      <div class="screen-caption">Text Posts</div>
-    </div>
-
-    <div class="screen-card">
-      <img src="assets/espres/explore.jpg" alt="Explore search screen" loading="lazy" decoding="async">
-      <div class="screen-caption">Explore</div>
-    </div>
-
-    <div class="screen-card">
-      <img src="assets/espres/upload.jpg" alt="Upload video screen" loading="lazy" decoding="async">
-      <div class="screen-caption">Upload</div>
-    </div>
-
-    <div class="screen-card">
-      <img src="assets/espres/videos-list.jpg" alt="Videos list screen" loading="lazy" decoding="async">
-      <div class="screen-caption">Videos</div>
-    </div>
-
-    <div class="screen-card">
-      <img src="assets/espres/short-player.jpg" alt="Short video player" loading="lazy" decoding="async">
-      <div class="screen-caption">Short Player</div>
-    </div>
-
-    <div class="screen-card">
-      <img src="assets/espres/profile.jpg" alt="Current user profile" loading="lazy" decoding="async">
-      <div class="screen-caption">Profile</div>
-    </div>
-
-    <div class="screen-card">
-      <img src="assets/espres/user-profile.jpg" alt="Other user profile" loading="lazy" decoding="async">
-      <div class="screen-caption">User Profile</div>
-    </div>
-
-    <div class="screen-card">
-      <img src="assets/espres/settings.jpg" alt="Settings screen" loading="lazy" decoding="async">
-      <div class="screen-caption">Settings</div>
-    </div>
-
-    <div class="screen-card">
-      <img src="assets/espres/change-password.jpg" alt="Change password screen" loading="lazy" decoding="async">
-      <div class="screen-caption">Password</div>
-    </div>
+    <div class="screen-card"><img src="assets/espres/feed-pics.jpg" alt="Feed with image post" loading="lazy" decoding="async"><div class="screen-caption">Image Feed</div></div>
+    <div class="screen-card"><img src="assets/espres/feed-posts.jpg" alt="Feed text posts" loading="lazy" decoding="async"><div class="screen-caption">Text Posts</div></div>
+    <div class="screen-card"><img src="assets/espres/explore.jpg" alt="Explore search screen" loading="lazy" decoding="async"><div class="screen-caption">Explore</div></div>
+    <div class="screen-card"><img src="assets/espres/upload.jpg" alt="Upload video screen" loading="lazy" decoding="async"><div class="screen-caption">Upload</div></div>
+    <div class="screen-card"><img src="assets/espres/videos-list.jpg" alt="Videos list screen" loading="lazy" decoding="async"><div class="screen-caption">Videos</div></div>
+    <div class="screen-card"><img src="assets/espres/short-player.jpg" alt="Short video player" loading="lazy" decoding="async"><div class="screen-caption">Short Player</div></div>
+    <div class="screen-card"><img src="assets/espres/profile.jpg" alt="Current user profile" loading="lazy" decoding="async"><div class="screen-caption">Profile</div></div>
+    <div class="screen-card"><img src="assets/espres/user-profile.jpg" alt="Other user profile" loading="lazy" decoding="async"><div class="screen-caption">User Profile</div></div>
+    <div class="screen-card"><img src="assets/espres/settings.jpg" alt="Settings screen" loading="lazy" decoding="async"><div class="screen-caption">Settings</div></div>
+    <div class="screen-card"><img src="assets/espres/change-password.jpg" alt="Change password screen" loading="lazy" decoding="async"><div class="screen-caption">Password</div></div>
   </div>
 
   <div class="two-col fade-up">
     <div class="panel">
       <h3>Technical decisions</h3>
-
       <ul>
         <li>Used SwiftUI for the main interface because the app depends heavily on reactive state and reusable views.</li>
         <li>Used Firebase Auth for account creation, login, and user identity across the app.</li>
@@ -1784,7 +1515,6 @@ footer span{
 
     <div class="panel">
       <h3>Swift problems solved</h3>
-
       <ul>
         <li>Managed SwiftUI state across feed, upload, profile, search, settings, and video screens.</li>
         <li>Handled async Firebase operations while keeping the UI responsive during loading and uploads.</li>
@@ -1798,7 +1528,6 @@ footer span{
   <div class="two-col fade-up">
     <div class="panel">
       <h3>Problems I solved</h3>
-
       <ul>
         <li>Modeled Firestore data for users, posts, videos, comments, likes, and profile state.</li>
         <li>Handled picked video files by copying temporary PHPicker URLs before upload.</li>
@@ -1809,7 +1538,6 @@ footer span{
 
     <div class="panel">
       <h3>Things I learned</h3>
-
       <ul>
         <li>How to organize a larger SwiftUI app around tabs, reusable views, and feature-specific state.</li>
         <li>How Firebase Auth, Firestore, and Storage work together in a media-heavy app.</li>
