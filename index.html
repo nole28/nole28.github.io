@@ -5,28 +5,30 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 <title>Novak Velimirović — iOS Developer</title>
-<meta name="description" content="Portfolio of Novak Velimirović, an iOS developer from Serbia building SwiftUI apps with Swift, Firebase, media upload, authentication, search, video playback, and social features." />
+<meta name="description" content="Portfolio of Novak Velimirović, a self-taught iOS developer building SwiftUI apps with Swift, Firebase, media upload, authentication, search, video playback, and social features." />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 
 :root{
-  --bg:#05070a;
-  --bg2:#0b0f15;
-  --bg3:#121821;
-  --card:#0e131a;
-  --border:rgba(235,245,255,.09);
-  --border2:rgba(235,245,255,.18);
-  --text:#f4f7fb;
-  --muted:#9aa4b2;
-  --muted2:#667085;
-  --accent:#0a84ff;
-  --accent2:#64d2ff;
-  --green:#30d158;
+  --bg:#03040a;
+  --bg2:#080b14;
+  --bg3:#101725;
+  --card:#0d1422;
+  --card2:#141d2d;
+  --border:rgba(235,245,255,.10);
+  --border2:rgba(235,245,255,.22);
+  --text:#f6f8ff;
+  --muted:#a5afbf;
+  --muted2:#687385;
+  --accent:#7c3aed;
+  --accent2:#5ee7ff;
+  --accent3:#c084fc;
+  --green:#36f19a;
   --mono:"JetBrains Mono",monospace;
   --sans:"Space Grotesk",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
 }
@@ -39,9 +41,10 @@ html{
 body{
   font-family:var(--sans);
   background:
-    radial-gradient(circle at 72% 0%,rgba(10,132,255,.12),transparent 30%),
-    radial-gradient(circle at 12% 18%,rgba(100,210,255,.06),transparent 28%),
-    linear-gradient(180deg,#05070a 0%,#07101a 48%,#05070a 100%);
+    radial-gradient(circle at 76% 8%,rgba(124,58,237,.22),transparent 30%),
+    radial-gradient(circle at 12% 15%,rgba(94,231,255,.12),transparent 28%),
+    radial-gradient(circle at 50% 100%,rgba(192,132,252,.10),transparent 32%),
+    linear-gradient(180deg,#03040a 0%,#07101c 48%,#03040a 100%);
   color:var(--text);
   font-size:16px;
   line-height:1.65;
@@ -69,16 +72,17 @@ nav{
   align-items:center;
   gap:1rem;
   padding:1rem clamp(1.25rem,4vw,3rem);
-  background:rgba(5,7,10,.88);
-  backdrop-filter:blur(20px);
+  background:rgba(3,4,10,.82);
+  backdrop-filter:blur(24px);
   border-bottom:1px solid var(--border);
 }
 
 .nav-logo{
   font-family:var(--mono);
-  font-weight:600;
-  letter-spacing:.06em;
+  font-weight:700;
+  letter-spacing:.08em;
   text-decoration:none;
+  color:var(--accent2);
 }
 
 .nav-links{
@@ -112,7 +116,7 @@ section{
   font-size:.72rem;
   letter-spacing:.16em;
   text-transform:uppercase;
-  color:var(--muted2);
+  color:var(--accent2);
   margin-bottom:1rem;
 }
 
@@ -126,7 +130,7 @@ section{
 
 .section-sub{
   max-width:760px;
-  color:rgba(238,241,247,.64);
+  color:rgba(246,248,255,.66);
   font-size:.96rem;
   line-height:1.85;
   margin-bottom:3rem;
@@ -134,7 +138,7 @@ section{
 
 .full-divider{
   height:1px;
-  background:var(--border);
+  background:linear-gradient(90deg,transparent,var(--border),transparent);
 }
 
 /* BUTTONS */
@@ -144,34 +148,37 @@ section{
   align-items:center;
   justify-content:center;
   gap:.45rem;
-  padding:.62rem 1.1rem;
+  padding:.72rem 1.15rem;
   border:1px solid var(--border2);
   font-family:var(--mono);
   font-size:.72rem;
-  letter-spacing:.1em;
+  font-weight:700;
+  letter-spacing:.12em;
   text-transform:uppercase;
   text-decoration:none;
   color:var(--text);
-  background:transparent;
+  background:rgba(255,255,255,.025);
   transition:.2s;
 }
 
 .btn:hover{
-  border-color:var(--accent);
+  border-color:var(--accent2);
   color:var(--accent2);
-  background:rgba(59,130,246,.07);
+  background:rgba(94,231,255,.07);
+  transform:translateY(-2px);
 }
 
 .btn.primary{
-  background:var(--accent);
-  border-color:var(--accent);
+  background:linear-gradient(135deg,var(--accent),#2563eb);
+  border-color:rgba(255,255,255,.14);
   color:white;
+  box-shadow:0 18px 50px rgba(124,58,237,.28);
 }
 
 .btn.primary:hover{
-  background:var(--accent2);
-  border-color:var(--accent2);
   color:white;
+  border-color:rgba(94,231,255,.5);
+  box-shadow:0 22px 70px rgba(94,231,255,.16);
 }
 
 /* HERO */
@@ -181,17 +188,46 @@ section{
   display:flex;
   align-items:center;
   max-width:none;
-  padding-top:7rem;
+  padding-top:7.5rem;
+}
+
+.hero-frame{
+  width:min(1280px,calc(100% - 2.5rem));
+  margin:0 auto;
+  border:1px solid rgba(235,245,255,.12);
+  border-radius:42px;
+  background:
+    linear-gradient(135deg,rgba(255,255,255,.07),rgba(255,255,255,.018) 42%,rgba(94,231,255,.04)),
+    radial-gradient(circle at 82% 18%,rgba(94,231,255,.11),transparent 28%),
+    radial-gradient(circle at 18% 88%,rgba(124,58,237,.15),transparent 30%);
+  box-shadow:
+    0 40px 130px rgba(0,0,0,.55),
+    inset 0 1px 0 rgba(255,255,255,.08);
+  overflow:hidden;
+  position:relative;
+}
+
+.hero-frame::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px),
+    linear-gradient(180deg,rgba(255,255,255,.025) 1px,transparent 1px);
+  background-size:72px 72px;
+  opacity:.22;
+  pointer-events:none;
 }
 
 .hero-inner{
-  max-width:1200px;
-  margin:0 auto;
+  position:relative;
+  z-index:1;
   width:100%;
   display:grid;
-  grid-template-columns:minmax(0,1fr) 420px;
-  gap:4rem;
+  grid-template-columns:minmax(0,1.1fr) minmax(340px,.7fr);
+  gap:clamp(2rem,5vw,4.5rem);
   align-items:center;
+  padding:clamp(2rem,6vw,4.8rem);
 }
 
 .status-badge{
@@ -199,22 +235,22 @@ section{
   align-items:center;
   gap:.55rem;
   padding:.42rem .8rem;
-  border:1px solid rgba(59,130,246,.45);
+  border:1px solid rgba(94,231,255,.38);
   font-family:var(--mono);
   font-size:.68rem;
   letter-spacing:.14em;
   text-transform:uppercase;
   color:var(--accent2);
   margin-bottom:2rem;
-  background:rgba(59,130,246,.05);
+  background:rgba(94,231,255,.055);
 }
 
 .status-dot{
   width:6px;
   height:6px;
   border-radius:999px;
-  background:var(--accent);
-  box-shadow:0 0 20px var(--accent);
+  background:var(--green);
+  box-shadow:0 0 20px var(--green);
   animation:pulse 2s infinite;
 }
 
@@ -224,67 +260,99 @@ section{
 }
 
 .hero-name{
-  font-size:clamp(4rem,9vw,8.2rem);
+  font-size:clamp(4rem,9vw,8.6rem);
   font-weight:700;
   line-height:.88;
-  letter-spacing:-.055em;
-  margin-bottom:1.5rem;
+  letter-spacing:-.06em;
+  margin-bottom:1.2rem;
 }
 
 .hero-name span{
   display:block;
   color:var(--accent2);
+  text-shadow:0 0 45px rgba(94,231,255,.16);
 }
 
 .hero-subtitle{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  width:min(760px,100%);
+  margin:0 0 2.35rem;
+  padding:.85rem 1rem;
+  border-top:1px solid rgba(235,245,255,.10);
+  border-bottom:1px solid rgba(235,245,255,.10);
   font-family:var(--mono);
-  font-size:.82rem;
-  letter-spacing:.08em;
-  color:var(--muted);
-  margin-bottom:2rem;
+  font-size:clamp(1.05rem,2.2vw,1.85rem);
+  font-weight:700;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:var(--text);
+  background:linear-gradient(90deg,transparent,rgba(94,231,255,.07),transparent);
 }
 
 .hero-bio{
-  max-width:640px;
-  color:rgba(238,241,247,.68);
-  font-size:.96rem;
-  line-height:1.85;
-  margin-bottom:1.1rem;
+  max-width:760px;
+  color:rgba(246,248,255,.72);
+  font-size:1rem;
+  line-height:1.9;
+  margin-bottom:1.15rem;
 }
 
 .hero-bio strong{
   color:var(--text);
   font-family:var(--mono);
-  font-size:.86rem;
-  font-weight:500;
+  font-size:.88rem;
+  font-weight:700;
 }
 
 .hero-actions{
   display:flex;
   gap:.75rem;
   flex-wrap:wrap;
-  margin-top:2rem;
+  margin-top:2.2rem;
 }
 
+/* HERO CARD */
+
 .hero-card{
-  border:1px solid var(--border);
-  background:linear-gradient(180deg,rgba(244,247,251,.07),rgba(244,247,251,.025));
-  padding:2rem;
+  border:1px solid rgba(235,245,255,.14);
+  background:
+    linear-gradient(180deg,rgba(255,255,255,.09),rgba(255,255,255,.035)),
+    radial-gradient(circle at 50% 0%,rgba(94,231,255,.12),transparent 35%);
+  padding:clamp(1.4rem,3vw,2rem);
   box-shadow:0 30px 90px rgba(0,0,0,.42);
   border-radius:34px;
   text-align:center;
+  position:relative;
+  overflow:hidden;
+}
+
+.hero-card::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:34px;
+  padding:1px;
+  background:linear-gradient(135deg,rgba(94,231,255,.35),rgba(124,58,237,.35),transparent 70%);
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;
+  mask-composite:exclude;
+  pointer-events:none;
 }
 
 .hero-avatar{
   width:220px;
   height:220px;
   border-radius:50%;
-  border:1px solid rgba(244,247,251,.18);
+  border:1px solid rgba(246,248,255,.20);
   background:linear-gradient(135deg,#151b24,#080b10);
   overflow:hidden;
-  margin:0 auto 1.15rem;
+  margin:0 auto 1.25rem;
   position:relative;
-  box-shadow:0 24px 70px rgba(0,0,0,.55);
+  box-shadow:
+    0 24px 70px rgba(0,0,0,.55),
+    0 0 0 10px rgba(94,231,255,.035);
   display:flex;
   align-items:center;
   justify-content:center;
@@ -309,49 +377,88 @@ section{
   z-index:2;
 }
 
-.hero-card-name{
-  font-size:1.28rem;
-  font-weight:700;
-  letter-spacing:-.025em;
-  margin-bottom:.2rem;
-}
-
-.hero-card-role{
+.card-kicker{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:.45rem;
+  padding:.35rem .7rem;
+  border:1px solid rgba(94,231,255,.26);
+  border-radius:999px;
   font-family:var(--mono);
-  font-size:.68rem;
-  letter-spacing:.08em;
+  font-size:.62rem;
+  letter-spacing:.14em;
   text-transform:uppercase;
   color:var(--accent2);
-  margin-bottom:1rem;
+  background:rgba(94,231,255,.055);
+  margin-bottom:.95rem;
+}
+
+.hero-card-title{
+  font-size:clamp(1.55rem,3vw,2.15rem);
+  font-weight:700;
+  line-height:1;
+  letter-spacing:-.04em;
+  margin-bottom:.8rem;
+}
+
+.hero-card-title span{
+  display:block;
+  color:var(--accent2);
+}
+
+.card-tech{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:.45rem;
+  margin:0 auto 1.1rem;
+}
+
+.card-tech span{
+  padding:.32rem .62rem;
+  border:1px solid rgba(235,245,255,.14);
+  border-radius:999px;
+  font-family:var(--mono);
+  font-size:.62rem;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:rgba(246,248,255,.72);
+  background:rgba(255,255,255,.035);
 }
 
 .hero-card-note{
-  font-size:.84rem;
-  line-height:1.75;
-  color:rgba(238,241,247,.62);
-  margin:0 auto 1.1rem;
-  max-width:300px;
+  font-size:.9rem;
+  line-height:1.8;
+  color:rgba(246,248,255,.66);
+  margin:0 auto 1.25rem;
+  max-width:320px;
+}
+
+.hero-card-actions{
+  margin:1.2rem 0 1.45rem;
 }
 
 .quick-grid{
   display:grid;
   grid-template-columns:1fr 1fr;
   gap:1px;
-  background:var(--border);
-  border:1px solid var(--border);
-  border-radius:18px;
+  background:rgba(235,245,255,.10);
+  border:1px solid rgba(235,245,255,.10);
+  border-radius:22px;
   overflow:hidden;
   text-align:left;
 }
 
 .quick-cell{
-  background:rgba(255,255,255,.025);
+  background:linear-gradient(180deg,rgba(255,255,255,.055),rgba(255,255,255,.025));
   padding:1rem;
 }
 
 .quick-val{
   font-family:var(--mono);
-  font-size:.88rem;
+  font-size:.86rem;
+  font-weight:700;
   color:var(--accent2);
   line-height:1.15;
   word-break:break-word;
@@ -359,24 +466,11 @@ section{
 
 .quick-label{
   font-family:var(--mono);
-  font-size:.56rem;
+  font-size:.55rem;
   text-transform:uppercase;
   letter-spacing:.1em;
   color:var(--muted);
-  margin-top:.28rem;
-}
-
-
-.hero-card .quick-grid{
-  margin-top:1.4rem;
-}
-
-.skills-group:first-child .skill-item{
-  background:rgba(244,247,251,.022);
-}
-
-.learning-note{
-  color:var(--muted);
+  margin-top:.32rem;
 }
 
 /* SKILLS */
@@ -417,16 +511,18 @@ section{
   gap:1px;
   background:var(--border);
   border:1px solid var(--border);
+  border-radius:24px;
+  overflow:hidden;
 }
 
 .skill-item{
-  background:var(--bg2);
+  background:rgba(8,11,20,.86);
   padding:1.15rem 1.25rem;
   transition:.2s;
 }
 
 .skill-item:hover{
-  background:var(--bg3);
+  background:rgba(16,23,37,.95);
 }
 
 .skill-name{
@@ -448,7 +544,8 @@ section{
   width:6px;
   height:6px;
   border-radius:999px;
-  background:var(--accent);
+  background:var(--accent2);
+  box-shadow:0 0 18px rgba(94,231,255,.7);
   margin-right:.5rem;
 }
 
@@ -456,9 +553,12 @@ section{
 
 .exp-card{
   border:1px solid var(--border);
-  background:var(--bg2);
+  background:
+    linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.018)),
+    var(--bg2);
   padding:clamp(1.5rem,4vw,2.5rem);
   margin-bottom:1px;
+  border-radius:28px;
 }
 
 .exp-header{
@@ -483,24 +583,6 @@ section{
   letter-spacing:.06em;
 }
 
-.exp-meta{
-  text-align:right;
-}
-
-.exp-date{
-  font-family:var(--mono);
-  font-size:.72rem;
-  color:var(--accent2);
-  letter-spacing:.08em;
-  text-transform:uppercase;
-}
-
-.exp-location{
-  font-family:var(--mono);
-  font-size:.68rem;
-  color:var(--muted);
-}
-
 .exp-project-tag{
   font-family:var(--mono);
   font-size:.66rem;
@@ -522,20 +604,20 @@ section{
 .exp-bullets li{
   display:flex;
   gap:.75rem;
-  color:rgba(238,241,247,.66);
+  color:rgba(246,248,255,.66);
   font-size:.9rem;
 }
 
 .exp-bullets li::before{
   content:"→";
-  color:var(--accent);
+  color:var(--accent2);
   font-family:var(--mono);
   flex-shrink:0;
 }
 
 .exp-bullets strong{
   color:var(--text);
-  font-weight:500;
+  font-weight:700;
   font-family:var(--mono);
   font-size:.82rem;
 }
@@ -544,8 +626,10 @@ section{
 
 .project-hero{
   border:1px solid var(--border);
-  background:linear-gradient(145deg,rgba(10,132,255,.10),rgba(244,247,251,.025) 45%,rgba(100,210,255,.045));
+  background:
+    linear-gradient(145deg,rgba(124,58,237,.14),rgba(246,248,255,.025) 45%,rgba(94,231,255,.06));
   overflow:hidden;
+  border-radius:34px;
 }
 
 .project-top{
@@ -559,7 +643,7 @@ section{
 .project-status{
   display:inline-block;
   padding:.3rem .65rem;
-  border:1px solid rgba(52,211,153,.45);
+  border:1px solid rgba(54,241,154,.45);
   font-family:var(--mono);
   font-size:.62rem;
   letter-spacing:.12em;
@@ -578,7 +662,7 @@ section{
 
 .project-desc{
   max-width:640px;
-  color:rgba(238,241,247,.68);
+  color:rgba(246,248,255,.68);
   line-height:1.85;
   margin-bottom:1.2rem;
 }
@@ -598,6 +682,7 @@ section{
   text-transform:uppercase;
   color:var(--muted);
   background:rgba(255,255,255,.02);
+  border-radius:999px;
 }
 
 /* PHONES */
@@ -741,6 +826,8 @@ section{
   gap:1px;
   background:var(--border);
   border:1px solid var(--border);
+  border-radius:28px;
+  overflow:hidden;
   margin-top:2rem;
 }
 
@@ -756,7 +843,7 @@ section{
 
 .feature p{
   font-size:.86rem;
-  color:rgba(238,241,247,.62);
+  color:rgba(246,248,255,.62);
   line-height:1.7;
 }
 
@@ -795,7 +882,7 @@ section{
 
 .screen-card:hover{
   transform:translateY(-4px);
-  border-color:rgba(96,165,250,.45);
+  border-color:rgba(94,231,255,.45);
 }
 
 .screen-card img{
@@ -826,6 +913,8 @@ section{
   gap:1px;
   background:var(--border);
   border:1px solid var(--border);
+  border-radius:28px;
+  overflow:hidden;
   margin-top:2rem;
 }
 
@@ -849,7 +938,7 @@ section{
 .panel li{
   display:flex;
   gap:.75rem;
-  color:rgba(238,241,247,.66);
+  color:rgba(246,248,255,.66);
   font-size:.9rem;
 }
 
@@ -881,7 +970,7 @@ section{
 
 .contact-copy{
   max-width:560px;
-  color:rgba(238,241,247,.64);
+  color:rgba(246,248,255,.64);
   font-size:1rem;
   line-height:1.85;
 }
@@ -902,11 +991,13 @@ section{
   background:var(--bg2);
   text-decoration:none;
   transition:.2s;
+  border-radius:18px;
 }
 
 .contact-link:hover{
-  border-color:var(--accent);
-  background:rgba(59,130,246,.06);
+  border-color:var(--accent2);
+  background:rgba(94,231,255,.06);
+  transform:translateY(-2px);
 }
 
 .contact-link-label{
@@ -957,7 +1048,7 @@ footer span{
 
 /* RESPONSIVE */
 
-@media(max-width:950px){
+@media(max-width:1050px){
   .hero-inner,
   .project-top,
   .contact-grid{
@@ -965,7 +1056,13 @@ footer span{
   }
 
   .hero-card{
-    max-width:420px;
+    max-width:520px;
+    margin:0 auto;
+  }
+
+  .hero-subtitle{
+    justify-content:flex-start;
+    text-align:left;
   }
 
   .phone-stack{
@@ -1016,17 +1113,29 @@ footer span{
   }
 
   #about{
-    padding-top:4rem;
+    padding-top:1.25rem;
   }
 
-  .hero-name{
-    font-size:3.8rem;
+  .hero-frame{
+    width:calc(100% - 1.25rem);
+    border-radius:28px;
   }
 
   .hero-inner{
+    padding:1.35rem;
     gap:2rem;
   }
 
+  .hero-name{
+    font-size:3.75rem;
+  }
+
+  .hero-subtitle{
+    font-size:1rem;
+    letter-spacing:.14em;
+    justify-content:center;
+    text-align:center;
+  }
 
   .hero-avatar{
     width:180px;
@@ -1037,9 +1146,11 @@ footer span{
     display:block;
     max-width:420px;
     margin:0 auto;
+    border-radius:26px;
   }
 
-  .hero-actions .btn{
+  .hero-actions .btn,
+  .hero-card-actions .btn{
     width:100%;
   }
 
@@ -1085,10 +1196,6 @@ footer span{
 
   .case-grid{
     grid-template-columns:1fr 1fr;
-  }
-
-  .exp-meta{
-    text-align:left;
   }
 
   .contact-grid{
@@ -1144,73 +1251,91 @@ footer span{
 </nav>
 
 <section id="about">
-  <div class="hero-inner">
-    <div>
+  <div class="hero-frame">
+    <div class="hero-inner">
 
-      <h1 class="hero-name">Novak<span>Velimirović</span></h1>
+      <div class="hero-copy">
+        <div class="status-badge">
+          <span class="status-dot"></span>
+          Open to junior iOS roles
+        </div>
 
-      <p class="hero-subtitle">
-        iOS Developer
-      </p>
+        <h1 class="hero-name">Novak<span>Velimirović</span></h1>
 
-      <p class="hero-bio">
-        I build iOS apps with <strong>Swift, SwiftUI, UIKit, Firebase, and AVFoundation</strong>.
-        I care about real working features: authentication, app structure, navigation, media upload,
-        Firestore data, video playback, loading states, and clean error handling.
-      </p>
+        <p class="hero-subtitle">
+          iOS Developer
+        </p>
 
-      <p class="hero-bio">
-        My main project is <strong>Espres</strong>, where I’m building a social app around real app behavior:
-        accounts, posts, image and video upload, profiles, search, comments, likes, view counts,
-        settings, and Firebase-backed data.
-      </p>
+        <p class="hero-bio">
+          I build iOS apps with <strong>Swift, SwiftUI, UIKit, Firebase, and AVFoundation</strong>.
+          I care about real working features: authentication, app structure, navigation, media upload,
+          Firestore data, video playback, loading states, and clean error handling.
+        </p>
 
-      <div class="hero-actions">
-        <a class="btn primary" href="https://github.com/nole28/Espres" target="_blank" rel="noreferrer">View Espres ↗</a>
-        <a class="btn" href="assets/Novak-Velimirovic-Resume.pdf" target="_blank" rel="noreferrer">View CV ↗</a>
-        <a class="btn" href="mailto:novak.velimirovic1@gmail.com">Email ↗</a>
+        <p class="hero-bio">
+          My main project is <strong>Espres</strong>, a SwiftUI social app built around real app behavior:
+          accounts, posts, image and video upload, profiles, search, comments, likes, view counts,
+          settings, and Firebase-backed data.
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn primary" href="https://github.com/nole28/Espres" target="_blank" rel="noreferrer">View Espres ↗</a>
+          <a class="btn" href="mailto:novak.velimirovic1@gmail.com">Email ↗</a>
+          <a class="btn" href="https://github.com/nole28" target="_blank" rel="noreferrer">GitHub ↗</a>
+        </div>
       </div>
+
+      <aside class="hero-card" aria-label="quick profile card">
+        <div class="hero-avatar">
+          <img src="./assets/novak-profile.jpg" alt="Portrait of Novak Velimirović">
+        </div>
+
+        <div class="card-kicker">Self-taught</div>
+
+        <h2 class="hero-card-title">
+          iOS Developer
+          <span>Building real apps</span>
+        </h2>
+
+        <div class="card-tech">
+          <span>Swift</span>
+          <span>SwiftUI</span>
+          <span>Firebase</span>
+        </div>
+
+        <p class="hero-card-note">
+          Focused on clean implementation, real debugging, steady progress,
+          and shipping working SwiftUI features.
+        </p>
+
+        <div class="hero-card-actions">
+          <a class="btn primary" href="assets/Novak-Velimirovic-Resume.pdf" target="_blank" rel="noreferrer">View CV ↗</a>
+        </div>
+
+        <div class="quick-grid">
+          <div class="quick-cell">
+            <div class="quick-val">Swift</div>
+            <div class="quick-label">Core language</div>
+          </div>
+
+          <div class="quick-cell">
+            <div class="quick-val">SwiftUI</div>
+            <div class="quick-label">Modern UI</div>
+          </div>
+
+          <div class="quick-cell">
+            <div class="quick-val">Firebase</div>
+            <div class="quick-label">Auth and data</div>
+          </div>
+
+          <div class="quick-cell">
+            <div class="quick-val">Espres</div>
+            <div class="quick-label">Main project</div>
+          </div>
+        </div>
+      </aside>
+
     </div>
-
-    <aside class="hero-card fade-up" aria-label="quick profile stats">
-      <div class="hero-avatar">
-        <img src="./assets/novak-profile.jpg" alt="Portrait of Novak Velimirović">
-      </div>
-
-      <div class="hero-card-name">Novak Velimirović</div>
-      <div class="hero-card-role">iOS Developer</div>
-
-      <p class="hero-card-note">
-        Building real SwiftUI app flows with a focus on clean implementation, clear communication,
-        debugging, and steady progress.
-      </p>
-
-      <div class="hero-card-actions">
-        <a class="btn" href="assets/Novak-Velimirovic-Resume.pdf" target="_blank" rel="noreferrer">View CV ↗</a>
-      </div>
-
-      <div class="quick-grid">
-        <div class="quick-cell">
-          <div class="quick-val">Coding</div>
-          <div class="quick-label">Clean features</div>
-        </div>
-
-        <div class="quick-cell">
-          <div class="quick-val">Communication</div>
-          <div class="quick-label">Clear updates</div>
-        </div>
-
-        <div class="quick-cell">
-          <div class="quick-val">Problem Solving</div>
-          <div class="quick-label">Real debugging</div>
-        </div>
-
-        <div class="quick-cell">
-          <div class="quick-val">Consistency</div>
-          <div class="quick-label">Steady progress</div>
-        </div>
-      </div>
-    </aside>
   </div>
 </section>
 
