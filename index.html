@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 <title>Novak Velimirović — Junior iOS Developer</title>
-<meta name="description" content="Portfolio of Novak Velimirović, a self-taught iOS developer building real SwiftUI apps with Swift, MVVM, Codable, Firebase, Firestore, Firebase Storage, AVFoundation, media upload, authentication, search, video playback, and social features. Currently learning Vapor and backend development." />
+<meta name="description" content="Portfolio of Novak Velimirović, a junior iOS developer building SwiftUI apps with Firebase, Firestore, Firebase Storage, media upload, profiles, comments, search, following, messaging, and clean project structure." />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,16 +18,15 @@
   --bg:#05070a;
   --bg2:#0b0f15;
   --bg3:#121821;
-  --card:#0e131a;
-  --card2:#141b25;
-  --border:rgba(235,245,255,.09);
-  --border2:rgba(235,245,255,.18);
   --text:#f4f7fb;
   --muted:#9aa4b2;
   --muted2:#667085;
+  --border:rgba(235,245,255,.09);
+  --border2:rgba(235,245,255,.18);
   --accent:#0a84ff;
   --accent2:#64d2ff;
   --green:#30d158;
+  --yellow:#ffd60a;
   --mono:"JetBrains Mono",monospace;
   --sans:"Space Grotesk",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
 }
@@ -40,8 +39,8 @@ html{
 body{
   font-family:var(--sans);
   background:
-    radial-gradient(circle at 72% 0%,rgba(10,132,255,.14),transparent 30%),
-    radial-gradient(circle at 12% 18%,rgba(100,210,255,.08),transparent 28%),
+    radial-gradient(circle at 74% 0%,rgba(10,132,255,.16),transparent 30%),
+    radial-gradient(circle at 12% 16%,rgba(100,210,255,.09),transparent 28%),
     linear-gradient(180deg,#05070a 0%,#07101a 48%,#05070a 100%);
   color:var(--text);
   font-size:16px;
@@ -85,7 +84,7 @@ nav{
 
 .nav-links{
   display:flex;
-  gap:clamp(1rem,3vw,2.5rem);
+  gap:clamp(1rem,3vw,2.4rem);
   list-style:none;
 }
 
@@ -127,9 +126,9 @@ section{
 }
 
 .section-sub{
-  max-width:760px;
-  color:rgba(238,241,247,.64);
-  font-size:.96rem;
+  max-width:790px;
+  color:rgba(238,241,247,.66);
+  font-size:1rem;
   line-height:1.85;
   margin-bottom:3rem;
 }
@@ -146,8 +145,9 @@ section{
   align-items:center;
   justify-content:center;
   gap:.45rem;
-  padding:.72rem 1.15rem;
+  padding:.78rem 1.15rem;
   border:1px solid var(--border2);
+  border-radius:999px;
   font-family:var(--mono);
   font-size:.72rem;
   font-weight:700;
@@ -169,15 +169,14 @@ section{
 .btn.primary{
   background:var(--accent);
   border-color:var(--accent);
-  color:white;
+  color:#fff;
   box-shadow:0 18px 50px rgba(10,132,255,.26);
 }
 
 .btn.primary:hover{
   background:var(--accent2);
   border-color:var(--accent2);
-  color:white;
-  box-shadow:0 22px 70px rgba(100,210,255,.18);
+  color:#fff;
 }
 
 /* HERO */
@@ -235,6 +234,7 @@ section{
   gap:.55rem;
   padding:.42rem .8rem;
   border:1px solid rgba(100,210,255,.38);
+  border-radius:999px;
   font-family:var(--mono);
   font-size:.68rem;
   letter-spacing:.14em;
@@ -276,23 +276,23 @@ section{
   display:flex;
   justify-content:center;
   align-items:center;
-  width:min(760px,100%);
+  width:min(850px,100%);
   margin:0 0 2.35rem;
   padding:.85rem 1rem;
   border-top:1px solid rgba(235,245,255,.10);
   border-bottom:1px solid rgba(235,245,255,.10);
   font-family:var(--mono);
-  font-size:clamp(1.05rem,2.2vw,1.85rem);
+  font-size:clamp(.95rem,2vw,1.55rem);
   font-weight:700;
-  letter-spacing:.22em;
+  letter-spacing:.15em;
   text-transform:uppercase;
   color:var(--text);
   background:linear-gradient(90deg,transparent,rgba(100,210,255,.07),transparent);
 }
 
 .hero-bio{
-  max-width:760px;
-  color:rgba(238,241,247,.68);
+  max-width:780px;
+  color:rgba(238,241,247,.70);
   font-size:1rem;
   line-height:1.9;
   margin-bottom:1.15rem;
@@ -325,19 +325,6 @@ section{
   text-align:center;
   position:relative;
   overflow:hidden;
-}
-
-.hero-card::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  border-radius:34px;
-  padding:1px;
-  background:linear-gradient(135deg,rgba(100,210,255,.32),rgba(10,132,255,.25),transparent 70%);
-  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
-  -webkit-mask-composite:xor;
-  mask-composite:exclude;
-  pointer-events:none;
 }
 
 .hero-avatar{
@@ -401,157 +388,155 @@ section{
   max-width:340px;
 }
 
-.hero-card-actions{
-  margin-top:1.2rem;
-}
-
-/* SKILLS */
-
-.skills-block{
-  margin-top:2rem;
-}
-
-.skills-group{
-  margin-bottom:2rem;
-}
-
-.skills-group-head{
-  display:flex;
-  justify-content:space-between;
-  align-items:end;
-  gap:1rem;
-  margin-bottom:1rem;
-}
-
-.skills-group-title{
-  font-size:1.25rem;
-  font-weight:700;
-  letter-spacing:-.02em;
-}
-
-.skills-group-note{
-  font-family:var(--mono);
-  font-size:.68rem;
-  color:var(--muted2);
-  text-transform:uppercase;
-  letter-spacing:.1em;
-}
-
-.skills-grid{
+.quick-stats{
   display:grid;
   grid-template-columns:repeat(3,1fr);
   gap:1px;
   background:var(--border);
   border:1px solid var(--border);
-  border-radius:24px;
+  border-radius:22px;
+  overflow:hidden;
+  margin-top:1.25rem;
+  text-align:left;
+}
+
+.quick-stat{
+  background:rgba(11,15,21,.72);
+  padding:1rem;
+}
+
+.quick-stat strong{
+  display:block;
+  font-family:var(--mono);
+  color:var(--accent2);
+  font-size:.85rem;
+  margin-bottom:.2rem;
+}
+
+.quick-stat span{
+  display:block;
+  color:var(--muted);
+  font-size:.72rem;
+  line-height:1.45;
+}
+
+/* SKILLS */
+
+.skills-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:1px;
+  background:var(--border);
+  border:1px solid var(--border);
+  border-radius:28px;
   overflow:hidden;
 }
 
-.skill-item{
+.skill-card{
   background:rgba(11,15,21,.88);
-  padding:1.15rem 1.25rem;
-  transition:.2s;
+  padding:1.35rem;
+  min-height:190px;
 }
 
-.skill-item:hover{
-  background:var(--bg3);
-}
-
-.skill-name{
-  font-family:var(--mono);
-  font-size:.82rem;
-  margin-bottom:.25rem;
-}
-
-.skill-type{
-  font-family:var(--mono);
-  font-size:.64rem;
-  letter-spacing:.1em;
-  text-transform:uppercase;
-  color:var(--muted2);
-}
-
-.skill-dot{
-  display:inline-block;
-  width:6px;
-  height:6px;
-  border-radius:999px;
-  background:var(--accent2);
-  box-shadow:0 0 18px rgba(100,210,255,.7);
-  margin-right:.5rem;
-}
-
-/* EXPERIENCE */
-
-.exp-card{
-  border:1px solid var(--border);
-  background:
-    linear-gradient(180deg,rgba(244,247,251,.045),rgba(244,247,251,.018)),
-    var(--bg2);
-  padding:clamp(1.5rem,4vw,2.5rem);
-  margin-bottom:1px;
-  border-radius:28px;
-}
-
-.exp-header{
-  display:flex;
-  justify-content:space-between;
-  align-items:flex-start;
-  gap:1rem;
-  flex-wrap:wrap;
-  margin-bottom:1.5rem;
-}
-
-.exp-company{
-  font-size:1.3rem;
-  font-weight:700;
+.skill-card h3{
+  font-size:1.08rem;
   letter-spacing:-.02em;
+  margin-bottom:.85rem;
 }
 
-.exp-role{
-  font-family:var(--mono);
-  font-size:.74rem;
-  color:var(--accent2);
-  letter-spacing:.06em;
+.skill-card p{
+  color:rgba(238,241,247,.63);
+  font-size:.88rem;
+  line-height:1.7;
+  margin-bottom:1rem;
 }
 
-.exp-project-tag{
+.skill-list{
+  display:flex;
+  flex-wrap:wrap;
+  gap:.45rem;
+}
+
+.skill-pill{
   font-family:var(--mono);
-  font-size:.66rem;
-  letter-spacing:.12em;
+  font-size:.62rem;
+  letter-spacing:.08em;
   text-transform:uppercase;
-  color:var(--muted2);
-  border-bottom:1px solid var(--border);
-  padding-bottom:.5rem;
-  margin:1.5rem 0 1rem;
+  color:var(--muted);
+  border:1px solid var(--border2);
+  background:rgba(255,255,255,.025);
+  padding:.28rem .55rem;
+  border-radius:999px;
 }
 
-.exp-bullets{
+.learning-note{
+  margin-top:1.4rem;
+  border:1px solid rgba(255,214,10,.18);
+  background:rgba(255,214,10,.045);
+  padding:1rem 1.2rem;
+  border-radius:22px;
+  color:rgba(238,241,247,.70);
+  font-size:.92rem;
+  line-height:1.75;
+}
+
+.learning-note strong{
+  color:var(--yellow);
+  font-family:var(--mono);
+  font-size:.78rem;
+}
+
+/* CASE STUDY */
+
+.case-layout{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:1px;
+  background:var(--border);
+  border:1px solid var(--border);
+  border-radius:28px;
+  overflow:hidden;
+}
+
+.case-panel{
+  background:var(--bg2);
+  padding:clamp(1.35rem,3vw,2rem);
+}
+
+.case-panel.full{
+  grid-column:1/-1;
+}
+
+.case-panel h3{
+  font-size:1.25rem;
+  margin-bottom:.8rem;
+}
+
+.case-panel p{
+  color:rgba(238,241,247,.66);
+  font-size:.94rem;
+  line-height:1.8;
+}
+
+.case-panel ul{
   list-style:none;
   display:flex;
   flex-direction:column;
-  gap:.5rem;
+  gap:.65rem;
+  margin-top:.9rem;
 }
 
-.exp-bullets li{
+.case-panel li{
   display:flex;
   gap:.75rem;
   color:rgba(238,241,247,.66);
   font-size:.9rem;
 }
 
-.exp-bullets li::before{
-  content:"→";
+.case-panel li::before{
+  content:"•";
   color:var(--accent2);
   font-family:var(--mono);
-  flex-shrink:0;
-}
-
-.exp-bullets strong{
-  color:var(--text);
-  font-weight:700;
-  font-family:var(--mono);
-  font-size:.82rem;
 }
 
 /* PROJECT */
@@ -576,6 +561,7 @@ section{
   display:inline-block;
   padding:.3rem .65rem;
   border:1px solid rgba(52,211,153,.45);
+  border-radius:999px;
   font-family:var(--mono);
   font-size:.62rem;
   letter-spacing:.12em;
@@ -594,7 +580,7 @@ section{
 
 .project-desc{
   max-width:640px;
-  color:rgba(238,241,247,.68);
+  color:rgba(238,241,247,.70);
   line-height:1.85;
   margin-bottom:1.2rem;
 }
@@ -608,16 +594,16 @@ section{
 .tag{
   padding:.32rem .7rem;
   border:1px solid var(--border2);
+  border-radius:999px;
   font-family:var(--mono);
   font-size:.64rem;
   letter-spacing:.1em;
   text-transform:uppercase;
   color:var(--muted);
   background:rgba(255,255,255,.02);
-  border-radius:999px;
 }
 
-/* PHONES */
+/* PHONE MOCKUPS */
 
 .phone-stack{
   position:relative;
@@ -721,8 +707,6 @@ section{
   100%{transform:translateX(125px) rotate(10deg) scale(.92);opacity:.72;z-index:1}
 }
 
-/* PROJECT DETAILS */
-
 .case-grid{
   display:grid;
   grid-template-columns:repeat(4,1fr);
@@ -738,9 +722,9 @@ section{
 
 .case-num{
   font-family:var(--mono);
-  font-size:1.4rem;
+  font-size:1.25rem;
   color:var(--accent2);
-  line-height:1;
+  line-height:1.1;
 }
 
 .case-label{
@@ -751,6 +735,120 @@ section{
   color:var(--muted);
   margin-top:.25rem;
 }
+
+/* DEMO */
+
+.demo-block{
+  margin-top:2rem;
+  display:grid;
+  grid-template-columns:minmax(0,1.15fr) minmax(280px,.85fr);
+  gap:1px;
+  background:var(--border);
+  border:1px solid var(--border);
+  border-radius:28px;
+  overflow:hidden;
+}
+
+.demo-video{
+  background:#020305;
+  min-height:360px;
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+}
+
+.demo-video video{
+  width:100%;
+  height:100%;
+  display:block;
+  object-fit:cover;
+  background:#000;
+}
+
+.demo-placeholder{
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  gap:.9rem;
+  text-align:center;
+  padding:2rem;
+  background:
+    radial-gradient(circle at center,rgba(10,132,255,.16),transparent 38%),
+    linear-gradient(180deg,#05070a,#020305);
+}
+
+.demo-play{
+  width:72px;
+  height:72px;
+  border-radius:999px;
+  border:1px solid rgba(100,210,255,.35);
+  background:rgba(100,210,255,.08);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:1.8rem;
+  color:var(--accent2);
+}
+
+.demo-placeholder strong{
+  font-family:var(--mono);
+  color:var(--text);
+  font-size:.85rem;
+}
+
+.demo-placeholder span{
+  color:var(--muted);
+  max-width:420px;
+  font-size:.9rem;
+}
+
+.demo-copy{
+  background:var(--bg2);
+  padding:clamp(1.4rem,4vw,2rem);
+}
+
+.demo-copy h3{
+  font-size:1.3rem;
+  margin-bottom:.75rem;
+}
+
+.demo-copy p{
+  color:rgba(238,241,247,.66);
+  font-size:.92rem;
+  line-height:1.78;
+  margin-bottom:1rem;
+}
+
+.demo-steps{
+  list-style:none;
+  display:flex;
+  flex-direction:column;
+  gap:.55rem;
+  counter-reset:steps;
+}
+
+.demo-steps li{
+  counter-increment:steps;
+  display:flex;
+  gap:.75rem;
+  color:rgba(238,241,247,.66);
+  font-size:.88rem;
+}
+
+.demo-steps li::before{
+  content:counter(steps,decimal-leading-zero);
+  color:var(--accent2);
+  font-family:var(--mono);
+  font-size:.68rem;
+  flex-shrink:0;
+}
+
+/* FEATURES */
 
 .features{
   display:grid;
@@ -778,6 +876,8 @@ section{
   color:rgba(238,241,247,.62);
   line-height:1.7;
 }
+
+/* SCREENSHOTS */
 
 .screens-title{
   display:flex;
@@ -839,9 +939,55 @@ section{
   text-align:center;
 }
 
-.two-col{
+/* STRUCTURE */
+
+.structure-card{
+  border:1px solid var(--border);
+  background:var(--bg2);
+  border-radius:28px;
+  overflow:hidden;
+  margin-top:2rem;
   display:grid;
-  grid-template-columns:1fr 1fr;
+  grid-template-columns:minmax(0,1fr) minmax(280px,.8fr);
+}
+
+.structure-code{
+  padding:1.4rem;
+  background:
+    radial-gradient(circle at 10% 0%,rgba(100,210,255,.08),transparent 32%),
+    #070a0f;
+  border-right:1px solid var(--border);
+  overflow-x:auto;
+}
+
+.structure-code pre{
+  font-family:var(--mono);
+  font-size:.78rem;
+  color:rgba(238,241,247,.76);
+  line-height:1.75;
+  white-space:pre;
+}
+
+.structure-copy{
+  padding:clamp(1.4rem,4vw,2rem);
+}
+
+.structure-copy h3{
+  font-size:1.25rem;
+  margin-bottom:.75rem;
+}
+
+.structure-copy p{
+  color:rgba(238,241,247,.66);
+  font-size:.92rem;
+  line-height:1.78;
+}
+
+/* ROADMAP */
+
+.roadmap{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
   gap:1px;
   background:var(--border);
   border:1px solid var(--border);
@@ -850,34 +996,20 @@ section{
   margin-top:2rem;
 }
 
-.panel{
+.roadmap-card{
   background:var(--bg2);
-  padding:clamp(1.4rem,4vw,2rem);
+  padding:1.4rem;
 }
 
-.panel h3{
-  font-size:1.25rem;
-  margin-bottom:1rem;
+.roadmap-card h3{
+  font-size:1rem;
+  margin-bottom:.55rem;
 }
 
-.panel ul{
-  list-style:none;
-  display:flex;
-  flex-direction:column;
-  gap:.7rem;
-}
-
-.panel li{
-  display:flex;
-  gap:.75rem;
-  color:rgba(238,241,247,.66);
-  font-size:.9rem;
-}
-
-.panel li::before{
-  content:"•";
-  color:var(--accent2);
-  font-family:var(--mono);
+.roadmap-card p{
+  color:rgba(238,241,247,.62);
+  font-size:.87rem;
+  line-height:1.72;
 }
 
 /* CONTACT */
@@ -983,8 +1115,15 @@ footer span{
 @media(max-width:1050px){
   .hero-inner,
   .project-top,
-  .contact-grid{
+  .contact-grid,
+  .demo-block,
+  .structure-card{
     grid-template-columns:1fr;
+  }
+
+  .structure-code{
+    border-right:0;
+    border-bottom:1px solid var(--border);
   }
 
   .hero-card{
@@ -1014,12 +1153,17 @@ footer span{
     height:220px;
   }
 
-  .features{
+  .features,
+  .roadmap{
     grid-template-columns:1fr 1fr;
   }
 
   .case-grid{
     grid-template-columns:repeat(2,1fr);
+  }
+
+  .case-layout{
+    grid-template-columns:1fr;
   }
 }
 
@@ -1063,8 +1207,8 @@ footer span{
   }
 
   .hero-subtitle{
-    font-size:1rem;
-    letter-spacing:.14em;
+    font-size:.92rem;
+    letter-spacing:.10em;
     justify-content:center;
     text-align:center;
   }
@@ -1074,29 +1218,14 @@ footer span{
     height:180px;
   }
 
-  .hero-card{
-    display:block;
-    max-width:420px;
-    margin:0 auto;
-    border-radius:26px;
-  }
-
-  .hero-actions .btn,
-  .hero-card-actions .btn{
+  .hero-actions .btn{
     width:100%;
   }
 
-  .skills-group-head{
-    display:block;
-  }
-
-  .skills-group-note{
-    margin-top:.35rem;
-  }
-
+  .quick-stats,
   .skills-grid,
   .features,
-  .two-col{
+  .roadmap{
     grid-template-columns:1fr;
   }
 
@@ -1169,7 +1298,6 @@ footer span{
 </head>
 
 <body>
-<!-- Updated portfolio copy: stronger SwiftUI/MVVM focus, honest Vapor learning roadmap, and clearer junior iOS positioning. -->
 
 <nav>
   <a class="nav-logo" href="#about">NV.</a>
@@ -1177,7 +1305,7 @@ footer span{
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#skills">Skills</a></li>
-    <li><a href="#experience">Build</a></li>
+    <li><a href="#case-study">Case Study</a></li>
     <li><a href="#projects">Espres</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
@@ -1196,27 +1324,27 @@ footer span{
         <h1 class="hero-name">Novak<span>Velimirović</span></h1>
 
         <p class="hero-subtitle">
-          Junior iOS Developer
+          Junior iOS Developer · SwiftUI · Firebase
         </p>
 
         <p class="hero-bio">
-          I’m Novak Velimirović, a self-taught iOS developer focused on building real, working SwiftUI apps.
-          My strongest skills are <strong>Swift, SwiftUI, MVVM, Codable, Firebase, Firestore, Firebase Storage,
-          AVFoundation, app state, navigation, and media-based features</strong>.
+          I’m a self-taught junior iOS developer focused on building complete SwiftUI apps, not only static screens.
+          My main project, <strong>Espres</strong>, is a social video app with authentication, profiles, posts,
+          video upload, comments, saved content, search, following, and direct messaging.
         </p>
 
         <p class="hero-bio">
-          Through my main project, <strong>Espres</strong>, I’ve worked on authentication, user profiles, posts,
-          comments, likes, search, image and video upload, short-form playback, settings, loading states,
-          and Firebase-backed data. I’m currently continuing my Swift studies, improving my architecture skills,
-          and learning <strong>Vapor</strong> so I can better understand backend development and build more advanced
-          apps with real-time messaging, media sharing, and communication features.
+          I’m strongest with <strong>Swift, SwiftUI, MVVM-style structure, Firebase Auth, Firestore,
+          Firebase Storage, AVKit, PhotosUI, app state, navigation, and Xcode debugging</strong>.
+          I’m currently improving my architecture skills and studying backend fundamentals with Vapor so I can better understand
+          APIs, authentication, real-time communication, and production app design.
         </p>
 
         <div class="hero-actions">
           <a class="btn primary" href="https://github.com/nole28/Espres" target="_blank" rel="noreferrer">View Espres ↗</a>
+          <a class="btn" href="YOUR_DEMO_VIDEO_LINK" target="_blank" rel="noreferrer">Watch Demo ↗</a>
           <a class="btn" href="mailto:novak.velimirovic1@gmail.com">Email ↗</a>
-          <a class="btn" href="https://github.com/nole28" target="_blank" rel="noreferrer">GitHub ↗</a>
+          <a class="btn" href="assets/Novak-Velimirovic-Resume.pdf" target="_blank" rel="noreferrer">Resume ↗</a>
         </div>
       </div>
 
@@ -1225,14 +1353,25 @@ footer span{
           <img src="./assets/novak-profile.jpg" alt="Portrait of Novak Velimirović">
         </div>
 
-        <div class="card-kicker">SwiftUI / Junior iOS Developer</div>
+        <div class="card-kicker">Portfolio-ready iOS project</div>
 
         <p class="hero-card-note">
-          Building complete SwiftUI features with clean structure, MVVM, Firebase-backed data, and careful debugging. Currently learning Vapor, APIs, and real-time communication features.
+          I build SwiftUI features end-to-end: UI, state, Firebase reads/writes, media upload, debugging, and file organization.
         </p>
 
-        <div class="hero-card-actions">
-          <a class="btn primary" href="assets/Novak-Velimirovic-Resume.pdf" target="_blank" rel="noreferrer">View CV ↗</a>
+        <div class="quick-stats">
+          <div class="quick-stat">
+            <strong>SwiftUI</strong>
+            <span>Main app UI framework</span>
+          </div>
+          <div class="quick-stat">
+            <strong>Firebase</strong>
+            <span>Auth, data, storage</span>
+          </div>
+          <div class="quick-stat">
+            <strong>Espres</strong>
+            <span>Full social app v1</span>
+          </div>
         </div>
       </aside>
 
@@ -1243,195 +1382,221 @@ footer span{
 <div class="full-divider"></div>
 
 <section id="skills">
-  <p class="section-tag">// 01 — My Skills</p>
+  <p class="section-tag">// 01 — Skills</p>
 
-  <h2 class="section-title">What I Work With</h2>
+  <h2 class="section-title">Practical iOS skills, honestly grouped.</h2>
 
   <p class="section-sub">
-    A practical mix of iOS skills I use in real projects, plus technologies I’m actively learning.
-    My strongest area is SwiftUI app development with MVVM, Firebase-backed data, media features,
-    clean state management, and readable project structure. I keep the learning section separate so the portfolio stays honest.
+    My strongest area is building SwiftUI features with Firebase-backed data, media handling, app state,
+    navigation, debugging, and project organization. I keep this section focused on technologies I have used in real project work.
   </p>
 
-  <div class="skills-block fade-up">
-
-    <div class="skills-group">
-      <div class="skills-group-head">
-        <h3 class="skills-group-title">Professional Strengths</h3>
-        <p class="skills-group-note">Communication · teamwork · creativity</p>
-      </div>
-
-      <div class="skills-grid">
-        <div class="skill-item">
-          <div class="skill-name"><span class="skill-dot"></span>Communication</div>
-          <div class="skill-type">Clear technical updates</div>
-        </div>
-        <div class="skill-item">
-          <div class="skill-name"><span class="skill-dot"></span>Teamwork</div>
-          <div class="skill-type">Easy to work with</div>
-        </div>
-        <div class="skill-item">
-          <div class="skill-name"><span class="skill-dot"></span>Problem Solving</div>
-          <div class="skill-type">Finding practical fixes</div>
-        </div>
-        <div class="skill-item">
-          <div class="skill-name"><span class="skill-dot"></span>Feature Ownership</div>
-          <div class="skill-type">Building from idea to result</div>
-        </div>
-        <div class="skill-item">
-          <div class="skill-name"><span class="skill-dot"></span>Consistency</div>
-          <div class="skill-type">Steady project progress</div>
-        </div>
-        <div class="skill-item">
-          <div class="skill-name"><span class="skill-dot"></span>Creativity</div>
-          <div class="skill-type">Thinking through better solutions</div>
-        </div>
+  <div class="skills-grid fade-up">
+    <div class="skill-card">
+      <h3>iOS Development</h3>
+      <p>Building screens, flows, and app behavior with SwiftUI and Swift.</p>
+      <div class="skill-list">
+        <span class="skill-pill">Swift</span>
+        <span class="skill-pill">SwiftUI</span>
+        <span class="skill-pill">UIKit basics</span>
+        <span class="skill-pill">Navigation</span>
+        <span class="skill-pill">State</span>
+        <span class="skill-pill">Xcode</span>
       </div>
     </div>
 
-    <div class="skills-group">
-      <div class="skills-group-head">
-        <h3 class="skills-group-title">iOS / Swift Development</h3>
-        <p class="skills-group-note">Swift · architecture · debugging</p>
-      </div>
-
-      <div class="skills-grid">
-        <div class="skill-item"><div class="skill-name"><span class="skill-dot"></span>Swift</div><div class="skill-type">Core iOS language</div></div>
-        <div class="skill-item"><div class="skill-name"><span class="skill-dot"></span>SwiftUI</div><div class="skill-type">Modern iOS interfaces</div></div>
-        <div class="skill-item"><div class="skill-name"><span class="skill-dot"></span>UIKit</div><div class="skill-type">iOS UI framework</div></div>
-        <div class="skill-item"><div class="skill-name"><span class="skill-dot"></span>MVVM</div><div class="skill-type">Clean screen structure</div></div>
-        <div class="skill-item"><div class="skill-name"><span class="skill-dot"></span>Codable</div><div class="skill-type">Data parsing and models</div></div>
-        <div class="skill-item"><div class="skill-name"><span class="skill-dot"></span>App Architecture</div><div class="skill-type">Feature structure</div></div>
-        <div class="skill-item"><div class="skill-name"><span class="skill-dot"></span>State Management</div><div class="skill-type">SwiftUI app flow</div></div>
-        <div class="skill-item"><div class="skill-name"><span class="skill-dot"></span>Async / Await</div><div class="skill-type">Modern concurrency</div></div>
-        <div class="skill-item"><div class="skill-name"><span class="skill-dot"></span>Combine</div><div class="skill-type">Reactive patterns</div></div>
-        <div class="skill-item"><div class="skill-name"><span class="skill-dot"></span>URLSession</div><div class="skill-type">Networking basics</div></div>
-        <div class="skill-item"><div class="skill-name"><span class="skill-dot"></span>REST APIs</div><div class="skill-type">Client-server data</div></div>
-        <div class="skill-item"><div class="skill-name"><span class="skill-dot"></span>Data Modeling</div><div class="skill-type">Users, posts, videos</div></div>
-        <div class="skill-item"><div class="skill-name"><span class="skill-dot"></span>Xcode</div><div class="skill-type">Builds and simulator</div></div>
-        <div class="skill-item"><div class="skill-name"><span class="skill-dot"></span>Runtime Debugging</div><div class="skill-type">Simulator and device testing</div></div>
-        <div class="skill-item"><div class="skill-name"><span class="skill-dot"></span>Git / GitHub</div><div class="skill-type">Version control</div></div>
+    <div class="skill-card">
+      <h3>Architecture</h3>
+      <p>Separating models, services, view models, views, and shared components.</p>
+      <div class="skill-list">
+        <span class="skill-pill">MVVM-style</span>
+        <span class="skill-pill">ObservableObject</span>
+        <span class="skill-pill">EnvironmentObject</span>
+        <span class="skill-pill">Codable</span>
+        <span class="skill-pill">File organization</span>
       </div>
     </div>
 
-    <div class="skills-group">
-      <div class="skills-group-head">
-        <h3 class="skills-group-title">Firebase / Media / App Features</h3>
-        <p class="skills-group-note">Backend-connected iOS apps</p>
-      </div>
-
-      <div class="skills-grid">
-        <div class="skill-item"><div class="skill-name"><span class="skill-dot"></span>Firebase Auth</div><div class="skill-type">Login and accounts</div></div>
-        <div class="skill-item"><div class="skill-name"><span class="skill-dot"></span>Firestore</div><div class="skill-type">Cloud database</div></div>
-        <div class="skill-item"><div class="skill-name"><span class="skill-dot"></span>Firebase Storage</div><div class="skill-type">Image and video files</div></div>
-        <div class="skill-item"><div class="skill-name"><span class="skill-dot"></span>User Accounts</div><div class="skill-type">Auth and settings flows</div></div>
-        <div class="skill-item"><div class="skill-name"><span class="skill-dot"></span>Search</div><div class="skill-type">Users and content</div></div>
-        <div class="skill-item"><div class="skill-name"><span class="skill-dot"></span>Media Uploads</div><div class="skill-type">Images and videos</div></div>
-        <div class="skill-item"><div class="skill-name"><span class="skill-dot"></span>PhotosUI / PHPicker</div><div class="skill-type">Media selection</div></div>
-        <div class="skill-item"><div class="skill-name"><span class="skill-dot"></span>AVFoundation</div><div class="skill-type">Video playback</div></div>
-        <div class="skill-item"><div class="skill-name"><span class="skill-dot"></span>FileManager</div><div class="skill-type">Local file handling</div></div>
-        <div class="skill-item"><div class="skill-name"><span class="skill-dot"></span>Loading States</div><div class="skill-type">Better UX feedback</div></div>
-        <div class="skill-item"><div class="skill-name"><span class="skill-dot"></span>Error Handling</div><div class="skill-type">Safer app behavior</div></div>
-        <div class="skill-item"><div class="skill-name"><span class="skill-dot"></span>UI Testing</div><div class="skill-type">Behavior checks</div></div>
+    <div class="skill-card">
+      <h3>Firebase / Data</h3>
+      <p>Using Firebase for real accounts, data persistence, media files, and app state.</p>
+      <div class="skill-list">
+        <span class="skill-pill">Firebase Auth</span>
+        <span class="skill-pill">Firestore</span>
+        <span class="skill-pill">Storage</span>
+        <span class="skill-pill">User models</span>
+        <span class="skill-pill">Relationships</span>
       </div>
     </div>
 
-    <div class="skills-group">
-      <div class="skills-group-head">
-        <h3 class="skills-group-title">Learning / Next Features</h3>
-        <p class="skills-group-note">Honest roadmap</p>
-      </div>
-
-      <div class="skills-grid">
-        <div class="skill-item"><div class="skill-name"><span class="skill-dot"></span>Vapor</div><div class="skill-type">Learning backend APIs</div></div>
-        <div class="skill-item"><div class="skill-name"><span class="skill-dot"></span>REST APIs</div><div class="skill-type">Improving API design</div></div>
-        <div class="skill-item"><div class="skill-name"><span class="skill-dot"></span>WebSockets</div><div class="skill-type">Real-time communication</div></div>
-        <div class="skill-item"><div class="skill-name"><span class="skill-dot"></span>Push Notifications</div><div class="skill-type">Messaging updates</div></div>
-        <div class="skill-item"><div class="skill-name"><span class="skill-dot"></span>Real-time Chat</div><div class="skill-type">Planned messaging</div></div>
-        <div class="skill-item"><div class="skill-name"><span class="skill-dot"></span>Voice / Video Calls</div><div class="skill-type">Future communication features</div></div>
-        <div class="skill-item"><div class="skill-name"><span class="skill-dot"></span>SwiftData / Core Data</div><div class="skill-type">Local persistence</div></div>
-        <div class="skill-item"><div class="skill-name"><span class="skill-dot"></span>UserNotifications</div><div class="skill-type">Notification framework</div></div>
-        <div class="skill-item"><div class="skill-name"><span class="skill-dot"></span>User Experience</div><div class="skill-type">Better app flows</div></div>
+    <div class="skill-card">
+      <h3>Media Features</h3>
+      <p>Handling image and video flows with picker APIs, storage uploads, thumbnails, and playback.</p>
+      <div class="skill-list">
+        <span class="skill-pill">PhotosUI</span>
+        <span class="skill-pill">PHPicker</span>
+        <span class="skill-pill">AVKit</span>
+        <span class="skill-pill">AVFoundation</span>
+        <span class="skill-pill">FileManager</span>
       </div>
     </div>
 
+    <div class="skill-card">
+      <h3>App Features</h3>
+      <p>Features implemented or debugged inside Espres.</p>
+      <div class="skill-list">
+        <span class="skill-pill">Profiles</span>
+        <span class="skill-pill">Posts</span>
+        <span class="skill-pill">Comments</span>
+        <span class="skill-pill">Search</span>
+        <span class="skill-pill">Following</span>
+        <span class="skill-pill">Messages</span>
+      </div>
+    </div>
+
+    <div class="skill-card">
+      <h3>Debugging</h3>
+      <p>Fixing real runtime issues instead of only building preview UI.</p>
+      <div class="skill-list">
+        <span class="skill-pill">Simulator</span>
+        <span class="skill-pill">Git</span>
+        <span class="skill-pill">Firestore bugs</span>
+        <span class="skill-pill">Layout bugs</span>
+        <span class="skill-pill">Xcode refs</span>
+      </div>
+    </div>
+
+    <div class="skill-card">
+      <h3>Currently Learning</h3>
+      <p>Backend and architecture topics I am studying next.</p>
+      <div class="skill-list">
+        <span class="skill-pill">Vapor</span>
+        <span class="skill-pill">REST APIs</span>
+        <span class="skill-pill">WebSockets</span>
+        <span class="skill-pill">Push notifications</span>
+        <span class="skill-pill">Testing</span>
+      </div>
+    </div>
+
+    <div class="skill-card">
+      <h3>Work Style</h3>
+      <p>How I approach the work as a junior developer.</p>
+      <div class="skill-list">
+        <span class="skill-pill">Consistency</span>
+        <span class="skill-pill">Debugging</span>
+        <span class="skill-pill">Communication</span>
+        <span class="skill-pill">Finishing</span>
+        <span class="skill-pill">Learning fast</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="learning-note fade-up">
+    <strong>Honest note:</strong>
+    I’m applying for junior iOS roles. I’m not trying to present myself as a senior engineer.
+    What I can show clearly is that I can build a real SwiftUI app, connect it to Firebase, debug difficult behavior,
+    organize a project, and keep improving until the product is presentable.
   </div>
 </section>
 
 <div class="full-divider"></div>
 
-<section id="experience">
-  <p class="section-tag">// 02 — Build</p>
+<section id="case-study">
+  <p class="section-tag">// 02 — Case Study</p>
 
-  <h2 class="section-title">Building Espres</h2>
+  <h2 class="section-title">Espres case study.</h2>
 
   <p class="section-sub">
-    Espres is my main iOS project: a SwiftUI social app built around real app flows,
-    not static screens or mockups. I used Swift, SwiftUI, MVVM, Codable, Firebase Auth, Firestore,
-    Firebase Storage, AVFoundation, async operations, app state, and simulator-tested behavior.
+    Espres is the project I use to demonstrate my current iOS level. It started as a social media-style SwiftUI app
+    and grew into a portfolio-ready v1 with authentication, media upload, profiles, comments, search, following,
+    saved content, and messaging.
   </p>
 
-  <div class="exp-card fade-up">
-    <div class="exp-header">
-      <div>
-        <div class="exp-company">Espres</div>
-        <div class="exp-role">SwiftUI · Firebase backend · Media workflows</div>
-      </div>
+  <div class="case-layout fade-up">
+    <div class="case-panel">
+      <h3>Problem</h3>
+      <p>
+        I wanted to build something closer to a real product than a tutorial app. The goal was to create a social app where users can sign in,
+        create content, upload media, open profiles, follow users, comment, save content, search, and message.
+      </p>
     </div>
 
-    <div class="exp-project-tag">○ Built so far</div>
+    <div class="case-panel">
+      <h3>My role</h3>
+      <p>
+        I designed and built the app as a solo project: SwiftUI screens, Firebase data modeling, app state, uploads,
+        navigation, profile logic, debugging, file organization, and final presentation cleanup.
+      </p>
+    </div>
 
-    <ul class="exp-bullets">
-      <li>Built a <strong>multi-tab SwiftUI app</strong> with feed, posts, videos, profiles, search, upload flow, settings, and account features.</li>
-      <li>Implemented <strong>Firebase Authentication</strong> for real user accounts, login, registration, and account-related flows.</li>
-      <li>Modeled app data in <strong>Firestore</strong> for users, posts, videos, comments, likes, profiles, and view counts.</li>
-      <li>Used <strong>Firebase Storage</strong> for image and video media files instead of storing large assets directly in the database.</li>
-      <li>Handled <strong>SwiftUI state, async uploads, loading states, validation, navigation issues, and runtime debugging</strong>.</li>
-    </ul>
+    <div class="case-panel">
+      <h3>Architecture</h3>
+      <p>
+        I organized the project around clear responsibilities: Models for data, Services for Firebase work,
+        ViewModels for screen state, Views for feature screens, and Shared components for reusable UI.
+      </p>
+      <ul>
+        <li>SwiftUI views for screens and reusable components</li>
+        <li>ObservableObject services for app state and Firebase operations</li>
+        <li>Firestore documents for users, posts, videos, comments, followers, and chats</li>
+        <li>Firebase Storage for uploaded image and video files</li>
+      </ul>
+    </div>
 
-    <div class="exp-project-tag">○ Next feature</div>
+    <div class="case-panel">
+      <h3>Hardest bugs solved</h3>
+      <p>
+        The biggest work was not just adding screens. It was making the app behave consistently after real data changed.
+      </p>
+      <ul>
+        <li>Fixed follower/following count mismatch and old self-follow records</li>
+        <li>Cleaned video creator display so old videos no longer showed generic Creator labels</li>
+        <li>Fixed Explore grid clipping and post detail alignment</li>
+        <li>Removed developer-only UI before portfolio presentation</li>
+        <li>Organized Xcode files and cleaned accidental duplicate file references</li>
+      </ul>
+    </div>
 
-    <ul class="exp-bullets">
-      <li>Direct messages and chat are planned as the next major part of the app, with Vapor, APIs, WebSockets, push notifications, and media sharing as the main learning direction.</li>
-    </ul>
-
-    <div class="exp-project-tag">○ What I’m looking for</div>
-
-    <ul class="exp-bullets">
-      <li>Junior iOS roles, internships, or freelance work where I can contribute to SwiftUI features, learn from stronger engineers, and keep shipping real app behavior.</li>
-    </ul>
+    <div class="case-panel full">
+      <h3>What I learned</h3>
+      <p>
+        Espres taught me how much work exists between “the screen appears” and “the app is ready to show.”
+        I learned how to connect SwiftUI state with Firebase reads and writes, handle uploaded media, debug runtime problems,
+        keep models consistent, structure a larger project, and make decisions that improve maintainability instead of only visual appearance.
+      </p>
+    </div>
   </div>
 </section>
 
 <div class="full-divider"></div>
 
 <section id="projects">
-  <p class="section-tag">// 03 — Espres App</p>
+  <p class="section-tag">// 03 — Featured Project</p>
 
   <h2 class="section-title">Espres App</h2>
 
   <p class="section-sub">
-    A SwiftUI social app with Firebase auth, Firestore data, media upload, profiles, search,
-    comments, likes, video playback, view counts, account settings, and real app behavior.
+    A SwiftUI social video app with Firebase authentication, user profiles, posts, video upload and playback,
+    comments, saved content, search, following/follower lists, settings, and direct messages.
   </p>
 
   <article class="project-hero fade-up">
     <div class="project-top">
       <div>
-        <div class="project-status">● In active development</div>
+        <div class="project-status">● Portfolio-ready v1</div>
 
-        <h3 class="project-title">Espres App</h3>
+        <h3 class="project-title">Espres</h3>
 
         <p class="project-desc">
-          Espres is a SwiftUI social media app built with real app architecture instead of static UI.
-          It includes authentication, feeds, image posts, text posts, video upload, short-form playback,
-          comments, likes, profiles, user search, settings, account actions, view counts, and Firebase-backed data models.
+          Espres is a SwiftUI social app built around real product flows. Users can authenticate, set up profiles,
+          create posts, upload video, browse Explore, open video details, comment, save content, follow profiles,
+          view follower/following lists, and use direct messaging.
         </p>
 
         <p class="project-desc">
-          The app uses Firebase Authentication, Firestore, and Firebase Storage. The hardest parts were
-          coordinating SwiftUI state with Firebase reads and writes, keeping the MVVM structure readable,
-          handling async media uploads, preserving temporary video files before upload, and debugging behavior that only appeared at runtime.
+          The project uses Firebase Auth, Firestore, and Firebase Storage. The technical focus was coordinating SwiftUI state
+          with Firebase-backed data, handling media upload and playback, keeping profile relationship data consistent,
+          and organizing the app into a cleaner feature-based project structure.
         </p>
 
         <div class="tags">
@@ -1439,16 +1604,11 @@ footer span{
           <span class="tag">Firebase Auth</span>
           <span class="tag">Firestore</span>
           <span class="tag">Firebase Storage</span>
-          <span class="tag">AVFoundation</span>
-          <span class="tag">MVVM</span>
-          <span class="tag">Codable</span>
-          <span class="tag">Async/Await</span>
+          <span class="tag">AVKit</span>
+          <span class="tag">PhotosUI</span>
+          <span class="tag">MVVM-style</span>
+          <span class="tag">Git</span>
         </div>
-
-        <p class="hero-bio" style="margin-top:1rem;max-width:520px">
-          <strong>What this shows:</strong> SwiftUI state, MVVM structure, Firebase auth/data/storage,
-          Codable data models, media upload, search, account flows, video playback, and real debugging.
-        </p>
 
         <div class="hero-actions">
           <a class="btn primary" href="https://github.com/nole28/Espres" target="_blank" rel="noreferrer">View Repository ↗</a>
@@ -1458,35 +1618,70 @@ footer span{
       </div>
 
       <div class="phone-stack" aria-label="Espres app screenshots">
-        <div class="phone p1" data-label="Feed">
-          <img src="assets/espres/feed-pics.jpg" alt="Espres feed screenshot" loading="lazy" decoding="async">
-        </div>
-
-        <div class="phone p2" data-label="Short Player">
-          <img src="assets/espres/short-player.jpg" alt="Espres short video player screenshot" loading="lazy" decoding="async">
-        </div>
-
-        <div class="phone p3" data-label="Profile">
+        <div class="phone p1" data-label="Profile">
           <img src="assets/espres/profile.jpg" alt="Espres profile screenshot" loading="lazy" decoding="async">
+        </div>
+
+        <div class="phone p2" data-label="Explore">
+          <img src="assets/espres/explore.jpg" alt="Espres explore screenshot" loading="lazy" decoding="async">
+        </div>
+
+        <div class="phone p3" data-label="Video">
+          <img src="assets/espres/video-detail.jpg" alt="Espres video detail screenshot" loading="lazy" decoding="async">
         </div>
       </div>
     </div>
 
     <div class="case-grid">
-      <div class="case-cell"><div class="case-num">Auth</div><div class="case-label">Firebase login</div></div>
-      <div class="case-cell"><div class="case-num">Posts</div><div class="case-label">Text, images, video</div></div>
-      <div class="case-cell"><div class="case-num">Search</div><div class="case-label">Users and content</div></div>
-      <div class="case-cell"><div class="case-num">Views</div><div class="case-label">Video view counts</div></div>
+      <div class="case-cell"><div class="case-num">Auth</div><div class="case-label">Firebase accounts</div></div>
+      <div class="case-cell"><div class="case-num">Media</div><div class="case-label">Image and video upload</div></div>
+      <div class="case-cell"><div class="case-num">Profiles</div><div class="case-label">Followers and following</div></div>
+      <div class="case-cell"><div class="case-num">Messages</div><div class="case-label">Direct chat flow</div></div>
     </div>
   </article>
 
+  <div class="demo-block fade-up">
+    <div class="demo-video">
+      <video controls poster="assets/espres/demo-poster.jpg">
+        <source src="assets/espres/espres-demo.mp4" type="video/mp4">
+      </video>
+
+      <div class="demo-placeholder" aria-hidden="true">
+        <div class="demo-play">▶</div>
+        <strong>Demo video placeholder</strong>
+        <span>
+          Replace this with your simulator screen recording: assets/espres/espres-demo.mp4.
+          Keep the demo around 60–90 seconds.
+        </span>
+      </div>
+    </div>
+
+    <div class="demo-copy">
+      <h3>Recommended demo flow</h3>
+      <p>
+        The demo should show the app as a finished product, not as a development session.
+        Record from the iOS Simulator on Mac.
+      </p>
+
+      <ol class="demo-steps">
+        <li>Start on Profile and show the grid</li>
+        <li>Open a post detail and comments</li>
+        <li>Open Explore and a video</li>
+        <li>Show video detail and creator profile</li>
+        <li>Open following/followers list</li>
+        <li>Open messages briefly</li>
+        <li>Open Settings to show clean account UI</li>
+      </ol>
+    </div>
+  </div>
+
   <div class="features fade-up">
-    <div class="feature"><h4>Authentication</h4><p>Users can create accounts, log in, update account data, and use password-related account flows through Firebase.</p></div>
-    <div class="feature"><h4>Feeds and posts</h4><p>The app supports image posts, text posts, comments, likes, and profile-linked content from real users.</p></div>
-    <div class="feature"><h4>Video upload</h4><p>Videos are picked from the device, prepared for upload, stored in Firebase Storage, and displayed back inside the app.</p></div>
-    <div class="feature"><h4>Short-form playback</h4><p>Espres includes a reels-style video player with playback, interaction buttons, and view tracking.</p></div>
-    <div class="feature"><h4>Profiles and search</h4><p>Users can view their own profile, open other user profiles, and search through users and content.</p></div>
-    <div class="feature"><h4>Settings</h4><p>The settings flow includes account management, profile state, and sensitive actions like password updates.</p></div>
+    <div class="feature"><h4>Authentication</h4><p>Firebase Auth-backed login and account state with profile setup and settings flows.</p></div>
+    <div class="feature"><h4>Profiles</h4><p>Current user and public user profiles with posts, videos, followers, following, and message entry points.</p></div>
+    <div class="feature"><h4>Posts</h4><p>Text and photo posts with detail screens, likes, comments, saved content, and profile linking.</p></div>
+    <div class="feature"><h4>Video</h4><p>Video upload, thumbnail handling, playback, video detail screens, comments, saves, and view counts.</p></div>
+    <div class="feature"><h4>Explore</h4><p>Grid browsing and search for users/videos with cleaned media layout and reusable search behavior.</p></div>
+    <div class="feature"><h4>Messages</h4><p>Direct messaging structure with inbox, chat view, chat service, chat model, and message model.</p></div>
   </div>
 
   <div class="screens-title">
@@ -1495,65 +1690,103 @@ footer span{
       <h2 class="section-title" style="font-size:clamp(2rem,4vw,3.4rem);margin-bottom:0">Main screens</h2>
     </div>
 
-    <p class="screens-note">Real app flows from Espres</p>
+    <p class="screens-note">Replace paths with your final screenshots</p>
   </div>
 
   <div class="screens-grid fade-up">
-    <div class="screen-card"><img src="assets/espres/feed-pics.jpg" alt="Feed with image post" loading="lazy" decoding="async"><div class="screen-caption">Image Feed</div></div>
-    <div class="screen-card"><img src="assets/espres/feed-posts.jpg" alt="Feed text posts" loading="lazy" decoding="async"><div class="screen-caption">Text Posts</div></div>
-    <div class="screen-card"><img src="assets/espres/explore.jpg" alt="Explore search screen" loading="lazy" decoding="async"><div class="screen-caption">Explore</div></div>
-    <div class="screen-card"><img src="assets/espres/upload.jpg" alt="Upload video screen" loading="lazy" decoding="async"><div class="screen-caption">Upload</div></div>
-    <div class="screen-card"><img src="assets/espres/videos-list.jpg" alt="Videos list screen" loading="lazy" decoding="async"><div class="screen-caption">Videos</div></div>
-    <div class="screen-card"><img src="assets/espres/short-player.jpg" alt="Short video player" loading="lazy" decoding="async"><div class="screen-caption">Short Player</div></div>
-    <div class="screen-card"><img src="assets/espres/profile.jpg" alt="Current user profile" loading="lazy" decoding="async"><div class="screen-caption">Profile</div></div>
-    <div class="screen-card"><img src="assets/espres/user-profile.jpg" alt="Other user profile" loading="lazy" decoding="async"><div class="screen-caption">User Profile</div></div>
+    <div class="screen-card"><img src="assets/espres/profile.jpg" alt="Profile screen" loading="lazy" decoding="async"><div class="screen-caption">Profile</div></div>
+    <div class="screen-card"><img src="assets/espres/explore.jpg" alt="Explore screen" loading="lazy" decoding="async"><div class="screen-caption">Explore</div></div>
+    <div class="screen-card"><img src="assets/espres/post-detail.jpg" alt="Post detail screen" loading="lazy" decoding="async"><div class="screen-caption">Post Detail</div></div>
+    <div class="screen-card"><img src="assets/espres/video-detail.jpg" alt="Video detail screen" loading="lazy" decoding="async"><div class="screen-caption">Video Detail</div></div>
+    <div class="screen-card"><img src="assets/espres/comments.jpg" alt="Comments screen" loading="lazy" decoding="async"><div class="screen-caption">Comments</div></div>
+    <div class="screen-card"><img src="assets/espres/user-profile.jpg" alt="User profile screen" loading="lazy" decoding="async"><div class="screen-caption">User Profile</div></div>
+    <div class="screen-card"><img src="assets/espres/following.jpg" alt="Following screen" loading="lazy" decoding="async"><div class="screen-caption">Following</div></div>
+    <div class="screen-card"><img src="assets/espres/messages.jpg" alt="Messages inbox screen" loading="lazy" decoding="async"><div class="screen-caption">Messages</div></div>
+    <div class="screen-card"><img src="assets/espres/chat.jpg" alt="Chat screen" loading="lazy" decoding="async"><div class="screen-caption">Chat</div></div>
     <div class="screen-card"><img src="assets/espres/settings.jpg" alt="Settings screen" loading="lazy" decoding="async"><div class="screen-caption">Settings</div></div>
-    <div class="screen-card"><img src="assets/espres/change-password.jpg" alt="Change password screen" loading="lazy" decoding="async"><div class="screen-caption">Password</div></div>
   </div>
 
-  <div class="two-col fade-up">
-    <div class="panel">
-      <h3>Technical decisions</h3>
-      <ul>
-        <li>Used SwiftUI for the main interface because the app depends heavily on reactive state and reusable views.</li>
-        <li>Used Firebase Auth for account creation, login, and user identity across the app.</li>
-        <li>Used Firestore to structure users, posts, videos, comments, likes, and profile-related data.</li>
-        <li>Used Firebase Storage for uploaded images and videos to keep media separate from Firestore documents.</li>
-        <li>Used AVFoundation for video playback and short-form media behavior.</li>
-      </ul>
+  <div class="structure-card fade-up">
+    <div class="structure-code">
+<pre>Espres
+├── App
+│   ├── EspresApp.swift
+│   └── ContentView.swift
+├── Models
+│   ├── User.swift
+│   ├── Post.swift
+│   ├── Video.swift
+│   ├── Comment.swift
+│   ├── Chat.swift
+│   └── Message.swift
+├── Services
+│   ├── UserSession.swift
+│   ├── PostStore.swift
+│   ├── VideoStore.swift
+│   ├── CommentStore.swift
+│   └── ChatService.swift
+├── ViewModels
+│   ├── SearchViewModel.swift
+│   └── UploadViewModel.swift
+├── Views
+│   ├── Auth
+│   ├── Feed
+│   ├── Explore
+│   ├── Upload
+│   ├── Video
+│   ├── Profile
+│   ├── Messages
+│   ├── Comments
+│   └── Settings
+└── Shared
+    ├── EspresAvatar.swift
+    ├── EmptyStateView.swift
+    └── SearchBarView.swift</pre>
     </div>
 
-    <div class="panel">
-      <h3>Swift problems solved</h3>
-      <ul>
-        <li>Managed SwiftUI state across feed, upload, profile, search, settings, and video screens.</li>
-        <li>Handled async Firebase operations while keeping the UI responsive during loading and uploads.</li>
-        <li>Worked with media picker file URLs and copied temporary video files before upload.</li>
-        <li>Debugged navigation, sheet presentation, optional data, and runtime issues in the simulator.</li>
-        <li>Separated feature logic into reusable views and app-specific data models.</li>
-      </ul>
+    <div class="structure-copy">
+      <h3>Project structure</h3>
+      <p>
+        I organized Espres by responsibility so the project is easier to read and present.
+        Models hold app data, Services handle Firebase and app state, ViewModels manage screen state,
+        Views are grouped by feature, and Shared contains reusable components.
+      </p>
+
+      <p style="margin-top:1rem">
+        This structure is simple enough for a junior project, but clean enough for someone reviewing the code to understand where features live.
+      </p>
     </div>
   </div>
 
-  <div class="two-col fade-up">
-    <div class="panel">
-      <h3>Problems I solved</h3>
-      <ul>
-        <li>Modeled Firestore data for users, posts, videos, comments, likes, and profile state.</li>
-        <li>Handled picked video files by copying temporary PHPicker URLs before upload.</li>
-        <li>Debugged SwiftUI navigation and sheet presentation issues that appeared only at runtime.</li>
-        <li>Kept the UI responsive during Firebase uploads, reads, and loading states.</li>
-      </ul>
+  <div class="roadmap fade-up">
+    <div class="roadmap-card">
+      <h3>Firestore rules</h3>
+      <p>Improve security rules and validation so user data, posts, videos, chats, and profile relationships are protected properly.</p>
     </div>
 
-    <div class="panel">
-      <h3>Things I learned</h3>
-      <ul>
-        <li>How to organize a larger SwiftUI app around tabs, reusable views, and feature-specific state.</li>
-        <li>How Firebase Auth, Firestore, and Storage work together in a media-heavy app.</li>
-        <li>How to move from preview-only UI to simulator-tested app behavior.</li>
-        <li>How to explain technical choices clearly in a portfolio project.</li>
-      </ul>
+    <div class="roadmap-card">
+      <h3>Testing</h3>
+      <p>Add unit tests around service logic and data transformations, especially follow state, saved content, and upload flows.</p>
+    </div>
+
+    <div class="roadmap-card">
+      <h3>Media polish</h3>
+      <p>Add better compression, upload progress handling, thumbnail fallbacks, and clearer error states for media-heavy screens.</p>
+    </div>
+
+    <div class="roadmap-card">
+      <h3>Notifications</h3>
+      <p>Add push notifications for comments, follows, and messages after backend and notification fundamentals are stronger.</p>
+    </div>
+
+    <div class="roadmap-card">
+      <h3>Backend learning</h3>
+      <p>Study Vapor and APIs to understand how a custom backend could support auth, messaging, moderation, and real-time features.</p>
+    </div>
+
+    <div class="roadmap-card">
+      <h3>UI refinement</h3>
+      <p>Continue polishing spacing, animation, empty states, loading states, and accessibility across the app.</p>
     </div>
   </div>
 </section>
@@ -1563,13 +1796,12 @@ footer span{
     <div>
       <p class="section-tag">// 04 — Contact</p>
 
-      <h2 class="contact-title">Contact</h2>
+      <h2 class="contact-title">Let’s talk.</h2>
 
       <p class="contact-copy">
-        I’m open to junior iOS roles, internships, and freelance iOS work where I can contribute
-        to Swift, SwiftUI, MVVM, Firebase, UI implementation, app state, and feature development.
-        I’m especially interested in apps with real product behavior, media features, messaging,
-        and clean, maintainable code. The best way to reach me is by email or LinkedIn.
+        I’m open to junior iOS roles, internships, and freelance iOS work where I can contribute to SwiftUI features,
+        Firebase-backed app flows, UI implementation, debugging, and product-focused development.
+        I’m looking for a team where I can keep improving under stronger engineers and become useful quickly.
       </p>
     </div>
 
@@ -1617,6 +1849,19 @@ const observer = new IntersectionObserver((entries)=>{
 },{threshold:.12});
 
 document.querySelectorAll(".fade-up").forEach(el=>observer.observe(el));
+
+const demoVideo = document.querySelector(".demo-video video");
+const demoPlaceholder = document.querySelector(".demo-placeholder");
+
+if (demoVideo && demoPlaceholder) {
+  demoVideo.addEventListener("loadeddata", () => {
+    demoPlaceholder.style.display = "none";
+  });
+
+  demoPlaceholder.addEventListener("click", () => {
+    demoVideo.play().catch(()=>{});
+  });
+}
 </script>
 
 </body>
