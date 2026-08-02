@@ -1,15 +1,31 @@
-# Novak Velimirović — iOS Developer Portfolio
+# Novak Velimirović — iOS Portfolio
 
-Personal portfolio website built with HTML & CSS.
+## Preview locally
 
-🔗 Live: https://nole28.github.io
+From this folder, run:
 
-## About
+```bash
+python3 -m http.server 8000
+```
 
-Self-taught Junior iOS Developer from Montenegro. Experienced with Swift, SwiftUI, UIKit, REST APIs, Firebase, Core Data, Firebase, and MVVM architecture.
+Then open `http://localhost:8000` in a browser.
 
-## Contact
+## Project structure
 
-- Email: novak.velimirovic1@gmail.com
-- LinkedIn: https://www.linkedin.com/in/novak-velimirovi%C4%87-65749920b/
-- GitHub: https://github.com/nole28
+```text
+novak-portfolio/
+├── index.html
+└── assets/
+    ├── portrait.jpg
+    ├── espres-demo.mp4
+    ├── espres-demo-poster.jpg
+    ├── espres-feed.webp
+    ├── espres-short-video.webp
+    ├── espres-upload.webp
+    ├── chatside-demo.mp4
+    ├── chatside-demo-poster.jpg
+    ├── chatside-inbox.webp
+    └── chatside-chat.webp
+```
+
+Upload the entire folder when deploying. The HTML uses relative paths, so `index.html` and the `assets` folder must stay together.
