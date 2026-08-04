@@ -3,87 +3,217 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Novak Velimirović — iOS Developer</title>
-  <meta name="description" content="Portfolio of Novak Velimirović, an iOS developer building SwiftUI apps with Firebase and REST APIs.">
+  <meta name="description" content="Novak Velimirovic is a junior iOS developer building SwiftUI apps with Firebase and REST APIs.">
+  <meta name="theme-color" content="#f4f3ef">
+  <title>Novak Velimirovic — iOS Developer</title>
   <style>
     :root {
-      --bg:#f5f5f2;
-      --card:#fff;
-      --text:#08090c;
-      --muted:#626875;
-      --line:#deded8;
-      --soft:#ecece8;
-      --green:#22c55e;
-      --blue:#0a84ff;
-      --shadow:0 26px 90px rgba(0,0,0,.08);
-      --max:1160px;
-      --font:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"SF Pro Display","Inter","Segoe UI",sans-serif;
-      --mono:"SF Mono",ui-monospace,Menlo,Monaco,Consolas,monospace;
+      --ink: #131313;
+      --muted: #65645f;
+      --paper: #f4f3ef;
+      --card: #fbfaf7;
+      --line: #d8d6ce;
+      --blue: #0a66ff;
+      --blue-soft: #e8f0ff;
+      --green: #1c9b55;
+      --dark: #111214;
+      --radius: 28px;
+      --max: 1160px;
+      --sans: ui-sans-serif, -apple-system, BlinkMacSystemFont, "SF Pro Display", "Inter", "Segoe UI", sans-serif;
+      --mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
     }
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth;background:var(--bg)}
-    body{margin:0;font-family:var(--font);color:var(--text);background:radial-gradient(circle at 78% 8%,rgba(255,255,255,.96),transparent 30rem),linear-gradient(180deg,#f7f7f4 0%,#f1f1ed 100%);-webkit-font-smoothing:antialiased}
-    a{color:inherit}
-    img,video{max-width:100%}
-    .nav{height:68px;position:sticky;top:0;z-index:50;background:rgba(245,245,242,.84);border-bottom:1px solid var(--line);backdrop-filter:blur(18px)}
-    .nav-inner{max-width:var(--max);height:100%;margin:0 auto;padding:0 24px;display:flex;justify-content:space-between;align-items:center}
-    .brand{font-size:15px;font-weight:800;letter-spacing:-.035em;text-decoration:none}
-    .nav-links{display:flex;gap:26px;font-size:14px;color:var(--muted)}
-    .nav-links a{text-decoration:none}.nav-links a:hover{color:var(--text)}
-    main{overflow:hidden}
-    section{max-width:var(--max);margin:0 auto;padding:92px 24px}
-    .hero{min-height:calc(100vh - 68px);display:grid;grid-template-columns:minmax(0,1.08fr) 420px;gap:78px;align-items:center;padding-top:70px;padding-bottom:70px}
-    .eyebrow{display:inline-flex;align-items:center;gap:10px;margin-bottom:28px;font-family:var(--mono);font-size:13px;font-weight:700;color:var(--muted)}
-    .dot{width:8px;height:8px;border-radius:50%;background:var(--green)}
-    h1,h2,h3,p{margin-top:0}
-    h1{margin-bottom:26px;font-size:clamp(64px,9vw,118px);line-height:.88;letter-spacing:-.085em}
-    h2{max-width:920px;margin-bottom:0;font-size:clamp(44px,6.2vw,80px);line-height:.92;letter-spacing:-.075em}
-    .hero-text{max-width:680px;margin-bottom:0;font-size:clamp(22px,2.2vw,30px);line-height:1.35;letter-spacing:-.045em;color:var(--muted)}
-    .hero-text strong{color:var(--text)}
-    .actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
-    .btn{height:48px;display:inline-flex;align-items:center;justify-content:center;padding:0 24px;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--text);text-decoration:none;font-size:15px;font-weight:800;box-shadow:0 10px 26px rgba(0,0,0,.045);transition:transform .16s ease,border-color .16s ease}
-    .btn:hover{transform:translateY(-2px);border-color:#c7c7c0}.btn.primary{background:#111;color:#fff;border-color:#111}
-    .portrait-card{position:relative;border-radius:42px;background:var(--card);border:1px solid var(--line);padding:18px;box-shadow:var(--shadow)}
-    .portrait-frame{position:relative;min-height:540px;overflow:hidden;border-radius:30px;background:#ddd}
-    .portrait-frame img{width:100%;height:100%;min-height:540px;object-fit:cover;object-position:center;display:block}
-    .portrait-caption{position:absolute;left:30px;right:30px;bottom:30px;padding:18px;border-radius:22px;background:rgba(255,255,255,.8);backdrop-filter:blur(16px);border:1px solid rgba(0,0,0,.08);color:var(--muted);font-size:15px;line-height:1.5}
-    .portrait-caption strong{display:block;margin-bottom:4px;color:var(--text);font-size:17px;letter-spacing:-.02em}
-    .section-rule{border-top:1px solid var(--line)}
-    .label{font-family:var(--mono);font-size:13px;font-weight:700;color:var(--muted);margin-bottom:18px}
-    .lead{max-width:820px;margin-top:24px;margin-bottom:0;color:var(--muted);font-size:22px;line-height:1.45;letter-spacing:-.035em}
-    .status{display:inline-flex;align-items:center;gap:8px;margin-top:24px;padding:8px 12px;border:1px solid var(--line);border-radius:999px;background:var(--card);font-family:var(--mono);font-size:12px;font-weight:700;color:var(--muted)}
-    .status::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--green)}
-    .split-card{margin-top:42px;border:1px solid var(--line);border-radius:28px;background:var(--line);display:grid;grid-template-columns:1.05fr .95fr;gap:1px;overflow:hidden}
-    .panel{background:var(--card);padding:34px}.panel h3{margin-bottom:12px;font-size:28px;line-height:1;letter-spacing:-.04em}.panel p{margin-bottom:0;color:var(--muted);font-size:18px;line-height:1.65}
-    .tags{display:flex;flex-wrap:wrap;gap:10px}.tag{padding:9px 13px;border-radius:999px;border:1px solid var(--line);background:var(--soft);font-family:var(--mono);font-size:12px;font-weight:700;color:#555b65}
-    .learning-label{margin:28px 0 12px;font-family:var(--mono);font-size:12px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:var(--muted)}
-    .status-note{margin-top:18px!important;padding-top:18px;border-top:1px solid var(--line);font-size:15px!important;line-height:1.55!important}
-    .feature-grid{margin-top:42px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-    .feature{min-height:168px;padding:26px;border-radius:22px;border:1px solid var(--line);background:var(--card)}
-    .feature h3{margin-bottom:10px;font-size:22px;letter-spacing:-.045em}.feature p{margin-bottom:0;color:var(--muted);font-size:17px;line-height:1.55}
-    .demo-showcase{margin-top:42px;padding:34px;border-radius:32px;border:1px solid #202020;background:radial-gradient(circle at 80% 10%,rgba(255,255,255,.08),transparent 22rem),#0d0d0f;color:white;display:grid;grid-template-columns:minmax(250px,350px) 1fr;gap:52px;align-items:center}
-    .phone-video{width:100%;padding:9px;border-radius:36px;background:#020203;border:1px solid #2c2c30;box-shadow:0 28px 70px rgba(0,0,0,.32)}
-    .phone-video video{width:100%;aspect-ratio:9/20;object-fit:cover;border-radius:28px;display:block;background:#000}
-    .demo-copy .label{color:#9b9ba2}.demo-copy h3{font-size:clamp(34px,4vw,54px);line-height:.96;letter-spacing:-.06em;margin-bottom:20px}.demo-copy p{max-width:540px;color:#b1b1b7;font-size:18px;line-height:1.65}.demo-meta{margin-top:24px;display:flex;gap:10px;flex-wrap:wrap}.demo-meta span{padding:8px 11px;border:1px solid #323238;border-radius:999px;color:#c7c7cb;font:700 11px var(--mono)}
-    .screens{margin-top:42px;display:grid;gap:16px}.screens.three{grid-template-columns:repeat(3,minmax(0,1fr))}.screens.two{grid-template-columns:repeat(2,minmax(0,280px))}
-    .screen{border-radius:34px;background:#0a0a0b;padding:9px;box-shadow:0 20px 55px rgba(0,0,0,.13);border:1px solid rgba(0,0,0,.18)}
-    .screen img{width:100%;aspect-ratio:9/19.5;object-fit:cover;object-position:top center;border-radius:26px;display:block;background:white}.screen-name{margin-top:10px;font-family:var(--mono);color:var(--muted);font-size:12px;font-weight:700;text-align:center}
-    .structure{margin-top:42px;display:grid;grid-template-columns:1fr 1fr;gap:1px;overflow:hidden;border:1px solid var(--line);border-radius:28px;background:var(--line)}
-    pre{margin:0;padding:30px;overflow:auto;background:#111113;color:#ededed;font-family:var(--mono);font-size:13px;line-height:1.7}
-    .contact{padding-bottom:120px}.contact-links{margin-top:34px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.contact-links a{padding:22px;border-radius:22px;border:1px solid var(--line);background:var(--card);text-decoration:none;font-weight:800;overflow-wrap:anywhere}
-    footer{padding:28px 24px;border-top:1px solid var(--line);color:var(--muted);font-size:14px}footer div{max-width:var(--max);margin:0 auto}
-    @media(max-width:1000px){.hero{grid-template-columns:1fr;gap:42px}.portrait-card{max-width:460px}.split-card,.structure{grid-template-columns:1fr}.feature-grid{grid-template-columns:repeat(2,1fr)}.demo-showcase{grid-template-columns:minmax(240px,320px) 1fr;gap:34px}}
-    @media(max-width:720px){.nav-links{display:none}section{padding:72px 18px}.hero{padding-top:54px}h1{font-size:62px}.hero-text{font-size:22px}.portrait-frame,.portrait-frame img{min-height:430px}.feature-grid{grid-template-columns:1fr}.demo-showcase{grid-template-columns:1fr;padding:20px}.phone-video{max-width:310px;margin:0 auto}.screens.three,.screens.two,.contact-links{grid-template-columns:1fr}.screen{max-width:300px;margin:0 auto}}
-    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}}
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: var(--sans);
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; }
+    img, video { display: block; max-width: 100%; }
+    :focus-visible { outline: 3px solid var(--blue); outline-offset: 4px; }
+
+    .shell { width: min(calc(100% - 40px), var(--max)); margin-inline: auto; }
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      border-bottom: 1px solid rgba(216, 214, 206, .82);
+      background: rgba(244, 243, 239, .88);
+      backdrop-filter: blur(18px);
+    }
+    .nav-inner { height: 68px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { font-weight: 780; letter-spacing: -.03em; text-decoration: none; }
+    .nav-links { display: flex; align-items: center; gap: 26px; color: var(--muted); font-size: 14px; }
+    .nav-links a { text-decoration: none; }
+    .nav-links a:hover { color: var(--ink); }
+
+    .hero {
+      min-height: calc(92vh - 68px);
+      display: grid;
+      grid-template-columns: 1.12fr .88fr;
+      align-items: center;
+      gap: 70px;
+      padding-block: 84px;
+    }
+    .kicker, .section-label, .project-number {
+      font: 700 12px/1.2 var(--mono);
+      letter-spacing: .05em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .available { display: inline-flex; align-items: center; gap: 9px; }
+    .available::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--green); box-shadow: 0 0 0 5px rgba(28,155,85,.12); }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 {
+      max-width: 800px;
+      margin: 24px 0 28px;
+      font-size: clamp(54px, 7.6vw, 100px);
+      line-height: .94;
+      letter-spacing: -.075em;
+    }
+    .hero-lead {
+      max-width: 680px;
+      margin: 0;
+      color: var(--muted);
+      font-size: clamp(20px, 2.2vw, 27px);
+      line-height: 1.42;
+      letter-spacing: -.025em;
+    }
+    .hero-lead strong { color: var(--ink); font-weight: 700; }
+    .actions { display: flex; flex-wrap: wrap; gap: 11px; margin-top: 34px; }
+    .button {
+      min-height: 48px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 22px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--card);
+      font-size: 14px;
+      font-weight: 750;
+      text-decoration: none;
+      transition: transform .16s ease, border-color .16s ease;
+    }
+    .button:hover { transform: translateY(-2px); border-color: #aaa79f; }
+    .button.primary { border-color: var(--ink); color: white; background: var(--ink); }
+
+    .portrait-card {
+      position: relative;
+      min-height: 510px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 38px;
+      box-shadow: 0 36px 90px rgba(25, 25, 25, .18);
+    }
+    .portrait-card img { width: 100%; height: 100%; min-height: 510px; object-fit: cover; object-position: center 32%; }
+    .portrait-copy {
+      position: absolute;
+      right: 22px;
+      bottom: 22px;
+      left: 22px;
+      padding: 18px 20px;
+      border: 1px solid rgba(255,255,255,.38);
+      border-radius: 20px;
+      color: white;
+      background: rgba(15,16,18,.72);
+      backdrop-filter: blur(14px);
+    }
+    .portrait-copy strong { display: block; margin-bottom: 6px; font-size: 21px; letter-spacing: -.035em; }
+    .portrait-copy span { color: #d2d3d6; font-size: 14px; line-height: 1.5; }
+
+    .section { padding-block: 104px; border-top: 1px solid var(--line); }
+    .section-heading { display: grid; grid-template-columns: .7fr 1.3fr; gap: 50px; align-items: start; }
+    h2 { margin-bottom: 0; font-size: clamp(42px, 6vw, 76px); line-height: .98; letter-spacing: -.065em; }
+    .intro { max-width: 610px; margin: 24px 0 0; color: var(--muted); font-size: 20px; line-height: 1.55; letter-spacing: -.02em; }
+
+    .project { margin-top: 44px; overflow: hidden; border: 1px solid var(--line); border-radius: 34px; background: var(--card); }
+    .project-hero { display: grid; grid-template-columns: .92fr 1.08fr; min-height: 570px; }
+    .project-copy { padding: 48px; }
+    .project-number { margin-bottom: 24px; }
+    .project h3 { margin-bottom: 20px; font-size: clamp(38px, 5vw, 66px); line-height: .96; letter-spacing: -.06em; }
+    .project-summary { color: var(--muted); font-size: 19px; line-height: 1.6; }
+    .status { display: inline-flex; align-items: center; gap: 8px; margin: 8px 0 28px; padding: 8px 11px; border-radius: 999px; color: #31613f; background: #e8f5eb; font: 700 11px var(--mono); }
+    .status::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--green); }
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 28px; }
+    .tag { padding: 8px 11px; border: 1px solid var(--line); border-radius: 999px; color: #555550; background: #f2f1ed; font: 700 11px var(--mono); }
+
+    .demo {
+      position: relative;
+      min-height: 570px;
+      display: grid;
+      place-items: center;
+      padding: 34px;
+      overflow: hidden;
+      color: white;
+      background: radial-gradient(circle at 80% 15%, #244071 0, transparent 37%), #101114;
+    }
+    .phone { width: min(275px, 80%); padding: 9px; border: 1px solid #34363c; border-radius: 39px; background: #030304; box-shadow: 0 28px 65px rgba(0,0,0,.35); }
+    .phone video { width: 100%; aspect-ratio: 9 / 19.5; border-radius: 30px; background: #050505; object-fit: cover; }
+    .demo-note { position: absolute; right: 20px; bottom: 20px; left: 20px; padding: 13px 16px; border: 1px solid #393b41; border-radius: 15px; color: #bfc1c8; background: rgba(17,18,20,.86); font: 700 11px var(--mono); text-align: center; backdrop-filter: blur(10px); }
+
+    .evidence { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--line); }
+    .evidence article { min-height: 190px; padding: 30px; }
+    .evidence article + article { border-left: 1px solid var(--line); }
+    .evidence h4 { margin: 0 0 12px; font-size: 19px; letter-spacing: -.03em; }
+    .evidence p { margin: 0; color: var(--muted); font-size: 15px; line-height: 1.6; }
+
+    .skills-grid { display: grid; grid-template-columns: 1.25fr .75fr; gap: 16px; margin-top: 44px; }
+    .skill-card { padding: 34px; border: 1px solid var(--line); border-radius: 26px; background: var(--card); }
+    .skill-card h3 { margin-bottom: 13px; font-size: 25px; letter-spacing: -.04em; }
+    .skill-card p { color: var(--muted); font-size: 16px; line-height: 1.65; }
+    .learning { background: var(--blue-soft); border-color: #cddcf9; }
+    .learning .tag { background: rgba(255,255,255,.62); border-color: #c3d3ef; }
+
+    .contact-panel { margin-top: 44px; padding: 44px; border-radius: 32px; color: white; background: var(--ink); }
+    .contact-panel p { max-width: 700px; margin-bottom: 0; color: #b8b8b6; font-size: 18px; line-height: 1.6; }
+    .contact-links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+    .contact-links a { padding: 12px 16px; border: 1px solid #3b3b3a; border-radius: 999px; color: #f2f2ef; font-size: 14px; font-weight: 720; text-decoration: none; }
+    .contact-links a:hover { border-color: #777; }
+
+    footer { padding: 28px 0 42px; border-top: 1px solid var(--line); color: var(--muted); font-size: 13px; }
+    .footer-inner { display: flex; justify-content: space-between; gap: 20px; }
+
+    @media (max-width: 900px) {
+      .hero, .project-hero, .section-heading, .skills-grid { grid-template-columns: 1fr; }
+      .hero { gap: 44px; }
+      .portrait-card, .portrait-card img { min-height: 470px; }
+      .section-heading { gap: 18px; }
+      .project-hero { min-height: 0; }
+      .demo { min-height: 600px; }
+    }
+    @media (max-width: 700px) {
+      .shell { width: min(calc(100% - 28px), var(--max)); }
+      .nav-links a:not(:last-child) { display: none; }
+      .hero { min-height: 0; padding-block: 64px; }
+      h1 { font-size: 55px; }
+      .portrait-card, .portrait-card img { min-height: 410px; }
+      .portrait-card { border-radius: 28px; }
+      .section { padding-block: 78px; }
+      .project { border-radius: 26px; }
+      .project-copy { padding: 30px 24px; }
+      .demo { min-height: 530px; padding: 24px; }
+      .evidence { grid-template-columns: 1fr; }
+      .evidence article + article { border-top: 1px solid var(--line); border-left: 0; }
+      .contact-panel { padding: 30px 24px; }
+      .footer-inner { flex-direction: column; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .button { transition: none; }
+    }
   </style>
 </head>
 <body>
   <nav class="nav" aria-label="Primary navigation">
-    <div class="nav-inner">
-      <a href="#top" class="brand">Novak Velimirović</a>
+    <div class="shell nav-inner">
+      <a class="brand" href="#top">Novak Velimirovic</a>
       <div class="nav-links">
-        <a href="#espres">Espres</a>
-        <a href="#chatside">ChatSide</a>
+        <a href="#work">Work</a>
         <a href="#skills">Skills</a>
         <a href="#contact">Contact</a>
       </div>
@@ -91,160 +221,136 @@
   </nav>
 
   <main id="top">
-    <section class="hero">
+    <header class="shell hero">
       <div>
-        <div class="eyebrow"><span class="dot"></span> iOS Developer · Open to opportunities</div>
-        <h1>Novak Velimirović.</h1>
-        <p class="hero-text">I build iOS apps with <strong>SwiftUI</strong>, Firebase, and <strong>REST APIs</strong>. My work includes social feeds, media upload, video experiences, profiles, and direct messaging.</p>
+        <div class="kicker available">Open to junior iOS opportunities</div>
+        <h1>I’m learning iOS by building real projects.</h1>
+        <p class="hero-lead">I’m <strong>Novak Velimirovic</strong>, an iOS developer focused on Swift and SwiftUI. I’ve built two working app prototypes with social, media, search, messaging, and Firebase features, and I’m now adding REST API experience to my toolkit.</p>
         <div class="actions">
-          <a class="btn primary" href="#espres">View my work</a>
-          <a class="btn" href="https://github.com/nole28" target="_blank" rel="noreferrer">GitHub</a>
-          <a class="btn" href="https://www.linkedin.com/in/novak-velimirovi%C4%87-65749920b/" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a class="button primary" href="#work">See my projects</a>
+          <a class="button" href="https://github.com/nole28" target="_blank" rel="noreferrer">GitHub</a>
+          <a class="button" href="https://www.linkedin.com/in/novak-velimirovi%C4%87-65749920b/" target="_blank" rel="noreferrer">LinkedIn</a>
         </div>
       </div>
-      <aside class="portrait-card">
-        <div class="portrait-frame">
-          <img src="assets/portrait.jpg" alt="Portrait of Novak Velimirović">
-          <div class="portrait-caption"><strong>Building real iOS products</strong>Two working app demos, practical SwiftUI experience, and a growing networking toolkit.</div>
+      <aside class="portrait-card" aria-label="Portrait of Novak Velimirovic">
+        <img src="assets/novak-velimirovic.jpg" alt="Novak Velimirovic smiling in a light blue shirt">
+        <div class="portrait-copy">
+          <strong>Learning by building.</strong>
+          <span>Two working prototypes, honest project status, and code I can explain.</span>
         </div>
       </aside>
-    </section>
+    </header>
 
-    <section id="espres" class="section-rule">
-      <div class="label">Project 01 · Espres</div>
-      <h2>A SwiftUI social platform built beyond static screens.</h2>
-      <p class="lead">Espres connects account flows, photo and text feeds, video discovery, media upload, profiles, saved content, settings, comments, and messaging in one iOS app.</p>
-      <div class="status">In active development</div>
-      <div class="split-card">
-        <div class="panel">
-          <h3>What I built</h3>
-          <p>I focused on connected user flows, app state, Firestore-backed data, media interfaces, and reusable SwiftUI components. The project demonstrates how I organize a growing application and keep its features understandable.</p>
+    <section id="work" class="section">
+      <div class="shell">
+        <div class="section-heading">
+          <div class="section-label">Selected work</div>
+          <div>
+            <h2>Projects that show how I think and build.</h2>
+            <p class="intro">Both apps are still in development. I’m sharing them now because the flows work, the technical decisions are real, and they show the direction I’m growing in as an iOS developer.</p>
+          </div>
         </div>
-        <div class="panel">
-          <h3>Technology</h3>
-          <div class="tags"><span class="tag">Swift</span><span class="tag">SwiftUI</span><span class="tag">Firebase Auth</span><span class="tag">Firestore</span><span class="tag">Firebase Storage</span><span class="tag">AVKit</span><span class="tag">PhotosUI</span><span class="tag">Git</span></div>
+
+        <article class="project" aria-labelledby="espres-title">
+          <div class="project-hero">
+            <div class="project-copy">
+              <div class="project-number">01 / Espres</div>
+              <div class="status">Active development</div>
+              <h3 id="espres-title">A social iOS app built as one connected product.</h3>
+              <p class="project-summary">Espres started as a way to push beyond isolated screens. I built account flows, photo and text feeds, video discovery, media upload, profiles, saved content, comments, settings, and direct messaging—then connected them through shared models and services.</p>
+              <div class="tags" aria-label="Espres technologies">
+                <span class="tag">Swift</span><span class="tag">SwiftUI</span><span class="tag">Firebase Auth</span><span class="tag">Firestore</span><span class="tag">Firebase Storage</span><span class="tag">AVKit</span><span class="tag">PhotosUI</span>
+              </div>
+            </div>
+            <div class="demo">
+              <div class="phone">
+                <video controls playsinline preload="metadata" poster="assets/espres-demo-poster.jpg" aria-label="Espres app walkthrough">
+                  <source src="assets/espres-demo.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="demo-note">01:22 product walkthrough · tap to play</div>
+            </div>
+          </div>
+          <div class="evidence">
+            <article><h4>What I implemented</h4><p>Authentication, feeds, uploads, profile and settings flows, video playback, comments, saved content, and messaging interfaces.</p></article>
+            <article><h4>What it taught me</h4><p>How to separate models, services, feature views, and reusable components as an application grows.</p></article>
+            <article><h4>Next step</h4><p>Finish the remaining product details, improve error and loading states, test the main flows, and prepare the first App Store release.</p></article>
+          </div>
+        </article>
+
+        <article class="project" aria-labelledby="chatside-title">
+          <div class="project-hero">
+            <div class="project-copy">
+              <div class="project-number">02 / ChatSide</div>
+              <div class="status">Working prototype</div>
+              <h3 id="chatside-title">A focused chat app built to feel quick and familiar.</h3>
+              <p class="project-summary">ChatSide is a smaller SwiftUI project where I focused on the core interactions of messaging: browsing recent conversations, filtering contacts as the user types, starting a new chat, and keeping navigation simple.</p>
+              <div class="tags" aria-label="ChatSide technologies">
+                <span class="tag">Swift</span><span class="tag">SwiftUI</span><span class="tag">State management</span><span class="tag">Search &amp; filtering</span><span class="tag">Navigation</span><span class="tag">Reusable views</span>
+              </div>
+            </div>
+            <div class="demo">
+              <div class="phone">
+                <video controls playsinline preload="metadata" poster="assets/chatside-demo-poster.jpg" aria-label="ChatSide interaction demo">
+                  <source src="assets/chatside-demo.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="demo-note">00:12 interaction demo · tap to play</div>
+            </div>
+          </div>
+          <div class="evidence">
+            <article><h4>What I implemented</h4><p>A conversation list, live contact filtering, new-chat selection, message previews, and a one-to-one chat interface.</p></article>
+            <article><h4>What it taught me</h4><p>How to model interface state, break repeated UI into smaller views, and keep a short interaction flow easy to understand.</p></article>
+            <article><h4>Next step</h4><p>Replace local prototype data with a REST API, add persistence, and handle loading, empty, and failure states.</p></article>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="skills" class="section">
+      <div class="shell">
+        <div class="section-heading">
+          <div class="section-label">Skills</div>
+          <div>
+            <h2>What I can use now—and what I’m learning next.</h2>
+            <p class="intro">I prefer to be specific about my current experience instead of presenting a long list of technologies without context.</p>
+          </div>
         </div>
-      </div>
-      <div class="feature-grid">
-        <div class="feature"><h3>Social feed</h3><p>Photo and text posts, reactions, comments, saved content, and segmented browsing.</p></div>
-        <div class="feature"><h3>Video</h3><p>Standard and short-form video views, search, saves, comments, and view metadata.</p></div>
-        <div class="feature"><h3>Accounts</h3><p>Authentication, profiles, edit flows, settings, password changes, and session actions.</p></div>
-        <div class="feature"><h3>Upload</h3><p>Gallery selection, titles, descriptions, privacy choices, and upload flow structure.</p></div>
-        <div class="feature"><h3>Messaging</h3><p>Conversation list, direct chat interface, message input, and reusable chat models.</p></div>
-        <div class="feature"><h3>App structure</h3><p>Feature-focused views, service layers, shared components, and clear data models.</p></div>
-      </div>
-    </section>
-
-    <section>
-      <div class="label">Espres · Working demo</div>
-      <h2>See the complete app flow.</h2>
-      <div class="demo-showcase">
-        <div class="phone-video"><video controls playsinline preload="metadata" poster="assets/espres-demo-poster.jpg" aria-label="Espres iOS app demonstration"><source src="assets/espres-demo.mp4" type="video/mp4">Your browser does not support embedded video.</video></div>
-        <div class="demo-copy">
-          <div class="label">01:22 walkthrough</div>
-          <h3>From sign-in to settings.</h3>
-          <p>The demo moves through authentication, feeds, explore, short-form video, search, messages, profile tools, and account settings. It shows how the individual screens work together as one product.</p>
-          <div class="demo-meta"><span>Real simulator recording</span><span>Player controls</span><span>No autoplay</span></div>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <div class="label">Espres · Selected screens</div>
-      <h2>Key moments at a glance.</h2>
-      <p class="lead">Three screens remain for recruiters who want a quick visual overview without playing the full demo.</p>
-      <div class="screens three">
-        <div class="screen"><img loading="lazy" src="assets/espres-feed.webp" alt="Espres photo feed"><div class="screen-name">Photo feed</div></div>
-        <div class="screen"><img loading="lazy" src="assets/espres-short-video.webp" alt="Espres short-form video screen"><div class="screen-name">Short video</div></div>
-        <div class="screen"><img loading="lazy" src="assets/espres-upload.webp" alt="Espres video upload screen"><div class="screen-name">Media upload</div></div>
-      </div>
-    </section>
-
-    <section>
-      <div class="label">Espres · Structure</div>
-      <h2>Organized to keep growing.</h2>
-      <div class="structure">
-<pre>Espres
-├── Models
-│   ├── User, Post, Video
-│   ├── Comment
-│   └── Message
-├── Services
-│   ├── UserSession
-│   ├── PostStore
-│   ├── VideoStore
-│   └── ChatService
-├── Views
-│   ├── Auth, Feed, Explore
-│   ├── Upload, Videos
-│   └── Profile, Messages, Settings
-└── Shared
-    └── Reusable UI components</pre>
-        <div class="panel"><h3>Readable and explainable.</h3><p>As the app expanded, I separated models, services, feature views, and shared UI. The structure is still evolving, but it gives each responsibility a clear place.</p></div>
-      </div>
-    </section>
-
-    <section id="chatside" class="section-rule">
-      <div class="label">Project 02 · ChatSide</div>
-      <h2>A focused messaging experience.</h2>
-      <p class="lead">ChatSide is a compact SwiftUI chat project built around conversation discovery, contact search, new-chat selection, message previews, and a clean one-to-one conversation interface.</p>
-      <div class="status">Prototype in development</div>
-      <div class="split-card">
-        <div class="panel"><h3>Why I built it</h3><p>This smaller project let me focus closely on chat navigation, search states, list filtering, message presentation, and a simple interface that feels at home on iOS.</p></div>
-        <div class="panel"><h3>Technology</h3><div class="tags"><span class="tag">Swift</span><span class="tag">SwiftUI</span><span class="tag">Navigation</span><span class="tag">Search</span><span class="tag">Chat UI</span><span class="tag">Reusable views</span></div></div>
-      </div>
-    </section>
-
-    <section>
-      <div class="label">ChatSide · Working demo</div>
-      <h2>A quick look at the interaction.</h2>
-      <div class="demo-showcase">
-        <div class="phone-video"><video controls playsinline preload="metadata" poster="assets/chatside-demo-poster.jpg" aria-label="ChatSide iOS app demonstration"><source src="assets/chatside-demo.mp4" type="video/mp4">Your browser does not support embedded video.</video></div>
-        <div class="demo-copy">
-          <div class="label">00:12 interaction demo</div>
-          <h3>A simple chat app built to feel quick and familiar.</h3>
-          <p>ChatSide is a SwiftUI messaging prototype I built to practice the core interactions of a real chat app: browsing recent conversations, searching contacts, and starting a new message.</p>
-          <div class="demo-meta"><span>SwiftUI prototype</span><span>Search interaction</span><span>Responsive player</span></div>
-        </div>
-      </div>
-      <div class="screens two">
-        <div class="screen"><img loading="lazy" src="assets/chatside-inbox.webp" alt="ChatSide conversation list"><div class="screen-name">Conversation list</div></div>
-        <div class="screen"><img loading="lazy" src="assets/chatside-chat.webp" alt="ChatSide direct conversation"><div class="screen-name">Direct chat</div></div>
-      </div>
-    </section>
-
-    <section id="skills" class="section-rule">
-      <div class="label">Skills &amp; Growth</div>
-      <h2>What I use now—and what I’m learning next.</h2>
-      <p class="lead">I keep current capabilities separate from my learning roadmap so employers can see an honest picture of my experience and direction.</p>
-      <div class="split-card">
-        <div class="panel">
-          <h3>Current skills</h3>
-          <p>I understand how iOS apps communicate with REST APIs through HTTP requests, JSON data, asynchronous operations, error handling, and displaying remote data in the interface.</p>
-          <div class="learning-label">Working knowledge</div>
-          <div class="tags"><span class="tag">Swift</span><span class="tag">SwiftUI</span><span class="tag">REST APIs</span><span class="tag">HTTP</span><span class="tag">JSON</span><span class="tag">async/await</span><span class="tag">Firebase</span><span class="tag">Git</span></div>
-        </div>
-        <div class="panel">
-          <h3>Actively learning</h3>
-          <p>I’m expanding into more Apple frameworks, modern API approaches, real-time communication, authentication standards, persistence, commerce, maps, and external SDK integration.</p>
-          <div class="learning-label">Learning roadmap</div>
-          <div class="tags"><span class="tag">UIKit</span><span class="tag">Combine</span><span class="tag">WebSockets</span><span class="tag">GraphQL</span><span class="tag">OAuth</span><span class="tag">SwiftData</span><span class="tag">Core Data</span><span class="tag">MapKit</span><span class="tag">StoreKit</span><span class="tag">Third-party SDKs</span></div>
-          <p class="status-note">These are learning goals, not claims of production experience. I’ll move each technology into my current stack as I complete projects with it.</p>
+        <div class="skills-grid">
+          <article class="skill-card">
+            <h3>Current toolkit</h3>
+            <p>I use Swift and SwiftUI to build multi-screen iOS interfaces, manage UI state, structure reusable views, and connect Firebase-backed features. I also understand REST fundamentals: HTTP requests, JSON decoding, async/await, error handling, and presenting remote data.</p>
+            <div class="tags"><span class="tag">Swift</span><span class="tag">SwiftUI</span><span class="tag">REST APIs</span><span class="tag">JSON</span><span class="tag">async/await</span><span class="tag">Firebase</span><span class="tag">Git</span></div>
+          </article>
+          <article class="skill-card learning">
+            <h3>Currently learning</h3>
+            <p>My next focus is native data persistence and stronger networking patterns. I want each new technology to appear here only after I’ve used it in a project.</p>
+            <div class="tags"><span class="tag">SwiftData</span><span class="tag">URLSession architecture</span><span class="tag">Testing</span></div>
+          </article>
         </div>
       </div>
     </section>
 
-    <section id="contact" class="contact section-rule">
-      <div class="label">Contact</div>
-      <h2>Open to iOS opportunities.</h2>
-      <p class="lead">I’m looking for iOS roles, internships, or freelance work where I can contribute with SwiftUI, Firebase, and REST APIs while continuing to grow with experienced engineers.</p>
-      <div class="contact-links">
-        <a href="https://github.com/nole28" target="_blank" rel="noreferrer">GitHub</a>
-        <a href="https://www.linkedin.com/in/novak-velimirovi%C4%87-65749920b/" target="_blank" rel="noreferrer">LinkedIn</a>
-        <a href="mailto:novak.velimirovic1@gmail.com">novak.velimirovic1@gmail.com</a>
+    <section id="contact" class="section">
+      <div class="shell">
+        <div class="section-heading">
+          <div class="section-label">Contact</div>
+          <h2>Looking forward to building something useful.</h2>
+        </div>
+        <div class="contact-panel">
+          <p>I’m looking for a junior iOS role or internship where I can contribute with SwiftUI, Firebase, and REST API fundamentals while learning from experienced engineers and improving through real-world development.</p>
+          <div class="contact-links">
+            <a href="mailto:novak.velimirovic1@gmail.com">novak.velimirovic1@gmail.com</a>
+            <a href="https://github.com/nole28" target="_blank" rel="noreferrer">GitHub</a>
+            <a href="https://www.linkedin.com/in/novak-velimirovi%C4%87-65749920b/" target="_blank" rel="noreferrer">LinkedIn</a>
+          </div>
+        </div>
       </div>
     </section>
   </main>
-  <footer><div>© 2026 Novak Velimirović</div></footer>
+
+  <footer>
+    <div class="shell footer-inner"><span>© 2026 Novak Velimirovic</span><span>Learning, building, improving.</span></div>
+  </footer>
 </body>
 </html>
