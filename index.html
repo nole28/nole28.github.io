@@ -225,10 +225,13 @@
   <main id="top">
     <header class="shell hero">
       <div>
-        <div class="kicker available">Open to junior iOS opportunities</div>
-        <h1> Junior iOS Developer building real apps with SwiftUI.</h1>
-        <p class="hero-lead">I’m <strong>Novak Velimirovic</strong>I build iOS apps with Swift, SwiftUI, Firebase, and REST APIs. My current projects include a social platform and a messaging app where I’ve worked on authentication, media, search, navigation, messaging, and reusable UI.</p>
-     <div class="actions">
+        <div class="kicker available">Open to iOS opportunities</div>
+        <h1>iOS developer building real products with Swift and SwiftUI.</h1>
+       <p class="hero-lead">
+  I’m <strong>Novak Velimirovic</strong>, an iOS developer focused on Swift and SwiftUI.
+  I build apps end to end — from interface and state management to Firebase,
+  persistence, media, messaging, and the debugging that connects everything together.
+</p>
   <a class="button primary" href="#work">See my projects</a>
 
   <a
@@ -262,7 +265,7 @@
         <img src="assets/novak-velimirovic.jpg" alt="Novak Velimirovic smiling in a light blue shirt">
         <div class="portrait-copy">
           <strong>Building, testing, improving.</strong>
-          <span>I learn fastest by turning ideas into working iOS features and improving them as my skills grow.</span>
+          <span>I learn best by building real features, finding where they break, and understanding how to make them better.</span>
         </div>
       </aside>
     </header>
@@ -272,8 +275,8 @@
         <div class="section-heading">
           <div class="section-label">Selected work</div>
           <div>
-            <h2>iOS projects I’m actively building.</h2>
-            <p class="intro">These projects are still evolving, but the core functionality is working. They show how I approach SwiftUI interfaces, app state, Firebase-backed features, navigation, media, and messaging.</p>
+            <h2>Apps I’ve designed, built, and iterated on.</h2>
+            <p class="intro">Espres and ChatSide focus on different problems: one is a larger social app with interconnected features, while the other explores messaging architecture, local persistence, and a cleaner service layer.</p>
           </div>
         </div>
 
@@ -282,11 +285,21 @@
             <div class="project-copy">
               <div class="project-number">01 / Espres</div>
               <div class="status">Active development</div>
-              <h3 id="espres-title">A social iOS app where multiple features work together.</h3>
-              <p class="project-summary">Espres is my largest iOS project so far. I built authentication, photo and text feeds, video discovery, media upload, profiles, saved content, comments, settings, and direct messaging, then connected those features through shared models, services, and reusable SwiftUI components.</p>
+              <h3 id="espres-title">A social iOS app built around media, discovery, and messaging.</h3>
+              <p class="project-summary">Espres is a social iOS app built with SwiftUI and Firebase. It combines photo and text feeds, video and short-form content, uploads, search, profiles, likes, comments, saved content, and direct messaging. The project pushed me to manage shared state, asynchronous data, media, and multiple Firebase services inside one growing app.</p>
               <div class="tags" aria-label="Espres technologies">
-                <span class="tag">Swift</span><span class="tag">SwiftUI</span><span class="tag">Firebase Auth</span><span class="tag">Firestore</span><span class="tag">Firebase Storage</span><span class="tag">AVKit</span><span class="tag">PhotosUI</span>
-              </div>
+  <span class="tag">Swift</span>
+  <span class="tag">SwiftUI</span>
+  <span class="tag">Firebase Auth</span>
+  <span class="tag">Firestore</span>
+  <span class="tag">Firebase Storage</span>
+  <span class="tag">AVKit</span>
+  <span class="tag">PhotosUI</span>
+  <span class="tag">async/await</span>
+</div>
+
+
+<div class="demo">
             </div>
             <div class="demo">
               <div class="phone">
@@ -297,109 +310,230 @@
               <div class="demo-note">00:53 product walkthrough · tap to play</div>
             </div>
           </div>
-          <div class="evidence">
-            <article><h4>What I built</h4><p>Authentication, feeds, media upload, video playback, profiles, comments, saved content, settings, and messaging.</p></article>
-            <article><h4>What I learned</h4><p>How to organize models, services, feature views, shared state, and reusable components as an iOS project grows.</p></article>
-            <article><h4>What I’m improving next</h4><p>Error and loading states, testing, networking structure, remaining product details, and preparation for an eventual App Store release.</p></article>
-          </div>
-        </article>
+         <div class="evidence">
+  <article>
+    <h4>Built</h4>
+    <p>
+      Authentication, photo and text feeds, media upload, video and Shorts,
+      search, profiles, likes, comments, saved content, and direct messaging.
+    </p>
+  </article>
 
-        <article class="project" aria-labelledby="chatside-title">
-          <div class="project-hero">
-            <div class="project-copy">
-              <div class="project-number">02 / ChatSide</div>
-              <div class="status">Active development</div>
-              <h3 id="chatside-title">A focused SwiftUI messaging app.</h3>
-              <p class="project-summary">CChatSide is a smaller project where I focused on the core messaging experience: browsing conversations, searching and filtering contacts, starting a new chat, and keeping navigation straightforward and familiar on iOS.</p>
-              <div class="tags" aria-label="ChatSide technologies">
-                <span class="tag">Swift</span><span class="tag">SwiftUI</span><span class="tag">State management</span><span class="tag">Search &amp; filtering</span><span class="tag">Navigation</span><span class="tag">Reusable views</span>
-              </div>
-            </div>
-            <div class="demo">
-              <div class="phone">
-                <video controls playsinline preload="metadata" poster="assets/chatside-demo-poster.jpg" aria-label="ChatSide interaction demo">
-                  <source src="assets/chatside-demo.mp4" type="video/mp4">
-                </video>
-              </div>
-              <div class="demo-note">00:21 interaction demo · tap to play</div>
-            </div>
-          </div>
-          <div class="evidence">
-            <article><h4>What I built</h4><p>Conversation list, live contact filtering, new-chat selection, message previews, reusable views, and a one-to-one chat interface.</p></article>
-            <article><h4>What I learned</h4><p>How to manage UI state, break repeated interfaces into reusable SwiftUI components, and keep short interaction flows simple.</p></article>
-            <article><h4>What I’m improving next</h4><p>Connect the prototype to a REST API, add persistence, and handle loading, empty, error, and retry states.</p></article>
-          </div>
-        </article>
-      </div>
-    </section>
+  <article>
+    <h4>Under the hood</h4>
+    <p>
+      Firebase Authentication, Firestore, Firebase Storage, observable stores,
+      shared models, async/await, AVKit, and reusable SwiftUI components.
+    </p>
+  </article>
 
-    <section id="skills" class="section">
-      <div class="shell">
-        <div class="section-heading">
-          <div class="section-label">Skills</div>
-          <div>
-            <h2>Tools I use now—and what I’m adding next.</h2>
-            <p class="intro">I prefer to be specific about my current experience instead of presenting a long list of technologies without context.</p>
-          </div>
-        </div>
-        <div class="skills-grid">
-          <article class="skill-card">
-            <h3>Current toolkit</h3>
-            <p>I use Swift and SwiftUI to build multi-screen iOS applications, manage UI state, create reusable components, and work with Firebase-backed features. I also work with REST API fundamentals including HTTP requests, JSON decoding, async/await, error handling, and presenting remote data in the interface.</p>
-            <div class="tags"><span class="tag">Swift</span><span class="tag">SwiftUI</span><span class="tag">REST APIs</span><span class="tag">JSON</span><span class="tag">async/await</span><span class="tag">Firebase</span><span class="tag">Git</span><span class="tag">XCode</span></div>
-          </article>
-          <article class="skill-card learning">
-            <h3>Currently learning</h3>
-            <p>I’m currently improving my networking architecture, persistence, and testing. I prefer adding technologies to this portfolio after I’ve actually used them in a project.</p>
-            <div class="tags"><span class="tag">SwiftData</span><span class="tag">URLSession architecture</span><span class="tag">Testing</span></div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact" class="section">
-      <div class="shell">
-        <div class="section-heading">
-          <div class="section-label">Contact</div>
-          <h2>Open to junior iOS opportunities.</h2>
-        </div>
-        <div class="contact-panel">
-          <p>I’m looking for a junior iOS role or internship where I can contribute with Swift, SwiftUI, Firebase, and REST API knowledge while continuing to grow through real product development and collaboration with experienced engineers.</p>
-         <div class="contact-links">
-  <a href="mailto:novak.velimirovic1@gmail.com">
-    novak.velimirovic1@gmail.com
-  </a>
-
-  <a
-    href="assets/Novak_Velimirovic_iOS_Developer_CV.pdf"
-    download
-  >
-    Download CV
-  </a>
-
-  <a
-    href="https://github.com/nole28"
-    target="_blank"
-    rel="noreferrer"
-  >
-    GitHub
-  </a>
-
-  <a
-    href="https://www.linkedin.com/in/novak-velimirovi%C4%87-65749920b/"
-    target="_blank"
-    rel="noreferrer"
-  >
-    LinkedIn
-  </a>
+  <article>
+    <h4>Next</h4>
+    <p>
+      More automated testing, stronger edge-case handling, cleaner content-type
+      modeling, and continued polish toward an App Store-ready build.
+    </p>
+  </article>
 </div>
-        </div>
-      </div>
-    </section>
-  </main>
+        </article>
 
-  <footer>
-    <div class="shell footer-inner"><span>© 2026 Novak Velimirovic</span><span>Learning, building, improving.</span></div>
-  </footer>
+       <article class="project" aria-labelledby="chatside-title">
+  <div class="project-hero">
+    <div class="project-copy">
+      <div class="project-number">02 / ChatSide</div>
+      <div class="status">Active development</div>
+
+      <h3 id="chatside-title">
+       A messaging app focused on clean architecture and local persistence.
+      </h3>
+
+      <p class="project-summary">
+        ChatSide is a SwiftUI messaging app built around a simple chat experience and a more deliberate architecture underneath it. Conversations and messages are separated behind a ChatService abstraction, dependencies are injected through the app environment, and local messages are persisted using an actor-backed store with Codable JSON, atomic writes, and iOS file protection.
+      </p>
+
+      <p class="project-summary">
+        The current interface includes conversation search, quick contacts, one-to-one messaging, timestamps, unread states, and optimistic message sending.
+      </p>
+
+      <div class="tags" aria-label="ChatSide technologies">
+        <span class="tag">Swift</span>
+        <span class="tag">SwiftUI</span>
+        <span class="tag">Swift Concurrency</span>
+        <span class="tag">Actors</span>
+        <span class="tag">Codable</span>
+        <span class="tag">Dependency Injection</span>
+        <span class="tag">Local Persistence</span>
+        <span class="tag">Service Abstraction</span>
+      </div>
+    </div>
+
+    <div class="demo">
+      <div class="phone">
+        <video
+          controls
+          playsinline
+          preload="metadata"
+          poster="assets/chatside-demo-poster.jpg"
+          aria-label="ChatSide interaction demo"
+        >
+          <source src="assets/chatside-demo.mp4" type="video/mp4">
+        </video>
+      </div>
+
+      <div class="demo-note">
+        00:21 messaging demo · tap to play
+      </div>
+    </div>
+  </div>
+
+  <div class="evidence">
+    <article>
+      <h4>Built</h4>
+      <p>
+        Conversation search, quick contacts, one-to-one messaging, message previews,
+        timestamps, unread states, and optimistic sending.
+      </p>
+    </article>
+
+    <article>
+      <h4>Architecture</h4>
+      <p>
+        A protocol-driven service layer, dependency injection, actor-isolated local
+        persistence, Codable models, atomic file writes, and iOS file protection.
+      </p>
+    </article>
+
+    <article>
+      <h4>Next</h4>
+      <p>
+        Unit tests, richer message types, a remote backend, and continued exploration
+        of secure messaging and end-to-end encryption architecture.
+      </p>
+    </article>
+  </div>
+</article>
+</div>
+</section>
+
+<section id="skills" class="section">
+  <div class="shell">
+    <div class="section-heading">
+      <div class="section-label">Skills</div>
+
+      <div>
+        <h2>The tools I use to build iOS apps.</h2>
+
+        <p class="intro">
+          I prefer a smaller technical stack I can explain and use well over a long
+          list of technologies I’ve barely touched.
+        </p>
+      </div>
+    </div>
+
+    <div class="skills-grid">
+      <article class="skill-card">
+        <h3>Current toolkit</h3>
+
+        <p>
+          I use Swift and SwiftUI to build multi-screen iOS applications, manage state,
+          create reusable components, and structure asynchronous flows. My projects also
+          use Firebase, Firestore, Firebase Storage, Codable, JSON, local persistence,
+          protocol-based services, and Git.
+        </p>
+
+        <div class="tags">
+          <span class="tag">Swift</span>
+          <span class="tag">SwiftUI</span>
+          <span class="tag">Xcode</span>
+          <span class="tag">Git</span>
+          <span class="tag">Firebase</span>
+          <span class="tag">Firestore</span>
+          <span class="tag">Firebase Storage</span>
+          <span class="tag">async/await</span>
+          <span class="tag">Actors</span>
+          <span class="tag">Codable</span>
+          <span class="tag">JSON</span>
+          <span class="tag">REST APIs</span>
+          <span class="tag">AVKit</span>
+        </div>
+      </article>
+
+      <article class="skill-card learning">
+        <h3>Going deeper</h3>
+
+        <p>
+          I’m putting more attention into testing, networking architecture, persistence
+          choices, and application security. I add technologies here once I’ve used them
+          enough to understand the tradeoffs.
+        </p>
+
+        <div class="tags">
+          <span class="tag">Unit Testing</span>
+          <span class="tag">SwiftData</span>
+          <span class="tag">Networking Architecture</span>
+          <span class="tag">App Security</span>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="section">
+  <div class="shell">
+    <div class="section-heading">
+      <div class="section-label">Contact</div>
+
+      <h2>Looking for my next iOS team.</h2>
+    </div>
+
+    <div class="contact-panel">
+      <p>
+        I’m looking for a junior iOS role or internship where I can contribute to real
+        product work, learn from experienced engineers, and keep getting better at
+        shipping reliable Swift code. I’m especially interested in teams where I can
+        work closely with the product, understand why features are built, and take
+        more ownership as I grow.
+      </p>
+
+      <div class="contact-links">
+        <a href="mailto:novak.velimirovic1@gmail.com">
+          novak.velimirovic1@gmail.com
+        </a>
+
+        <a
+          href="assets/Novak_Velimirovic_iOS_Developer_CV.pdf"
+          download
+        >
+          Download CV
+        </a>
+
+        <a
+          href="https://github.com/nole28"
+          target="_blank"
+          rel="noreferrer"
+        >
+          GitHub
+        </a>
+
+        <a
+          href="https://www.linkedin.com/in/novak-velimirovi%C4%87-65749920b/"
+          target="_blank"
+          rel="noreferrer"
+        >
+          LinkedIn
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="shell footer-inner">
+    <span>© 2026 Novak Velimirovic</span>
+    <span>Swift, SwiftUI, and a lot of debugging.</span>
+  </div>
+</footer>
+
 </body>
 </html>
