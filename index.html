@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Novak Velimirovic is a junior iOS developer building SwiftUI apps with Firebase and REST APIs.">
+  <meta name="description" content="Novak Velimirovic is a junior iOS developer building native apps with Swift, SwiftUI, Firebase, and local persistence. Explore projects, architecture, and source code.">
   <meta name="theme-color" content="#f4f3ef">
   <title>Novak Velimirovic — iOS Developer</title>
   <style>
@@ -126,6 +126,7 @@
     .portrait-copy strong { display: block; margin-bottom: 6px; font-size: 21px; letter-spacing: -.035em; }
     .portrait-copy span { color: #d2d3d6; font-size: 14px; line-height: 1.5; }
 
+    section[id] { scroll-margin-top: 88px; }
     .section { padding-block: 104px; border-top: 1px solid var(--line); }
     .section-heading { display: grid; grid-template-columns: .7fr 1.3fr; gap: 50px; align-items: start; }
     h2 { margin-bottom: 0; font-size: clamp(42px, 6vw, 76px); line-height: .98; letter-spacing: -.065em; }
@@ -137,10 +138,10 @@
     .project-number { margin-bottom: 24px; }
     .project h3 { margin-bottom: 20px; font-size: clamp(38px, 5vw, 66px); line-height: .96; letter-spacing: -.06em; }
     .project-summary { color: var(--muted); font-size: 19px; line-height: 1.6; }
-    .status { display: inline-flex; align-items: center; gap: 8px; margin: 8px 0 28px; padding: 8px 11px; border-radius: 999px; color: #31613f; background: #e8f5eb; font: 700 11px var(--mono); }
+    .status { display: inline-flex; align-items: center; gap: 8px; margin: 8px 0 28px; padding: 8px 11px; border-radius: 999px; color: #31613f; background: #e8f5eb; font: 700 12px var(--mono); }
     .status::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--green); }
     .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 28px; }
-    .tag { padding: 8px 11px; border: 1px solid var(--line); border-radius: 999px; color: #555550; background: #f2f1ed; font: 700 11px var(--mono); }
+    .tag { padding: 8px 11px; border: 1px solid var(--line); border-radius: 999px; color: #555550; background: #f2f1ed; font: 700 12px var(--mono); }
 
     .demo {
       position: relative;
@@ -156,15 +157,15 @@
     .phone video { width: 100%; aspect-ratio: 9 / 19.5; border-radius: 30px; background: #050505; object-fit: contain; }
     .phone video:fullscreen { width: 100%; height: 100%; object-fit: contain; background: #000; border-radius: 0; }
     .phone video:-webkit-full-screen { width: 100%; height: 100%; object-fit: contain; background: #000; border-radius: 0; }
-    .demo-note { position: absolute; right: 20px; bottom: 20px; left: 20px; padding: 13px 16px; border: 1px solid #393b41; border-radius: 15px; color: #bfc1c8; background: rgba(17,18,20,.86); font: 700 11px var(--mono); text-align: center; backdrop-filter: blur(10px); }
+    .demo-note { position: absolute; right: 20px; bottom: 20px; left: 20px; padding: 13px 16px; border: 1px solid #393b41; border-radius: 15px; color: #bfc1c8; background: rgba(17,18,20,.86); font: 700 12px var(--mono); text-align: center; backdrop-filter: blur(10px); }
 
     .evidence { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--line); }
     .evidence article { min-height: 190px; padding: 30px; }
     .evidence article + article { border-left: 1px solid var(--line); }
     .evidence h4 { margin: 0 0 12px; font-size: 19px; letter-spacing: -.03em; }
-    .evidence p { margin: 0; color: var(--muted); font-size: 15px; line-height: 1.6; }
+    .evidence p { margin: 0; color: var(--muted); font-size: 16px; line-height: 1.6; }
 
-    .skills-grid { display: grid; grid-template-columns: 1.25fr .75fr; gap: 16px; margin-top: 44px; }
+    .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 44px; }
     .skill-card { padding: 34px; border: 1px solid var(--line); border-radius: 26px; background: var(--card); }
     .skill-card h3 { margin-bottom: 13px; font-size: 25px; letter-spacing: -.04em; }
     .skill-card p { color: var(--muted); font-size: 16px; line-height: 1.65; }
@@ -175,6 +176,7 @@
     .contact-panel p { max-width: 700px; margin-bottom: 0; color: #b8b8b6; font-size: 18px; line-height: 1.6; }
     .contact-links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
     .contact-links a { padding: 12px 16px; border: 1px solid #3b3b3a; border-radius: 999px; color: #f2f2ef; font-size: 14px; font-weight: 720; text-decoration: none; }
+    .contact-links a { overflow-wrap: anywhere; min-width: 0; }
     .contact-links a:hover { border-color: #777; }
 
     footer { padding: 28px 0 42px; border-top: 1px solid var(--line); color: var(--muted); font-size: 13px; }
@@ -192,10 +194,11 @@
       .shell { width: min(calc(100% - 28px), var(--max)); }
       .nav-links a:not(:last-child) { display: none; }
       .hero { min-height: 0; padding-block: 64px; }
-      h1 { font-size: 55px; }
+      h1 { font-size: clamp(40px, 10vw, 55px); }
       .portrait-card, .portrait-card img { min-height: 410px; }
       .portrait-card { border-radius: 28px; }
-      .section { padding-block: 78px; }
+      section[id] { scroll-margin-top: 88px; }
+    .section { padding-block: 78px; }
       .project { border-radius: 26px; }      
       .project-copy { padding: 30px 24px; }
       .demo { min-height: 530px; padding: 24px; }
@@ -227,11 +230,12 @@
   <div>
     <div class="kicker available">Open to junior iOS roles & internships.</div>
 
-    <h1>iOS developer building apps end to end with Swift and SwiftUI.</h1>
+    <h1>Native iOS apps. Built with Swift & SwiftUI.</h1>
 
     <p class="hero-lead">
-      I’m <strong>Novak Velimirovic</strong>. I build iOS apps across interface,
-      state, concurrency, persistence, Firebase, media, and messaging.
+      I’m <strong>Novak Velimirovic</strong>, a junior iOS developer building social and messaging apps.
+      My projects bring together native interfaces, asynchronous data, local
+      persistence, and reusable services—from the screen to the data layer.
     </p>
 
     <div class="actions">
@@ -271,7 +275,7 @@
           <div class="section-label">Selected work</div>
           <div>
             <h2>Apps I’ve designed, built, and iterated on.</h2>
-            <p class="intro">Espres and ChatSide focus on different problems: one is a larger social app with interconnected features, while the other explores messaging architecture, local persistence, and a cleaner service layer.</p>
+            <p class="intro">Two hands-on iOS projects: Espres connects media, discovery, and messaging with Firebase; ChatSide explores service abstractions, dependency injection, and actor-isolated persistence.</p>
           </div>
         </div>
 
@@ -294,6 +298,10 @@
         project pushed me to manage shared state, asynchronous data, media,
         and multiple Firebase services inside one growing app.
       </p>
+
+      <div class="actions">
+        <a class="button primary" href="https://github.com/nole28/Espres" target="_blank" rel="noreferrer">Explore source code</a>
+      </div>
 
       <div class="tags" aria-label="Espres technologies">
         <span class="tag">Swift</span>
@@ -338,10 +346,11 @@
     </article>
 
     <article>
-      <h4>Under the hood</h4>
+      <h4>State & resource lifecycle</h4>
       <p>
-        Firebase Authentication, Firestore, Firebase Storage, observable stores,
-        shared models, async/await, AVKit, and reusable SwiftUI components.
+        PostStore uses a weak self capture in its Firestore callback and removes
+        its listener in deinit. Observable stores connect data updates to SwiftUI.
+        <a href="https://github.com/nole28/Espres/blob/main/Espres/Services/PostStore.swift" target="_blank" rel="noreferrer">Read the implementation</a>.
       </p>
     </article>
 
@@ -443,54 +452,55 @@
         <h2>The tools I use to build iOS apps.</h2>
 
         <p class="intro">
-          I prefer a smaller technical stack I can explain and use well over a long
-          list of technologies I’ve barely touched.
+          Practical experience from Espres and ChatSide, with concrete examples
+          of how I use each part of the stack.
         </p>
       </div>
     </div>
 
     <div class="skills-grid">
       <article class="skill-card">
-        <h3>Current toolkit</h3>
-
-        <p>
-          I use Swift and SwiftUI to build multi-screen iOS applications, manage state,
-          create reusable components, and structure asynchronous flows. My projects also
-          use Firebase, Firestore, Firebase Storage, Codable, JSON, local persistence,
-          protocol-based services, and Git.
-        </p>
-
-        <div class="tags">
-          <span class="tag">Swift</span>
-          <span class="tag">SwiftUI</span>
-          <span class="tag">Xcode</span>
-          <span class="tag">Git</span>
-          <span class="tag">Firebase</span>
-          <span class="tag">Firestore</span>
-          <span class="tag">Firebase Storage</span>
-          <span class="tag">async/await</span>
-          <span class="tag">Actors</span>
-          <span class="tag">Codable</span>
-          <span class="tag">JSON</span>
-          <span class="tag">REST APIs</span>
-          <span class="tag">AVKit</span>
+        <h3>Native iOS development</h3>
+        <p>I build multi-screen apps with Swift and SwiftUI in Xcode: reusable
+          views, shared state, navigation, media playback, and asynchronous data flows.
+          Foundation supports the data models and persistence used in my projects.</p>
+        <div class="tags" aria-label="iOS development skills">
+          <span class="tag">Swift</span><span class="tag">SwiftUI</span>
+          <span class="tag">Xcode</span><span class="tag">Foundation</span>
+          <span class="tag">async/await</span><span class="tag">AVKit</span>
+          <span class="tag">PhotosUI</span>
         </div>
       </article>
-
+      <article class="skill-card">
+        <h3>Architecture & persistence</h3>
+        <p>ChatSide separates messaging behind a protocol-driven service layer,
+          with dependency injection and actor-isolated storage. Codable JSON,
+          atomic writes, and iOS file protection support local persistence.</p>
+        <div class="tags" aria-label="Architecture and persistence skills">
+          <span class="tag">Protocols</span><span class="tag">Dependency Injection</span>
+          <span class="tag">Actors</span><span class="tag">Codable</span>
+          <span class="tag">Local Persistence</span>
+        </div>
+      </article>
+      <article class="skill-card">
+        <h3>Backend integration & version control</h3>
+        <p>Espres integrates Firebase Authentication, Firestore, and Firebase
+          Storage for accounts, live data, and media uploads. I use Git and GitHub
+          to version my work and share the implementation.</p>
+        <div class="tags" aria-label="Backend and development tools">
+          <span class="tag">Firebase Auth</span><span class="tag">Firestore</span>
+          <span class="tag">Firebase Storage</span><span class="tag">Git</span>
+          <span class="tag">GitHub</span>
+        </div>
+      </article>
       <article class="skill-card learning">
-        <h3>Going deeper</h3>
-
-        <p>
-          I’m putting more attention into testing, networking architecture, persistence
-          choices, and application security. I add technologies here once I’ve used them
-          enough to understand the tradeoffs.
-        </p>
-
-        <div class="tags">
-          <span class="tag">Unit Testing</span>
-          <span class="tag">SwiftData</span>
-          <span class="tag">Networking Architecture</span>
-          <span class="tag">App Security</span>
+        <h3>Next engineering priorities</h3>
+        <p>My next steps are automated tests for service and persistence logic,
+          stronger error handling, and measuring memory and scrolling performance.
+          These are planned improvements to the projects.</p>
+        <div class="tags" aria-label="Planned development priorities">
+          <span class="tag">Unit Tests</span><span class="tag">Error Handling</span>
+          <span class="tag">Memory Profiling</span><span class="tag">Performance</span>
         </div>
       </article>
     </div>
