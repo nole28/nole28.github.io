@@ -3,566 +3,224 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Novak Velimirovic is a junior iOS developer building native apps with Swift, SwiftUI, Firebase, and local persistence. Explore projects, architecture, and source code.">
-  <meta name="theme-color" content="#f4f3ef">
+  <meta name="theme-color" content="#000000">
+  <meta name="description" content="Novak Velimirovic — iOS developer. Noyoo and Espres, built with SwiftUI and Firebase.">
   <title>Novak Velimirovic — iOS Developer</title>
   <style>
+
     :root {
-      --ink: #131313;
-      --muted: #65645f;
-      --paper: #f4f3ef;
-      --card: #fbfaf7;
-      --line: #d8d6ce;
-      --blue: #0a66ff;
-      --blue-soft: #e8f0ff;
-      --green: #1c9b55;
-      --dark: #111214;
-      --radius: 28px;
-      --max: 1160px;
-      --sans: ui-sans-serif, -apple-system, BlinkMacSystemFont, "SF Pro Display", "Inter", "Segoe UI", sans-serif;
-      --mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+      color-scheme: dark;
+      --bg:#000000;
+      --surface:#101012;
+      --surface-elevated:#171719;
+      --hairline:#262628;
+      --text:#f5f5f7;
+      --muted:#a1a1a6;
+      --subtle:#86868b;
+      --blue:#2997ff;
+      --blue-hover:#53adff;
+      --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+      --sans:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",Arial,sans-serif;
     }
+    * {box-sizing:border-box}
+    html {scroll-behavior:smooth}
+    body {margin:0;background:var(--bg);color:var(--text);font-family:var(--sans);-webkit-font-smoothing:antialiased}
+    h1,h2,h3,p,figure {margin:0}
+    a {color:inherit}
+    img,video {display:block;max-width:100%}
+    a { -webkit-tap-highlight-color:transparent }
+    :focus-visible {outline:2px solid var(--blue);outline-offset:4px;border-radius:6px}
+    .wrap {width:min(1120px,calc(100% - 64px));margin-inline:auto}
 
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      color: var(--ink);
-      background: var(--paper);
-      font-family: var(--sans);
-      -webkit-font-smoothing: antialiased;
-    }
-    a { color: inherit; }
-    img, video { display: block; max-width: 100%; }
-    :focus-visible { outline: 3px solid var(--blue); outline-offset: 4px; }
+    /* Quiet, compact navigation inspired by Apple's restrained dark product pages. */
+    .nav {position:sticky;top:0;z-index:20;background:rgba(0,0,0,.82);border-bottom:1px solid #1a1a1c;backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px)}
+    .nav-inner {height:60px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .brand {font-size:14px;font-weight:650;letter-spacing:-.015em;text-decoration:none}
+    .nav-links {display:flex;gap:26px;align-items:center;font-size:12px;color:#c6c6c8}
+    .nav-links a {text-decoration:none;transition:color .15s ease}
+    .nav-links a:hover {color:#fff}
 
-    .shell { width: min(calc(100% - 40px), var(--max)); margin-inline: auto; }
-    .nav {
-      position: sticky;
-      top: 0;
-      z-index: 20;
-      border-bottom: 1px solid rgba(216, 214, 206, .82);
-      background: rgba(244, 243, 239, .88);
-      backdrop-filter: blur(18px);
+    /* Headline and image are the only two loud things in the hero. */
+    .hero {min-height:640px;padding:72px 0 90px;display:grid;grid-template-columns:1.12fr .88fr;gap:75px;align-items:center}
+    .eyebrow {color:var(--subtle);font:650 11px/1.5 var(--mono);letter-spacing:.10em;text-transform:uppercase}
+    h1 {font-size:clamp(56px,6.3vw,84px);line-height:1.02;letter-spacing:-.067em;font-weight:750;margin:22px 0 27px}
+    .blue {color:#f5f5f7} /* Emphasis through typography, not excessive color */
+    .lead {color:var(--muted);font-size:18px;line-height:1.72;max-width:565px}
+    .cta {margin-top:30px;display:flex;gap:12px;flex-wrap:wrap}
+    .button {min-height:45px;padding:12px 19px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;border:1px solid #424245;background:transparent;color:var(--text);text-decoration:none;font-size:13px;font-weight:610;transition:background .16s ease,border-color .16s ease,transform .16s ease}
+    .button:hover {transform:translateY(-1px);border-color:#74747a;background:#101012}
+    .button.primary {background:var(--blue);border-color:var(--blue);color:#fff}
+    .button.primary:hover {background:var(--blue-hover);border-color:var(--blue-hover)}
+    .hero-visual {position:relative;display:flex;align-items:center;justify-content:center;min-width:0;padding:0;background:none;border:none;overflow:visible}
+    /* Portrait crop: round and centered, with no card or square frame. */
+    .hero-visual img {
+      display:block;
+      width:min(100%,440px);
+      height:auto;
+      aspect-ratio:1 / 1;
+      object-fit:cover;
+      object-position:center 37%;
+      border-radius:50%;
+      box-shadow:0 0 0 1px rgba(255,255,255,.14),0 28px 72px rgba(0,0,0,.40);
     }
-    .nav-inner { height: 68px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
-    .brand { font-weight: 780; letter-spacing: -.03em; text-decoration: none; }
-    .nav-links { display: flex; align-items: center; gap: 26px; color: var(--muted); font-size: 14px; }
-    .nav-links a { text-decoration: none; }
-    .nav-links a:hover { color: var(--ink); }
+    .hero-visual:after {content:"";position:absolute;width:min(96%,440px);height:44px;bottom:-20px;z-index:-1;background:rgba(255,255,255,.05);filter:blur(38px);border-radius:50%}
 
-    .hero {
-      min-height: calc(92vh - 68px);
-      display: grid;
-      grid-template-columns: 1.12fr .88fr;
-      align-items: center;
-      gap: 95px;
-      padding-block: 84px;
-    }
-    .kicker, .section-label, .project-number {
-      font: 700 12px/1.2 var(--mono);
-      letter-spacing: .05em;
-      text-transform: uppercase;
-      color: var(--muted);
-    }
-    .available { display: inline-flex; align-items: center; gap: 9px; }
-    .available::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--green); box-shadow: 0 0 0 5px rgba(28,155,85,.12); }
-    h1, h2, h3, p { margin-top: 0; }
-    h1 {
-      max-width: 800px;
-      margin: 24px 0 28px;
-      font-size: clamp(54px, 7.6vw, 100px);
-      line-height: .94;
-      letter-spacing: -.075em;
-    }
-    .hero-lead {
-      max-width: 680px;
-      margin: 0;
-      color: var(--muted);
-      font-size: clamp(20px, 2.2vw, 27px);
-      line-height: 1.42;
-      letter-spacing: -.025em;
-    }
-    .hero-lead strong { color: var(--ink); font-weight: 700; }
-    .actions { display: flex; flex-wrap: wrap; gap: 11px; margin-top: 48px; }
-    .button {
-      min-height: 48px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0 22px;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      background: var(--card);
-      font-size: 14px;
-      font-weight: 750;
-      text-decoration: none;
-      transition: transform .16s ease, border-color .16s ease;
-    }
-    .button:hover { transform: translateY(-2px); border-color: #aaa79f; }
-    .button.primary { border-color: var(--ink); color: white; background: var(--ink); }
+    /* True black background, soft charcoal project surfaces. */
+    .section {border-top:1px solid #1d1d1f;padding:88px 0;scroll-margin-top:70px}
+    .section-heading {margin-bottom:36px;display:flex;justify-content:space-between;align-items:end;gap:30px}
+    h2 {font-size:clamp(36px,4.2vw,58px);font-weight:720;letter-spacing:-.055em;line-height:1.06}
+    .section-heading p {max-width:390px;color:var(--muted);font-size:15px;line-height:1.7}
+    .project {display:grid;grid-template-columns:1fr .91fr;background:var(--surface);border:1px solid #222225;border-radius:26px;overflow:hidden;margin-bottom:28px}
+    .project-copy {padding:50px 44px;display:flex;flex-direction:column;justify-content:center;align-items:flex-start}
+    .project-title {display:flex;align-items:center;gap:14px;margin:0 0 23px}
+    .project-title img {height:50px;width:50px;border-radius:14px}
+    .project-title h3 {font-size:48px;letter-spacing:-.055em;font-weight:740}
+    .project-label {color:var(--subtle);font:650 11px var(--mono);letter-spacing:.08em;text-transform:uppercase;margin-bottom:13px}
+    .project-sub {font-size:24px;font-weight:670;line-height:1.3;letter-spacing:-.035em;margin-bottom:16px}
+    .project-desc {color:var(--muted);font-size:15px;line-height:1.82;max-width:560px}
+    .tags {margin-top:24px;display:flex;gap:9px;flex-wrap:wrap}
+    .tag {color:#bfc0c4;background:#18181a;font:580 11px var(--mono);padding:7px 10px;border:1px solid #343438;border-radius:999px}
+    .media {background:#090909;padding:37px 26px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:17px;border-left:1px solid #232326}
+    .phone {max-width:270px;width:100%;padding:7px;border-radius:41px;background:#010203;box-shadow:0 22px 50px #000b,0 0 0 1px #29292c}
+    .phone video {width:100%;aspect-ratio:810/1730;object-fit:contain;background:#000;border-radius:34px}
+    .video-label {font:550 10px var(--mono);color:var(--subtle);letter-spacing:.06em;text-transform:uppercase;text-align:center}
 
-    .portrait-card {
-      position: relative;
-      min-height: 510px;
-      overflow: hidden;
-      border: 1px solid var(--line);
-      border-radius: 38px;
-      box-shadow: 0 36px 90px rgba(25, 25, 25, .18);
+    .feature {display:grid;grid-template-columns:300px 1fr;align-items:center;gap:40px;padding:28px 46px;border-radius:25px;background:#111113;border:1px solid var(--hairline);margin:24px 0 70px}
+    .feature-image {display:flex;align-items:center;justify-content:center;padding:14px;background:#070707;border-radius:19px}
+    .feature-image img {max-width:205px;max-height:400px;object-fit:contain;border-radius:15px;box-shadow:0 14px 35px #0008}
+    .feature h3 {font-size:29px;font-weight:690;letter-spacing:-.045em;margin-bottom:15px}
+    .feature p {font-size:15px;color:var(--muted);line-height:1.84;margin-bottom:17px}
+    .feature .small {font-size:13px;color:var(--subtle)}
+
+    .engineering {display:grid;grid-template-columns:.78fr 1.22fr;gap:38px;align-items:start}
+    .engineering h3 {font-size:27px;letter-spacing:-.035em;margin-bottom:14px}
+    .engineering p {color:var(--muted);font-size:15px;line-height:1.78;max-width:350px}
+    .code-card {min-width:0;background:#0b0d11;border:1px solid #28282c;border-radius:20px;overflow:hidden}
+    .code-head {display:flex;align-items:center;gap:10px;border-bottom:1px solid #232327;padding:16px 20px;font:550 12px var(--mono);color:#aaaab1}
+    .code-head:before {content:"";width:8px;height:8px;border-radius:50%;background:var(--blue)}
+    pre {margin:0;padding:26px 22px;overflow:auto;font:13px/1.8 var(--mono);color:#e1e3e8;tab-size:4}
+    .sw-key {color:#c4a7d8}.sw-call {color:#91c0db}.sw-str {color:#e6b88f}.sw-comment {color:#858991}
+    .skills {display:grid;grid-template-columns:1fr 1fr;gap:72px}
+    .skills h3 {font-size:18px;margin-bottom:12px;letter-spacing:-.02em;font-weight:670}
+    .skills p {font-size:14px;color:var(--muted);line-height:1.88}
+    .now {margin-top:29px;color:var(--muted);font-size:14px;line-height:1.6}
+    .now strong {color:var(--text)}
+    .contact {padding:85px 0 105px;border-top:1px solid #1d1d1f}
+    .contact h2 {font-size:clamp(34px,4vw,48px);letter-spacing:-.055em}
+    .contact p {color:var(--muted);font-size:16px;margin-top:14px}
+    footer {border-top:1px solid #1d1d1f;color:var(--subtle);padding:26px 0;font-size:12px}
+
+    @media(max-width:900px){
+      .hero,.project,.feature,.engineering{grid-template-columns:1fr}
+      .hero{gap:46px;padding:70px 0 76px;min-height:0}
+      .hero-visual{justify-content:center}
+      .hero-visual img{max-width:430px;max-height:500px;width:100%}
+      .section-heading{display:block}
+      .section-heading p{margin-top:15px}
+      .project-copy{padding:36px}
+      .media{border-left:0;border-top:1px solid #232326}
+      .feature{padding:34px;gap:30px}
+      .feature-image{max-width:330px;width:100%;justify-self:center}
+      .skills{gap:30px}
     }
-    .portrait-card img { width: 100%; height: 100%; min-height: 510px; object-fit: cover; object-position: center 32%; }
-    .portrait-copy {
-      position: absolute;
-      right: 22px;
-      bottom: 22px;
-      left: 22px;
-      padding: 18px 20px;
-      border: 1px solid rgba(255,255,255,.38);
-      border-radius: 20px;
-      color: white;
-      background: rgba(15,16,18,.72);
-      backdrop-filter: blur(14px);
+    @media(max-width:520px){
+      .wrap{width:calc(100% - 32px)}
+      .nav-inner{height:60px}
+      .nav-links{gap:12px;font-size:11px}
+      .brand{font-size:12px}
+      .hero{padding:52px 0 68px;gap:35px}
+      h1{font-size:50px}
+      .lead{font-size:17px}
+      .hero-visual img{width:min(100%,340px);height:auto}
+      .section{padding:65px 0}
+      .project-copy{padding:28px}
+      .media{padding:28px 18px}
+      .feature{padding:22px}
+      .skills{grid-template-columns:1fr}
     }
-    .portrait-copy strong { display: block; margin-bottom: 6px; font-size: 21px; letter-spacing: -.035em; }
-    .portrait-copy span { color: #d2d3d6; font-size: 14px; line-height: 1.5; }
-
-    section[id] { scroll-margin-top: 88px; }
-    .section { padding-block: 104px; border-top: 1px solid var(--line); }
-    .section-heading { display: grid; grid-template-columns: .7fr 1.3fr; gap: 50px; align-items: start; }
-    h2 { margin-bottom: 0; font-size: clamp(42px, 6vw, 76px); line-height: .98; letter-spacing: -.065em; }
-    .intro { max-width: 610px; margin: 24px 0 0; color: var(--muted); font-size: 20px; line-height: 1.55; letter-spacing: -.02em; }
-
-    .project { margin-top: 44px; overflow: hidden; border: 1px solid var(--line); border-radius: 34px; background: var(--card); }
-    .project-hero { display: grid; grid-template-columns: .92fr 1.08fr; min-height: 570px; }
-    .project-copy { padding: 48px; }
-    .project-number { margin-bottom: 24px; }
-    .project h3 { margin-bottom: 20px; font-size: clamp(38px, 5vw, 66px); line-height: .96; letter-spacing: -.06em; }
-    .project-summary { color: var(--muted); font-size: 19px; line-height: 1.6; }
-    .status { display: inline-flex; align-items: center; gap: 8px; margin: 8px 0 28px; padding: 8px 11px; border-radius: 999px; color: #31613f; background: #e8f5eb; font: 700 12px var(--mono); }
-    .status::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--green); }
-    .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 28px; }
-    .tag { padding: 8px 11px; border: 1px solid var(--line); border-radius: 999px; color: #555550; background: #f2f1ed; font: 700 12px var(--mono); }
-
-    .demo {
-      position: relative;
-      min-height: 570px;
-      display: grid;
-      place-items: center;
-      padding: 34px;
-      overflow: hidden;
-      color: white;
-      background: radial-gradient(circle at 80% 15%, #244071 0, transparent 37%), #101114;
-    }
-    .phone { width: min(275px, 80%); padding: 9px; border: 1px solid #34363c; border-radius: 39px; background: #030304; box-shadow: 0 28px 65px rgba(0,0,0,.35); }
-    .phone video { width: 100%; aspect-ratio: 9 / 19.5; border-radius: 30px; background: #050505; object-fit: contain; }
-    .phone video:fullscreen { width: 100%; height: 100%; object-fit: contain; background: #000; border-radius: 0; }
-    .phone video:-webkit-full-screen { width: 100%; height: 100%; object-fit: contain; background: #000; border-radius: 0; }
-    .demo-note { position: absolute; right: 20px; bottom: 20px; left: 20px; padding: 13px 16px; border: 1px solid #393b41; border-radius: 15px; color: #bfc1c8; background: rgba(17,18,20,.86); font: 700 12px var(--mono); text-align: center; backdrop-filter: blur(10px); }
-
-    .evidence { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--line); }
-    .evidence article { min-height: 190px; padding: 30px; }
-    .evidence article + article { border-left: 1px solid var(--line); }
-    .evidence h4 { margin: 0 0 12px; font-size: 19px; letter-spacing: -.03em; }
-    .evidence p { margin: 0; color: var(--muted); font-size: 16px; line-height: 1.6; }
-
-    .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 44px; }
-    .skill-card { padding: 34px; border: 1px solid var(--line); border-radius: 26px; background: var(--card); }
-    .skill-card h3 { margin-bottom: 13px; font-size: 25px; letter-spacing: -.04em; }
-    .skill-card p { color: var(--muted); font-size: 16px; line-height: 1.65; }
-    .learning { background: var(--blue-soft); border-color: #cddcf9; }
-    .learning .tag { background: rgba(255,255,255,.62); border-color: #c3d3ef; }
-
-    .contact-panel { margin-top: 44px; padding: 44px; border-radius: 32px; color: white; background: var(--ink); }
-    .contact-panel p { max-width: 700px; margin-bottom: 0; color: #b8b8b6; font-size: 18px; line-height: 1.6; }
-    .contact-links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
-    .contact-links a { padding: 12px 16px; border: 1px solid #3b3b3a; border-radius: 999px; color: #f2f2ef; font-size: 14px; font-weight: 720; text-decoration: none; }
-    .contact-links a { overflow-wrap: anywhere; min-width: 0; }
-    .contact-links a:hover { border-color: #777; }
-
-    footer { padding: 28px 0 42px; border-top: 1px solid var(--line); color: var(--muted); font-size: 13px; }
-    .footer-inner { display: flex; justify-content: space-between; gap: 20px; }
-
-    @media (max-width: 900px) {
-      .hero, .project-hero, .section-heading, .skills-grid { grid-template-columns: 1fr; }
-      .hero { gap: 44px; }
-      .portrait-card, .portrait-card img { min-height: 470px; }
-      .section-heading { gap: 18px; }
-      .project-hero { min-height: 0; }
-      .demo { min-height: 600px; }
-    }
-    @media (max-width: 700px) {
-      .shell { width: min(calc(100% - 28px), var(--max)); }
-      .nav-links a:not(:last-child) { display: none; }
-      .hero { min-height: 0; padding-block: 64px; }
-      h1 { font-size: clamp(40px, 10vw, 55px); }
-      .portrait-card, .portrait-card img { min-height: 410px; }
-      .portrait-card { border-radius: 28px; }
-      section[id] { scroll-margin-top: 88px; }
-    .section { padding-block: 78px; }
-      .project { border-radius: 26px; }      
-      .project-copy { padding: 30px 24px; }
-      .demo { min-height: 530px; padding: 24px; }
-      .evidence { grid-template-columns: 1fr; }
-      .evidence article + article { border-top: 1px solid var(--line); border-left: 0; }
-      .contact-panel { padding: 30px 24px; }
-      .footer-inner { flex-direction: column; }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto; }
-      .button { transition: none; }
-    }
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.button{transition:none}}
+  
   </style>
 </head>
 <body>
-  <nav class="nav" aria-label="Primary navigation">
-    <div class="shell nav-inner">
-      <a class="brand" href="#top">Novak Velimirovic</a>
-      <div class="nav-links">
-        <a href="#work">Work</a>
-        <a href="#skills">Skills</a>
-        <a href="#contact">Contact</a>
-      </div>
-    </div>
-  </nav>
-
+  <nav class="nav"><div class="wrap nav-inner"><a href="#top" class="brand">Novak Velimirovic</a><div class="nav-links"><a href="#work">Projects</a><a href="#code">Code</a><a href="#skills">Skills</a><a href="#contact">Contact</a></div></div></nav>
   <main id="top">
-<header class="shell hero">
-  <div>
-    <div class="kicker available">Open to junior iOS roles & internships.</div>
-
-    <h1>Native iOS apps. Built with Swift & SwiftUI.</h1>
-
-    <p class="hero-lead">
-      I’m <strong>Novak Velimirovic</strong>, a junior iOS developer building social and messaging apps.
-      My projects bring together native interfaces, asynchronous data, local
-      persistence, and reusable services—from the screen to the data layer.
-    </p>
-
-    <div class="actions">
-      <a class="button primary" href="#work">View projects</a>
-      <a class="button" href="assets/Novak_Velimirovic_iOS_Developer_CV.pdf" download>
-        Download CV
-      </a>
-      <a class="button" href="https://github.com/nole28" target="_blank" rel="noreferrer">
-        GitHub
-      </a>
-      <a class="button" href="https://www.linkedin.com/in/novak-velimirovi%C4%87-65749920b/"
-         target="_blank" rel="noreferrer">
-        LinkedIn
-      </a>
-    </div>
-  </div>
-
-  <aside class="portrait-card" aria-label="Portrait of Novak Velimirovic">
-  <img
-    src="assets/novak-portfolio-clean.png"
-    alt="Portrait of Novak Velimirovic"
-  >
-
-  <div class="portrait-copy">
-    <strong>Building, testing, improving.</strong>
-    <span>
-      I learn best by building real features, finding where they break,
-      and understanding how to make them better.
-    </span>
-  </div>
-</aside>
-</header>
-
-    <section id="work" class="section">
-      <div class="shell">
-        <div class="section-heading">
-          <div class="section-label">Selected work</div>
-          <div>
-            <h2>Apps I’ve designed, built, and iterated on.</h2>
-            <p class="intro">Two hands-on iOS projects: Espres connects media, discovery, and messaging with Firebase; ChatSide explores service abstractions, dependency injection, and actor-isolated persistence.</p>
-          </div>
-        </div>
-
- <article class="project" aria-labelledby="espres-title">
-  <div class="project-hero">
-
-    <div class="project-copy">
-      <div class="project-number">01 / Espres</div>
-
-      <div class="status">Active development</div>
-
-      <h3 id="espres-title">
-        A social iOS app built around media, discovery, and messaging.
-      </h3>
-
-      <p class="project-summary">
-        Espres is a social iOS app built with SwiftUI and Firebase. It combines
-        photo and text feeds, video and short-form content, uploads, search,
-        profiles, likes, comments, saved content, and direct messaging. The
-        project pushed me to manage shared state, asynchronous data, media,
-        and multiple Firebase services inside one growing app.
-      </p>
-
-      <div class="actions">
-        <a class="button primary" href="https://github.com/nole28/Espres" target="_blank" rel="noreferrer">Explore source code</a>
-      </div>
-
-      <div class="tags" aria-label="Espres technologies">
-        <span class="tag">Swift</span>
-        <span class="tag">SwiftUI</span>
-        <span class="tag">Firebase Auth</span>
-        <span class="tag">Firestore</span>
-        <span class="tag">Firebase Storage</span>
-        <span class="tag">AVKit</span>
-        <span class="tag">PhotosUI</span>
-        <span class="tag">async/await</span>
-      </div>
-    </div>
-
-    <div class="demo">
-      <div class="phone">
-        <video
-          controls
-          playsinline
-          preload="metadata"
-          poster="assets/espres-demo-poster.jpg"
-          aria-label="Espres app walkthrough"
-        >
-          <source src="assets/espres-demo.mp4" type="video/mp4">
-        </video>
-      </div>
-
-      <div class="demo-note">
-        00:53 product walkthrough · tap to play
-      </div>
-    </div>
-
-  </div>
-
-  <div class="evidence">
-
-    <article>
-      <h4>Built</h4>
-      <p>
-        Authentication, photo and text feeds, media upload, video and Shorts,
-        search, profiles, likes, comments, saved content, and direct messaging.
-      </p>
-    </article>
-
-    <article>
-      <h4>State & resource lifecycle</h4>
-      <p>
-        PostStore uses a weak self capture in its Firestore callback and removes
-        its listener in deinit. Observable stores connect data updates to SwiftUI.
-        <a href="https://github.com/nole28/Espres/blob/main/Espres/Services/PostStore.swift" target="_blank" rel="noreferrer">Read the implementation</a>.
-      </p>
-    </article>
-
-    <article>
-      <h4>Next</h4>
-      <p>
-        More automated testing, stronger edge-case handling, cleaner content-type
-        modeling, and continued polish toward an App Store-ready build.
-      </p>
-    </article>
-
-  </div>
-</article>
-
-       <article class="project" aria-labelledby="chatside-title">
-  <div class="project-hero">
-    <div class="project-copy">
-      <div class="project-number">02 / ChatSide</div>
-      <div class="status">Active development</div>
-
-      <h3 id="chatside-title">
-       A messaging app focused on clean architecture and local persistence.
-      </h3>
-
-      <p class="project-summary">
-        ChatSide is a SwiftUI messaging app built around a simple chat experience and a more deliberate architecture underneath it. Conversations and messages are separated behind a ChatService abstraction, dependencies are injected through the app environment, and local messages are persisted using an actor-backed store with Codable JSON, atomic writes, and iOS file protection.
-      </p>
-
-      <p class="project-summary">
-        The current interface includes conversation search, quick contacts, one-to-one messaging, timestamps, unread states, and optimistic message sending.
-      </p>
-
-      <div class="tags" aria-label="ChatSide technologies">
-        <span class="tag">Swift</span>
-        <span class="tag">SwiftUI</span>
-        <span class="tag">Swift Concurrency</span>
-        <span class="tag">Actors</span>
-        <span class="tag">Codable</span>
-        <span class="tag">Dependency Injection</span>
-        <span class="tag">Local Persistence</span>
-        <span class="tag">Service Abstraction</span>
-      </div>
-    </div>
-
-    <div class="demo">
-      <div class="phone">
-        <video
-          controls
-          playsinline
-          preload="metadata"
-          poster="assets/chatside-demo-poster.jpg"
-          aria-label="ChatSide interaction demo"
-        >
-          <source src="assets/chatside-demo.mp4" type="video/mp4">
-        </video>
-      </div>
-
-      <div class="demo-note">
-        00:21 messaging demo · tap to play
-      </div>
-    </div>
-  </div>
-
-  <div class="evidence">
-    <article>
-      <h4>Built</h4>
-      <p>
-        Conversation search, quick contacts, one-to-one messaging, message previews,
-        timestamps, unread states, and optimistic sending.
-      </p>
-    </article>
-
-    <article>
-      <h4>Architecture</h4>
-      <p>
-        A protocol-driven service layer, dependency injection, actor-isolated local
-        persistence, Codable models, atomic file writes, and iOS file protection.
-      </p>
-    </article>
-
-    <article>
-      <h4>Next</h4>
-      <p>
-        Unit tests, richer message types, a remote backend, and continued exploration
-        of secure messaging and end-to-end encryption architecture.
-      </p>
-    </article>
-  </div>
-</article>
-</div>
-</section>
-
-<section id="skills" class="section">
-  <div class="shell">
-    <div class="section-heading">
-      <div class="section-label">Skills</div>
-
+    <header class="hero wrap">
       <div>
-        <h2>The tools I use to build iOS apps.</h2>
-
-        <p class="intro">
-          Practical experience from Espres and ChatSide, with concrete examples
-          of how I use each part of the stack.
-        </p>
+        <div class="eyebrow">Junior iOS developer</div>
+        <h1>iOS apps built <br>with <span class="blue">Swift.</span></h1>
+        <p class="lead">I'm Novak Velimirovic. I build iPhone apps with SwiftUI and Firebase. My current projects are Noyoo, a messaging app with private Side Notes, and Espres, a social app focused on media and sharing.</p>
+        <div class="cta"><a class="button primary" href="#work">See projects ↓</a><a class="button" href="https://github.com/nole28" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a class="button" href="https://www.linkedin.com/in/novak-velimirovi%C4%87-65749920b/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a></div>
       </div>
-    </div>
+      <div class="hero-visual"><img src="assets/novak-portrait.webp" width="1086" height="1448" alt="Portrait of Novak Velimirovic"></div>
+    </header>
 
-    <div class="skills-grid">
-      <article class="skill-card">
-        <h3>Native iOS development</h3>
-        <p>I build multi-screen apps with Swift and SwiftUI in Xcode: reusable
-          views, shared state, navigation, media playback, and asynchronous data flows.
-          Foundation supports the data models and persistence used in my projects.</p>
-        <div class="tags" aria-label="iOS development skills">
-          <span class="tag">Swift</span><span class="tag">SwiftUI</span>
-          <span class="tag">Xcode</span><span class="tag">Foundation</span>
-          <span class="tag">async/await</span><span class="tag">AVKit</span>
-          <span class="tag">PhotosUI</span>
-        </div>
-      </article>
-      <article class="skill-card">
-        <h3>Architecture & persistence</h3>
-        <p>ChatSide separates messaging behind a protocol-driven service layer,
-          with dependency injection and actor-isolated storage. Codable JSON,
-          atomic writes, and iOS file protection support local persistence.</p>
-        <div class="tags" aria-label="Architecture and persistence skills">
-          <span class="tag">Protocols</span><span class="tag">Dependency Injection</span>
-          <span class="tag">Actors</span><span class="tag">Codable</span>
-          <span class="tag">Local Persistence</span>
-        </div>
-      </article>
-      <article class="skill-card">
-        <h3>Backend integration & version control</h3>
-        <p>Espres integrates Firebase Authentication, Firestore, and Firebase
-          Storage for accounts, live data, and media uploads. I use Git and GitHub
-          to version my work and share the implementation.</p>
-        <div class="tags" aria-label="Backend and development tools">
-          <span class="tag">Firebase Auth</span><span class="tag">Firestore</span>
-          <span class="tag">Firebase Storage</span><span class="tag">Git</span>
-          <span class="tag">GitHub</span>
-        </div>
-      </article>
-      <article class="skill-card learning">
-        <h3>Next engineering priorities</h3>
-        <p>My next steps are automated tests for service and persistence logic,
-          stronger error handling, and measuring memory and scrolling performance.
-          These are planned improvements to the projects.</p>
-        <div class="tags" aria-label="Planned development priorities">
-          <span class="tag">Unit Tests</span><span class="tag">Error Handling</span>
-          <span class="tag">Memory Profiling</span><span class="tag">Performance</span>
-        </div>
-      </article>
-    </div>
-  </div>
-</section>
-
-<section id="contact" class="section">
-  <div class="shell">
-    <div class="section-heading">
-      <div class="section-label">Contact</div>
-
-      <h2>Looking for my next iOS team.</h2>
-    </div>
-
-    <div class="contact-panel">
-      <p>
-        I’m looking for a junior iOS role or internship where I can contribute to real
-        product work, learn from experienced engineers, and keep getting better at
-        shipping reliable Swift code. I’m especially interested in teams where I can
-        work closely with the product, understand why features are built, and take
-        more ownership as I grow.
-      </p>
-
-      <div class="contact-links">
-        <a href="mailto:novak.velimirovic1@gmail.com">
-          novak.velimirovic1@gmail.com
-        </a>
-
-        <a
-          href="assets/Novak_Velimirovic_iOS_Developer_CV.pdf"
-          download
-        >
-          Download CV
-        </a>
-
-        <a
-          href="https://github.com/nole28"
-          target="_blank"
-          rel="noreferrer"
-        >
-          GitHub
-        </a>
-
-        <a
-          href="https://www.linkedin.com/in/novak-velimirovi%C4%87-65749920b/"
-          target="_blank"
-          rel="noreferrer"
-        >
-          LinkedIn
-        </a>
+    <section class="section" id="work">
+      <div class="wrap">
+        <div class="section-heading"><h2>Projects</h2><p>Two apps I've been building in Xcode. Both demos are recorded from the iPhone Simulator.</p></div>
+        <article class="project" aria-labelledby="noyoo-title">
+          <div class="project-copy">
+            <div class="project-label">01 / Messaging app</div>
+            <div class="project-title"><img src="assets/noyoo-icon.webp" alt="Noyoo icon"><h3 id="noyoo-title">Noyoo</h3></div>
+            <div class="project-sub">Messaging and private Side Notes.</div>
+            <p class="project-desc">Noyoo supports phone sign-in, one-to-one chats, Saved Messages, and Side Notes. You can keep notes privately, link them to messages, and jump back to the conversation. I use Firestore for chat data and an actor-backed local store for the notes.</p>
+            <div class="tags"><span class="tag">SwiftUI</span><span class="tag">Firebase Auth</span><span class="tag">Firestore</span><span class="tag">Actors</span><span class="tag">Codable</span></div>
+            <div class="cta"><a class="button primary" href="assets/noyoo-demo.mp4" target="_blank" rel="noopener noreferrer">Open video ↗</a><a class="button" href="https://github.com/nole28/Noyoo" target="_blank" rel="noopener noreferrer">Source code ↗</a></div>
+          </div>
+          <div class="media"><div class="phone"><video controls playsinline preload="metadata" poster="assets/noyoo-welcome.jpg" aria-label="Noyoo app demo"><source src="assets/noyoo-demo.mp4" type="video/mp4">Video unavailable. <a href="assets/noyoo-demo.mp4">Open MP4</a>.</video></div><div class="video-label">3:07 / Simulator recording / 1× speed</div></div>
+        </article>
+        <aside class="feature">
+          <div class="feature-image"><img src="assets/noyoo-side-notes.jpg" loading="lazy" alt="Side Notes showing saved notes, including notes linked to messages"></div>
+          <div><h3>Side Notes</h3><p>This is the feature I wanted Noyoo to have alongside messaging. Notes are stored locally. A note can stand on its own or point back to a specific message.</p><div class="small">Stored with Codable models and actor-isolated file access.</div></div>
+        </aside>
+        <article class="project" aria-labelledby="espres-title">
+          <div class="project-copy">
+            <div class="project-label">02 / Social app</div>
+            <div class="project-title"><h3 id="espres-title">Espres</h3></div>
+            <div class="project-sub">Feeds, media, and messaging.</div>
+            <p class="project-desc">Espres is a SwiftUI app with photo and text posts, video, search, profiles, likes, comments, uploads, saved content, and direct messages. It uses Firebase Authentication, Firestore, and Storage.</p>
+            <div class="tags"><span class="tag">SwiftUI</span><span class="tag">Firestore</span><span class="tag">Firebase Storage</span><span class="tag">AVKit</span><span class="tag">PhotosUI</span></div>
+            <div class="cta"><a class="button primary" href="assets/espres-demo.mp4" target="_blank" rel="noopener noreferrer">Open video ↗</a><a class="button" href="https://github.com/nole28/Espres" target="_blank" rel="noopener noreferrer">Source code ↗</a></div>
+          </div>
+          <div class="media"><div class="phone"><video controls playsinline preload="metadata" poster="assets/espres-feed.webp" aria-label="Espres app demo"><source src="assets/espres-demo.mp4" type="video/mp4">Video unavailable. <a href="assets/espres-demo.mp4">Open MP4</a>.</video></div><div class="video-label">0:53 / App walkthrough</div></div>
+        </article>
       </div>
-    </div>
-  </div>
-</section>
-</main>
+    </section>
 
-<footer>
-  <div class="shell footer-inner">
-    <span>© 2026 Novak Velimirovic</span>
-    <span>Swift, SwiftUI, and a lot of debugging.</span>
-  </div>
-</footer>
+    <section class="section" id="code"><div class="wrap">
+      <div class="section-heading"><h2>Code</h2><p>A small example from Noyoo's Firestore chat repository.</p></div>
+      <div class="engineering">
+        <div><h3>Loading conversations</h3><p>Each account has its own hidden-conversation state. When loading chats, Noyoo checks that state and skips a hidden conversation until another message arrives.</p></div>
+        <div class="code-card"><div class="code-head">FirestoreChatRepository.swift · fetchChats()</div><pre><code><span class="sw-key">let</span> hiddenDocument = <span class="sw-key">try await</span> <span class="sw-call">hiddenConversationReference</span>(
+    document.documentID
+).<span class="sw-call">getDocument</span>()
 
+<span class="sw-key">let</span> privateData = hiddenDocument.data() ?? [:]
+<span class="sw-key">let</span> latestMessageId = document.data()[<span class="sw-str">"lastMessageId"</span>] <span class="sw-key">as?</span> String ?? <span class="sw-str">""</span>
+<span class="sw-key">let</span> hiddenThroughId = privateData[<span class="sw-str">"lastMessageId"</span>] <span class="sw-key">as?</span> String
+
+<span class="sw-comment">// A hidden conversation stays hidden until a new message arrives.</span>
+<span class="sw-key">if</span> hiddenThroughId == latestMessageId {
+    <span class="sw-key">continue</span>
+}</code></pre></div>
+      </div>
+    </div></section>
+
+    <section class="section" id="skills"><div class="wrap">
+      <div class="section-heading"><h2>Skills</h2><p>Technologies I use in Noyoo and Espres.</p></div>
+      <div class="skills">
+        <div><h3>iOS & Firebase</h3><p>Swift · SwiftUI · Foundation · Xcode · Firebase Authentication · Cloud Firestore · Firebase Storage · AVKit · PhotosUI</p></div>
+        <div><h3>App architecture</h3><p>async/await · Actors · Codable · Local persistence · Protocols · Repository pattern · Dependency injection · Git</p></div>
+      </div>
+      <p class="now"><strong>Currently learning:</strong> Vapor and server-side Swift.</p>
+    </div></section>
+
+    <section class="contact" id="contact"><div class="wrap">
+      <h2>Get in touch.</h2>
+      <p>I'm interested in junior iOS roles and internships.</p>
+      <div class="cta"><a class="button primary" href="mailto:novak.velimirovic1@gmail.com">Email me ↗</a><a class="button" href="https://github.com/nole28" target="_blank" rel="noopener noreferrer">GitHub ↗</a></div>
+    </div></section>
+  </main>
+  <footer><div class="wrap">© 2026 Novak Velimirovic</div></footer>
 </body>
 </html>
