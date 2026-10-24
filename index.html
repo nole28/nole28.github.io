@@ -225,6 +225,33 @@
   }
 }
 
+    
+.feature {
+  grid-template-columns: 1.2fr 1fr;
+  gap: 32px;
+  padding: 28px;
+}
+
+.feature-image {
+  max-width: none;
+  width: 100%;
+}
+
+.feature-image img {
+  width: 100%;
+  max-width: none;
+  max-height: none;
+  height: auto;
+  border-radius: 12px;
+}
+
+@media (max-width: 900px) {
+  .feature {
+    grid-template-columns: 1fr;
+  }
+}
+
+
   </style>
 </head>
 <body>
@@ -295,10 +322,27 @@
           </div>
           <div class="media"><div class="phone"><video controls playsinline preload="metadata" poster="assets/noyoo-welcome.jpg" aria-label="Noyoo app demo"><source src="assets/noyoo-demo.mp4" type="video/mp4">Video unavailable. <a href="assets/noyoo-demo.mp4">Open MP4</a>.</video></div><div class="video-label">3:07 / Simulator recording / 1× speed</div></div>
         </article>
-        <aside class="feature">
-          <div class="feature-image"><img src="assets/noyoo-side-notes.jpg" loading="lazy" alt="Side Notes showing saved notes, including notes linked to messages"></div>
-          <div><h3>Side Notes</h3><p>This is the feature I wanted Noyoo to have alongside messaging. Notes are stored locally. A note can stand on its own or point back to a specific message.</p><div class="small">Stored with Codable models and actor-isolated file access.</div></div>
-        </aside>
+       
+<aside class="feature">
+  <div class="feature-image">
+    <img
+      src="assets/noyoo-development.png"
+      loading="lazy"
+      alt="Noyoo running in the iPhone Simulator beside Xcode"
+    >
+  </div>
+
+  <div>
+    <h3>Inside Noyoo</h3>
+    <p>
+      A look at Noyoo running in the Simulator
+      alongside the Firestore chat code in Xcode.
+      I keep the chat data logic separate from
+      the SwiftUI views.
+    </p>
+  </div>
+</aside>
+
         <article class="project" aria-labelledby="espres-title">
           <div class="project-copy">
             <div class="project-label">02 / Social app</div>
