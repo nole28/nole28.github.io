@@ -160,6 +160,36 @@
   background: #171c27;
 }
 
+
+.behind-code {
+  padding: 64px 0;
+  border-top: 1px solid #292929;
+}
+
+.behind-code .behind-label {
+  color: #78b4ff;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  margin-bottom: 18px;
+}
+
+.behind-code h2 {
+  font-size: clamp(26px, 3vw, 36px);
+  letter-spacing: -0.035em;
+  line-height: 1.2;
+  margin-bottom: 22px;
+}
+
+.behind-code p:not(.behind-label) {
+  color: #b0b0b5;
+  max-width: 680px;
+  font-size: 16px;
+  line-height: 1.75;
+  margin-bottom: 14px;
+}
+
+    
   </style>
 </head>
 <body>
@@ -210,6 +240,28 @@
       <div class="hero-visual"><img src="assets/novak-portrait.webp" width="1086" height="1448" alt="Portrait of Novak Velimirovic"></div>
     </header>
 
+  <section class="behind-code">
+      <div class="wrap">
+        <p class="behind-label">BEHIND THE CODE</p>
+
+        <h2>A bug I ran into while building Noyoo</h2>
+
+        <p>
+          At one point, chats stopped opening when the
+          other person had deleted their account.
+          The app was expecting profile data that
+          wasn't there anymore.
+        </p>
+
+        <p>
+          I fixed the way conversations handled missing
+          profiles. Now the chat still opens and displays
+          "Deleted Account" instead.
+        </p>
+      </div>
+    </section>
+
+    
     <section class="section" id="work">
       <div class="wrap">
         <div class="section-heading"><h2>Projects</h2><p>I enjoy working in XCode. Both demos are recorded from the iPhone Simulator.</p></div>
