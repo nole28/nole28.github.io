@@ -256,6 +256,39 @@
   }
 }
 
+.image-popup {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(0, 0, 0, 0.95);
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px 20px;
+}
+
+.image-popup:target {
+  display: flex;
+}
+
+.image-popup img {
+  max-width: 95vw;
+  max-height: 85vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+.popup-close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  color: white;
+  font-size: 36px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
 
   </style>
 </head>
@@ -330,21 +363,25 @@
        
 <aside class="feature">
   
+
 <div class="feature-image">
-  <a
-    class="screenshot-link"
-    href="assets/noyoo-development.png"
-    target="_blank"
-    rel="noopener noreferrer"
-    title="Open full-size screenshot"
-  >
+  <a href="#noyoo-full" class="screenshot-link">
     <img
       src="assets/noyoo-development.png"
+      alt="Noyoo in Xcode and Simulator"
       loading="lazy"
-      alt="Noyoo running in Xcode and the iPhone Simulator"
     >
   </a>
 </div>
+
+<div id="noyoo-full" class="image-popup">
+  <a href="#work" class="popup-close" aria-label="Close screenshot">×</a>
+  <img
+    src="assets/noyoo-development.png"
+    alt="Noyoo development screenshot"
+  >
+</div>
+
 
 
   <div>
