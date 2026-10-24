@@ -190,6 +190,41 @@
 }
 
     
+/* Hero refinements */
+.hero h1 {
+  font-size: clamp(40px, 5.5vw, 68px);
+  line-height: 1.08;
+  letter-spacing: -0.045em;
+}
+
+.hero .lead {
+  max-width: 620px;
+  font-size: 17px;
+  line-height: 1.65;
+}
+
+.hero-note {
+  max-width: 620px;
+  color: #a5a5ab;
+  font-size: 16px;
+  line-height: 1.65;
+  margin-top: 18px;
+}
+
+.hero-visual img {
+  width: min(100%, 260px);
+  height: 260px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+@media (max-width: 760px) {
+  .hero-visual img {
+    width: 180px;
+    height: 180px;
+  }
+}
+
   </style>
 </head>
 <body>
@@ -240,31 +275,15 @@
       <div class="hero-visual"><img src="assets/novak-portrait.webp" width="1086" height="1448" alt="Portrait of Novak Velimirovic"></div>
     </header>
 
-  <section class="behind-code">
-      <div class="wrap">
-        <p class="behind-label">BEHIND THE CODE</p>
 
-        <h2>A bug I ran into while building Noyoo</h2>
-
-        <p>
-          At one point, chats stopped opening when the
-          other person had deleted their account.
-          The app was expecting profile data that
-          wasn't there anymore.
-        </p>
-
-        <p>
-          I fixed the way conversations handled missing
-          profiles. Now the chat still opens and displays
-          "Deleted Account" instead.
-        </p>
-      </div>
-    </section>
 
     
     <section class="section" id="work">
       <div class="wrap">
-        <div class="section-heading"><h2>Projects</h2><p>I enjoy working in XCode. Both demos are recorded from the iPhone Simulator.</p></div>
+        <div class="section-heading"><h2>Projects</h2><p>
+  Two apps I've been building in Xcode.
+  The demos below are recorded from the iPhone Simulator.
+</p></div>
         <article class="project" aria-labelledby="noyoo-title">
           <div class="project-copy">
             <div class="project-label">01 / Messaging app</div>
@@ -293,6 +312,28 @@
         </article>
       </div>
     </section>
+
+    
+<section class="behind-code" id="behind-code">
+  <div class="wrap">
+    <p class="behind-label">BEHIND THE CODE</p>
+
+    <h2>When a deleted account broke the chat</h2>
+
+    <p>
+      While working on Noyoo, I found that a conversation
+      wouldn't open if the other user's account had
+      been deleted.
+    </p>
+
+    <p>
+      The app was expecting profile data that wasn't
+      there anymore. I changed the loading logic to
+      handle missing accounts, so the conversation
+      still opens and shows "Deleted Account".
+    </p>
+  </div>
+</section>
 
     <section class="section" id="code"><div class="wrap">
       <div class="section-heading"><h2>Code</h2><p>A small example from Noyoo's Firestore chat repository.</p></div>
